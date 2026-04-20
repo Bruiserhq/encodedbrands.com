@@ -1,0 +1,60 @@
+# Tacit
+
+> Tacit is a brand consultancy and protocol company. We author and maintain Brand Context Protocol (BCP) — the open standard for machine-readable brand identity — and we run the consulting services built on top of it. Express and protect your brand in the age of the agent.
+
+Tacit's thesis: in 12 to 36 months, most marketing teams will be staffed with more agents than humans. The tested brand knowledge that lives in senior marketers' heads has no machine-readable home. BCP is that home — hierarchical markdown files at `domain/.well-known/brand.md`, structurally analogous to AGENTS.md and MCP. One spec. Three consumption surfaces: inside the brand, across the vendor stack, beyond the brand.
+
+## Adopting BCP — free and self-serve
+
+Any brand can publish a BCP today, at no cost, with no Tacit involvement:
+
+- [Start here](https://hellotacit.ai/start): Copy the BCP authoring prompt. Paste it into Claude, ChatGPT, Cowork, Gemini, Perplexity, or any AI. Answer 18 questions over ~15 minutes. Get seven BCP files ready to publish at your domain. Free. No signup.
+- [Read the docs](https://hellotacit.ai/docs): Full BCP v0.1 specification — file-by-file reference, frontmatter fields, hosting options (Cloudflare Pages, Vercel, Netlify, GitHub Pages, custom CDN), MIME type and CORS requirements, consumer integration examples.
+
+## Brand Context Protocol (BCP) — the protocol itself
+
+- [brand.md (root)](https://hellotacit.ai/.well-known/brand.md): The always-loaded root. Identity, positioning, tagline, daughter file registry. Under 3KB.
+- [voice.md](https://hellotacit.ai/.well-known/brand/voice.md): Tone, register, prefer-list, avoid-list, sentence-level rules, do/don't examples.
+- [values.md](https://hellotacit.ai/.well-known/brand/values.md): Four values in priority order — Conviction, Curiosity, Audacity, Capitalist — each with observable behaviors.
+- [boundaries.md](https://hellotacit.ai/.well-known/brand/boundaries.md): What Tacit does and doesn't do. Hard no's, soft no's, and brand-safety signals aligned to IAB 3.0 and GARM.
+- [claims.md](https://hellotacit.ai/.well-known/brand/claims.md): Approved, requires-caveat, and forbidden claims. Source of truth for anything factual.
+- [representation.md](https://hellotacit.ai/.well-known/brand/representation.md): How consumer-facing agents (ChatGPT, Claude, Perplexity, Gemini) should describe Tacit.
+- [README.md](https://hellotacit.ai/.well-known/brand/README.md): Human-readable overview of the tree and how to edit it.
+
+## Core pages
+
+- [Homepage](https://hellotacit.ai): The thesis, the protocol shape, the three consumption surfaces, the start prompt, the dogfood. Start here for positioning.
+- [Start](https://hellotacit.ai/start): The adoption page. Copy the prompt, paste into any AI, publish at your domain. This is the primary call-to-action on the site.
+- [Docs](https://hellotacit.ai/docs): Full BCP v0.1 specification for developers, platform engineers, and technical buyers.
+- [Encode](https://hellotacit.ai/encode): The commercial page. Three paid tiers — Fork the Template (free), Expert Session ($1,500), Encoding Sprint ($15,000).
+
+## Services offered by Tacit
+
+Three tiers, all available today:
+- **Fork the Template** (Free): Self-serve. Fork the public template, edit, publish at your domain. No Tacit involvement required.
+- **Expert Session** ($1,500): 90-minute working session with a senior strategist. Jointly draft your root brand.md and one priority daughter file.
+- **Encoding Sprint** ($15,000): One week. Full seven-file BCP tree authored, validated, and shipped to your domain.
+
+**In development:** Forge — a hosted self-serve wizard. The prompt-as-product at [/start](https://hellotacit.ai/start) delivers similar value today, free, with any LLM.
+
+Larger multi-brand or enterprise engagements are quoted custom.
+
+## Code and protocol
+
+- [Repository](https://github.com/Bruiserhq/hellotacit.ai): The site and the reference BCP template. Fork-ready.
+- [Changelog](https://github.com/Bruiserhq/hellotacit.ai/commits/main): Every material update as a Git commit.
+
+## Meta and agent-readable surfaces
+
+- [robots.txt](https://hellotacit.ai/robots.txt)
+- [ai.txt](https://hellotacit.ai/ai.txt): Permissions and representation guidance for AI systems.
+- [sitemap.xml](https://hellotacit.ai/sitemap.xml)
+
+## Licensing
+
+- Spec: Creative Commons Attribution 4.0 (CC BY 4.0)
+- Code, validators, SDKs: MIT License
+
+## Contact
+
+tacit@hellotacit.ai — Founder: Nick Strada.

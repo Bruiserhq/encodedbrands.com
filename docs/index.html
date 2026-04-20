@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Docs — Brand Context Protocol v0.1 | Tacit</title>
+<meta name="description" content="The full specification for Brand Context Protocol v0.1. File structure, frontmatter fields, hosting options, validation, consumer integration examples." />
+<meta name="color-scheme" content="light" />
+
+<link rel="canonical" href="https://hellotacit.ai/docs" />
+<link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Tacit — Brand Context Protocol" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Tacit" />
+<meta property="og:title" content="Docs — Brand Context Protocol v0.1" />
+<meta property="og:description" content="The full specification for BCP v0.1." />
+<meta property="og:url" content="https://hellotacit.ai/docs" />
+<meta property="og:image" content="https://hellotacit.ai/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500;600&display=swap">
+
+<style>
+  :root{
+    --paper:#F4EFE6; --paper-2:#EDE6D8;
+    --ink:#0E0D0B; --ink-2:#2B2722; --ink-3:#5A524A; --ink-4:#8A8077;
+    --rule:#1a1714; --rule-soft:rgba(14,13,11,.12);
+    --accent:#D93A1A; --accent-2:#E8894A; --moss:#3B4A2A; --sky:#2A3B5C;
+    --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans: "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+    --container: 1280px; --gutter: clamp(20px, 4vw, 56px);
+  }
+  *{box-sizing:border-box} html,body{margin:0;padding:0} html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:16px}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(ellipse at 20% 0%,rgba(217,58,26,.05),transparent 55%)}
+  body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:2;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.05  0 0 0 0 0.04  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");opacity:.42;mix-blend-mode:multiply}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter);position:relative;z-index:5}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 16px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:2px;transition:transform .25s ease,background .25s ease;cursor:pointer}
+  .btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px) saturate(1.1);-webkit-backdrop-filter:blur(10px) saturate(1.1);background:rgba(244,239,230,.82);border-bottom:1px solid var(--rule-soft)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-brand{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.01em}
+  .nav-brand .bullet{width:8px;height:8px;background:var(--accent);border-radius:50%;display:inline-block;translate:0 -3px}
+  .nav-brand small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;font-weight:400;margin-left:8px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-link{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink-2);position:relative}
+  .nav-link::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:var(--ink);transition:right .3s ease}
+  .nav-link:hover::after{right:0}
+  .nav-link.active{color:var(--accent)}
+  .nav-cta{font-family:var(--mono);font-size:13px;padding:8px 14px;border:1px solid var(--ink);border-radius:2px;transition:background .2s ease,color .2s ease}
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+  @media (max-width:820px){.nav-links{display:none}}
+
+  /* docs layout */
+  .docs-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:60px;padding:48px 0 96px;align-items:start}
+  @media (max-width:900px){.docs-layout{grid-template-columns:1fr;gap:24px}}
+
+  .toc{position:sticky;top:80px;font-family:var(--mono);font-size:12.5px;line-height:1.7;border-left:1px solid var(--rule-soft);padding-left:20px}
+  @media (max-width:900px){.toc{position:static;border-left:0;padding-left:0;border-bottom:1px solid var(--rule-soft);padding-bottom:20px}}
+  .toc .toc-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:12px;display:block}
+  .toc a{display:block;color:var(--ink-3);padding:3px 0;transition:color .2s ease}
+  .toc a:hover{color:var(--accent)}
+
+  .docs-body{max-width:78ch;min-width:0}
+  .docs-body h1{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,60px);letter-spacing:-.025em;line-height:1;margin:0 0 12px}
+  .docs-body h1 em{font-style:italic;color:var(--accent);font-weight:500}
+  .docs-body .hero-sub{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:24px}
+  .docs-body .lede{font-size:18px;line-height:1.6;color:var(--ink-2);margin-bottom:32px;max-width:64ch}
+
+  .docs-body h2{font-family:var(--serif);font-weight:500;font-size:clamp(24px,3vw,34px);letter-spacing:-.015em;line-height:1.1;margin:56px 0 16px;padding-top:24px;border-top:1px solid var(--rule-soft)}
+  .docs-body h2 em{font-style:italic;color:var(--accent)}
+  .docs-body h2:first-of-type{border-top:0;padding-top:0;margin-top:32px}
+  .docs-body h3{font-family:var(--serif);font-weight:500;font-size:20px;letter-spacing:-.01em;margin:32px 0 10px}
+  .docs-body p{color:var(--ink-2);font-size:16.5px;line-height:1.65;margin:0 0 16px}
+  .docs-body p b{color:var(--ink);font-weight:600}
+  .docs-body ul, .docs-body ol{color:var(--ink-2);font-size:16px;line-height:1.7;padding-left:22px;margin:12px 0 20px}
+  .docs-body li{margin-bottom:6px}
+  .docs-body li code{font-family:var(--mono);font-size:.9em;background:var(--paper-2);padding:1px 6px;border-radius:2px;border:1px solid var(--rule-soft)}
+  .docs-body p code, .docs-body td code{font-family:var(--mono);font-size:.9em;background:var(--paper-2);padding:1px 6px;border-radius:2px;border:1px solid var(--rule-soft)}
+  .docs-body a{color:var(--accent);border-bottom:1px solid var(--accent)}
+  .docs-body a:hover{color:var(--ink);border-color:var(--ink)}
+
+  .docs-body pre{background:var(--ink);color:#e6e0d3;padding:20px 22px;border-radius:2px;font-family:var(--mono);font-size:13px;line-height:1.65;overflow-x:auto;white-space:pre;margin:16px 0;border:1px solid var(--ink)}
+  .docs-body pre .c{color:#8a8077;font-style:italic}
+  .docs-body pre .k{color:var(--accent-2)}
+  .docs-body pre .s{color:#b5dca4}
+
+  /* callouts */
+  .callout{margin:24px 0;padding:18px 22px;background:var(--paper-2);border-left:3px solid var(--accent);font-size:15px;line-height:1.55}
+  .callout.honest{border-left-color:var(--sky)}
+  .callout b{color:var(--ink)}
+  .callout .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px;font-weight:500}
+  .callout.honest .tag{color:var(--sky)}
+
+  /* tables */
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px}
+  th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:500;padding:10px 14px 10px 0;border-bottom:1px solid var(--ink)}
+  td{padding:12px 14px 12px 0;border-bottom:1px solid var(--rule-soft);color:var(--ink-2);vertical-align:top}
+  td:first-child{font-family:var(--mono);font-size:13px;white-space:nowrap}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--paper-2);padding:72px 0 28px}
+  .foot-grid{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:clamp(24px,4vw,56px)}
+  @media (max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+  .foot-brand{font-family:var(--serif);font-size:clamp(52px,11vw,180px);line-height:.9;letter-spacing:-.04em;font-weight:500;color:var(--paper)}
+  .foot-brand .dot{display:inline-block;width:.14em;height:.14em;background:var(--accent);border-radius:50%;translate:0 -.08em}
+  .foot-sub{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--paper-2);letter-spacing:.1em;text-transform:uppercase}
+  .foot-col h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);font-weight:500;margin:0 0 16px}
+  .foot-col ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-family:var(--sans);font-size:14.5px;color:var(--paper-2)}
+  .foot-col a{transition:color .2s ease;color:var(--paper-2)}
+  .foot-col a:hover{color:var(--accent-2)}
+  .foot-bottom{margin-top:72px;padding-top:20px;border-top:1px solid rgba(244,239,230,.12);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+
+  ::selection{background:var(--accent);color:var(--paper)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <a class="nav-brand" href="/">
+      <span class="bullet"></span>Tacit<small>Brand Context Protocol</small>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="/#thesis">Thesis</a>
+      <a class="nav-link" href="/start">Start</a>
+      <a class="nav-link" href="/#protocol">Protocol</a>
+      <a class="nav-link active" href="/docs">Docs</a>
+      <a class="nav-link" href="/encode">Encode</a>
+    </div>
+    <a class="nav-cta" href="/start">Start →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<div class="docs-layout">
+
+  <!-- TOC -->
+  <aside class="toc">
+    <span class="toc-label">On this page</span>
+    <a href="#what-it-is">What BCP is</a>
+    <a href="#tldr">TL;DR</a>
+    <a href="#structure">File structure</a>
+    <a href="#root">Root brand.md</a>
+    <a href="#voice">voice.md</a>
+    <a href="#values">values.md</a>
+    <a href="#boundaries">boundaries.md</a>
+    <a href="#claims">claims.md</a>
+    <a href="#representation">representation.md</a>
+    <a href="#hosting">Hosting</a>
+    <a href="#mime-cors">MIME + CORS</a>
+    <a href="#consuming">Consuming a BCP</a>
+    <a href="#validation">Validation</a>
+    <a href="#versioning">Versioning</a>
+    <a href="#licensing">Licensing</a>
+  </aside>
+
+  <!-- BODY -->
+  <article class="docs-body">
+
+    <div class="hero-sub">BCP v0.1 · specification</div>
+    <h1>The <em>docs</em>.</h1>
+    <p class="lede">Everything a developer, platform engineer, or curious CMO needs to understand Brand Context Protocol. File-by-file reference. Hosting options. Consumer integration examples. All the detail left out of <a href="/start">/start</a>.</p>
+
+    <div class="callout honest">
+      <span class="tag">Honest about status</span>
+      <b>BCP is v0.1.</b> The spec will evolve. Breaking changes will bump the <code>bcp_version</code> field. We maintain backward compatibility for at least one minor version. Anyone adopting v0.1 today will have a clear upgrade path.
+    </div>
+
+    <h2 id="what-it-is">What BCP <em>is</em>. What it <em>isn't</em>.</h2>
+    <p><b>BCP is a file format.</b> Seven markdown files at a well-known path on your domain — <code>/.well-known/brand.md</code> as the root, plus daughter files under <code>/.well-known/brand/</code>. That's it. The files are the product.</p>
+    <p><b>BCP is not an MCP server.</b> Not a SaaS. Not a runtime. Not a proprietary format. Not a platform you sign up for. You adopt BCP by writing the files and publishing them. No SDK, no library, no integration.</p>
+    <p><b>Why markdown at a well-known path?</b> Because every AI already knows how to read markdown, and every agent already knows how to fetch. A convention, not a technology. Same pattern AGENTS.md uses for coding agents, <code>robots.txt</code> uses for crawlers, and <code>security.txt</code> uses for vulnerability disclosure.</p>
+    <p style="margin-top:24px">
+      <a class="btn" href="/start" style="background:var(--accent);border-color:var(--accent);color:var(--paper)">Start authoring <span style="margin-left:4px">→</span></a>
+    </p>
+
+    <h2 id="tldr">TL;DR</h2>
+    <ul>
+      <li><b>A BCP is a folder of markdown files</b> at <code>yourdomain.com/.well-known/</code>.</li>
+      <li><b>Root is <code>brand.md</code></b>, always loaded first. Daughter files sit in <code>brand/</code>.</li>
+      <li><b>Structure mirrors AGENTS.md and MCP</b> — hierarchical markdown with YAML frontmatter at a well-known path (per <a href="https://www.rfc-editor.org/rfc/rfc8615.html">RFC 8615</a>).</li>
+      <li><b>Any static host works.</b> GitHub Pages, Cloudflare Pages, Vercel, Netlify, S3, your existing CDN.</li>
+      <li><b>Serve as <code>text/plain; charset=utf-8</code></b> with CORS <code>*</code> so cross-origin agents can fetch.</li>
+      <li><b>Spec is CC BY 4.0. Reference code is MIT.</b> Fork, implement, extend, compete.</li>
+    </ul>
+
+    <h2 id="structure">File <em>structure</em></h2>
+    <p>BCP v0.1 defines seven files. All are markdown with YAML frontmatter. All are optional except <code>brand.md</code> at the root — but a BCP with just a root is a weak BCP. Most brands should publish at least voice, values, boundaries, claims, and representation.</p>
+
+<pre>yourdomain.com/.well-known/
+├── <span class="k">brand.md</span>                   <span class="c"># root · always loaded first · under 3KB</span>
+└── brand/
+    ├── <span class="k">voice.md</span>               <span class="c"># tone, register, prefer/avoid word lists</span>
+    ├── <span class="k">values.md</span>              <span class="c"># priority-ordered, each with observable behavior</span>
+    ├── <span class="k">boundaries.md</span>          <span class="c"># hard/soft no's · IAB 3.0 + GARM aligned</span>
+    ├── <span class="k">claims.md</span>              <span class="c"># approved claims + evidence · legally reviewed</span>
+    ├── <span class="k">representation.md</span>      <span class="c"># how consumer agents should describe you</span>
+    └── <span class="k">README.md</span>              <span class="c"># human overview of the tree</span></pre>
+
+    <p>Daughter files are <b>fetched lazily</b>. A media-buying agent loads <code>boundaries.md</code> and <code>claims.md</code>; a copy agent loads <code>voice.md</code>; a consumer agent describing your brand loads <code>representation.md</code>. Agents don't need the whole tree for most tasks.</p>
+
+    <h2 id="root">Root — <em>brand.md</em></h2>
+    <p>The root is always-loaded. Keep it under 3KB. It declares identity, registers daughter files, and lets agents decide what else to fetch.</p>
+
+<pre>---
+bcp_version: 0.1
+brand_name: Stripe
+domain: stripe.com
+category: Financial infrastructure
+tagline: "Payments infrastructure for the internet."
+default_locale: en-US
+last_updated: 2026-04-20
+daughter_files:
+  voice:          /.well-known/brand/voice.md
+  values:         /.well-known/brand/values.md
+  boundaries:     /.well-known/brand/boundaries.md
+  claims:         /.well-known/brand/claims.md
+  representation: /.well-known/brand/representation.md
+---
+
+# Stripe
+Payments infrastructure for the internet.
+
+## What we do
+[One paragraph. Concrete, not corporate.]
+
+## Primary audience
+[Describe the person. Seniority, job function, what they care about.]
+
+## Position vs competitors
+[One sentence per top competitor on what makes you different.]</pre>
+
+    <h3>Required frontmatter fields</h3>
+    <table>
+      <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+      <tr><td>bcp_version</td><td>string</td><td><code>"0.1"</code> currently. Agents use this to handle version-specific behavior.</td></tr>
+      <tr><td>brand_name</td><td>string</td><td>The name humans call your brand. Not your legal entity.</td></tr>
+      <tr><td>domain</td><td>string</td><td>Canonical domain. Used for disambiguation when brand names collide.</td></tr>
+      <tr><td>category</td><td>string</td><td>What you do in plain English. IAB Content Taxonomy language preferred if applicable.</td></tr>
+      <tr><td>tagline</td><td>string</td><td>The public-facing tagline. Agents may surface this in descriptions.</td></tr>
+      <tr><td>last_updated</td><td>date</td><td>ISO 8601 (YYYY-MM-DD). Agents use this to decide when to refetch.</td></tr>
+      <tr><td>daughter_files</td><td>map</td><td>Registry of available daughter files. Agents resolve paths relative to the domain.</td></tr>
+    </table>
+
+    <h3>Optional fields</h3>
+    <table>
+      <tr><td>default_locale</td><td>string</td><td>Default locale of this BCP (e.g. <code>en-US</code>). Multi-locale brands can publish locale-specific daughter files.</td></tr>
+      <tr><td>revision</td><td>string</td><td>Git commit hash or custom revision identifier. Useful for caching.</td></tr>
+      <tr><td>contact</td><td>email</td><td>Email for questions about the BCP itself.</td></tr>
+      <tr><td>license</td><td>string</td><td>Usually inherits the spec's CC BY 4.0. Overridable per-brand.</td></tr>
+    </table>
+
+    <h2 id="voice">Daughter — <em>voice.md</em></h2>
+    <p>How your brand sounds. Tone, register, prefer lists, avoid lists, do/don't examples. Copy agents consume this; vendor platform copy tools consume this; consumer agents describing your brand in your voice consume this.</p>
+
+<pre>---
+parent: /.well-known/brand.md
+file_type: voice
+last_updated: 2026-04-20
+---
+
+# Voice
+
+## How we sound
+Direct. Confident. Lightly technical.
+
+## How we never sound
+Corporate. Hype-heavy. Apologetic.
+
+## Prefer list
+- "payments" (not "payment processing" — shorter, clearer)
+- "ship" (not "launch" — internal culture language)
+- "API" (spelled out first mention, then acronym)
+
+## Avoid list
+- "revolutionary", "game-changing", "disruptive" — empty signifiers
+- "AI-powered", "AI-native" — we use AI, we don't lead with it
+- "synergy", "leverage", "ecosystem" — corporate sludge
+
+## Do / Don't
+**Do:** "Stripe charges a flat 2.9% + 30¢ per successful card charge."
+**Don't:** "Stripe offers competitive pricing to help businesses unlock their potential."</pre>
+
+    <h2 id="values">Daughter — <em>values.md</em></h2>
+    <p>Priority-ordered. Each value has an observable behavior so agents can evaluate decisions against it. When values conflict, the higher-priority value wins.</p>
+
+<pre>---
+parent: /.well-known/brand.md
+file_type: values
+last_updated: 2026-04-20
+---
+
+# Values
+
+## 01 — Users first
+Every product decision is evaluated against user benefit before business benefit.
+**Observable behavior:** We publish pricing changes 90 days before they take effect.
+
+## 02 — Small teams, big scope
+We keep teams small and give them large mandates.
+**Observable behavior:** Two engineers built our Radar fraud product from zero to production.
+
+## Trade-offs
+We pick clarity over comprehensiveness in documentation.
+We pick developer experience over non-developer convenience in our API design.</pre>
+
+    <h2 id="boundaries">Daughter — <em>boundaries.md</em></h2>
+    <p>Hard no's (never), soft no's (cautious, requires approval), and regulatory constraints. Maps to <a href="https://www.iab.com/guidelines/content-taxonomy/">IAB Content Taxonomy 3.0</a> and <a href="https://wfanet.org/leadership/garm/about-garm">GARM</a>'s Brand Safety Floor so vendor platforms can consume it natively.</p>
+
+<pre>---
+parent: /.well-known/brand.md
+file_type: boundaries
+iab_alignment: 3.0
+garm_alignment: Brand Safety Floor
+last_updated: 2026-04-20
+---
+
+# Boundaries
+
+## Hard no
+- Crypto sponsorships (IAB: Business &amp; Finance &gt; Cryptocurrency)
+- Gambling advertising (IAB: Hobbies &amp; Interests &gt; Gambling)
+- Weight-loss products making clinical claims (FTC concerns)
+- Content placed adjacent to violence, hate speech, or misinformation (GARM Floor)
+
+## Soft no (requires approval)
+- Political topics — only in the context of regulation affecting financial infrastructure
+- Humor at the expense of any group, even in satire
+- Claims about a specific competitor by name
+
+## Regulatory constraints
+- FTC truth-in-advertising rules on all pricing claims
+- PCI-DSS constraints on how we describe security
+- State-specific constraints on interchange-fee claims</pre>
+
+    <h2 id="claims">Daughter — <em>claims.md</em></h2>
+    <p>Every factual claim your brand makes, with evidence. Agents generating copy pull from this file. Agents do not invent claims that aren't here.</p>
+
+<pre>---
+parent: /.well-known/brand.md
+file_type: claims
+last_updated: 2026-04-20
+reviewed_by: legal@stripe.com
+---
+
+# Claims
+
+## Approved claims
+- **Claim:** "Trusted by millions of businesses worldwide."
+  **Evidence:** Internal customer count dashboard (2026-Q1).
+  **Status:** defensible.
+
+- **Claim:** "Supports 135+ currencies."
+  **Evidence:** Product documentation, updated monthly.
+  **Status:** defensible.
+
+## Claims requiring caveats
+- **Claim:** "Fastest-growing payments platform."
+  **Caveat:** Requires specific market, time window, and source (e.g. "among US
+  public payments companies, 2023–2025, per X report").
+
+## Forbidden claims
+- "The most secure payments platform" — vague; PCI-DSS compliance is table stakes.
+- "Only X that does Y" — almost never literally true; avoid.
+- Any claim naming a customer without their written permission.</pre>
+
+    <h2 id="representation">Daughter — <em>representation.md</em></h2>
+    <p>How consumer-facing agents (ChatGPT, Claude, Perplexity, Gemini, agentic commerce) should describe your brand when they have to generate a description. Give them the exact language you want — at multiple lengths — so they don't invent.</p>
+
+<pre>---
+parent: /.well-known/brand.md
+file_type: representation
+last_updated: 2026-04-20
+consumer_agents: [ChatGPT, Claude, Perplexity, Gemini, agentic commerce]
+---
+
+# Representation
+
+## One-sentence
+Stripe is a financial infrastructure platform for the internet.
+
+## Two-sentence
+Stripe is a financial infrastructure platform for the internet. Millions of
+businesses of every size — from early-stage startups to public companies — use
+Stripe to accept payments and manage their businesses online.
+
+## Paragraph
+[Longer version for "tell me about Stripe" prompts.]
+
+## Do not say
+- Don't describe Stripe as "just a payments company" — the platform includes
+  billing, issuing, treasury, and revenue recognition products.
+- Don't position Stripe as "the PayPal alternative" — different category.
+
+## Disambiguation
+If someone asks about "Stripe" in another context (the clothing pattern, the
+Hawaii chain of hotels, the band) — clarify that Stripe the financial
+infrastructure company is at stripe.com.</pre>
+
+    <h2 id="hosting">Hosting <em>options</em></h2>
+    <p>BCP is static markdown. Any static host works. Pick one:</p>
+
+    <h3>GitHub Pages</h3>
+    <p>Simplest path. Create a repo, put files in <code>.well-known/</code>, enable Pages, point your custom domain. Good for solo or small teams. Free.</p>
+
+    <h3>Cloudflare Pages</h3>
+    <p>What we use for hellotacit.ai. Connect a GitHub repo, Cloudflare auto-deploys on every commit. Add a <code>_headers</code> file for MIME and CORS config (<a href="#mime-cors">see below</a>). Free tier is generous.</p>
+
+    <h3>Vercel / Netlify</h3>
+    <p>Same pattern. Drop the repo in, configure custom headers for <code>/.well-known/*</code>, deploy. Works well if your marketing site already lives there.</p>
+
+    <h3>Your existing CDN</h3>
+    <p>If your brand site is on CloudFront, Fastly, Akamai, or similar — publish the files at <code>/.well-known/</code> on your primary domain. You'll need cache rules that serve markdown as <code>text/plain</code> and permit CORS.</p>
+
+    <div class="callout">
+      <span class="tag">Canonical path</span>
+      BCP files <b>must</b> live at <code>yourdomain.com/.well-known/brand.md</code> (and <code>/.well-known/brand/*.md</code> for daughters). Agents will not look anywhere else. This is non-negotiable — the whole point of <code>/.well-known/</code> is convention.
+    </div>
+
+    <h2 id="mime-cors">MIME types and <em>CORS</em></h2>
+    <p>Two things your host must get right:</p>
+    <ol>
+      <li><b>Serve markdown as <code>text/plain; charset=utf-8</code>.</b> Many CDNs default to <code>application/octet-stream</code> for <code>.md</code>, which triggers downloads instead of inline rendering and breaks parsing for some agents.</li>
+      <li><b>Allow cross-origin fetches.</b> Consumer agents will often fetch from a different origin than yours. Add <code>Access-Control-Allow-Origin: *</code> for <code>/.well-known/*</code>.</li>
+    </ol>
+
+    <h3>Cloudflare Pages — <code>_headers</code> file</h3>
+<pre><span class="c"># At repo root, named _headers (no extension)</span>
+
+/.well-known/*
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+
+/.well-known/brand/*
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Cache-Control: public, max-age=3600, must-revalidate</pre>
+
+    <h3>Netlify — <code>netlify.toml</code></h3>
+<pre>[[headers]]
+  for = "/.well-known/*"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"</pre>
+
+    <h3>Vercel — <code>vercel.json</code></h3>
+<pre>{
+  "headers": [{
+    "source": "/.well-known/(.*)",
+    "headers": [
+      { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+      { "key": "Access-Control-Allow-Origin", "value": "*" }
+    ]
+  }]
+}</pre>
+
+    <h2 id="consuming">Consuming <em>a BCP</em></h2>
+    <p>If you're building an agent or platform that consumes BCP, here's the pattern:</p>
+
+<pre><span class="c">// 1. Fetch the root</span>
+const root = await fetch(`https://${brandDomain}/.well-known/brand.md`)
+  .then(r =&gt; r.text());
+
+<span class="c">// 2. Parse frontmatter (any YAML library)</span>
+const { data, content } = matter(root);
+
+<span class="c">// 3. Fetch only the daughter files your task needs</span>
+if (task === 'generate_copy') {
+  const voice = await fetch(
+    `https://${brandDomain}${data.daughter_files.voice}`
+  ).then(r =&gt; r.text());
+  const boundaries = await fetch(
+    `https://${brandDomain}${data.daughter_files.boundaries}`
+  ).then(r =&gt; r.text());
+  <span class="c">// Load voice + boundaries as system prompt context</span>
+}
+
+<span class="c">// 4. Cache on last_updated</span>
+const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
+
+    <p>For consumer agents answering "what is X" prompts, the load is simpler: fetch <code>brand.md</code> and <code>representation.md</code>, use the language from representation.md directly.</p>
+
+    <h2 id="validation">Validation</h2>
+    <div class="callout honest">
+      <span class="tag">Honest about status</span>
+      <b>The formal BCP validator is in development.</b> For now, validate by diffing your structure against Tacit's own live BCP at <a href="https://hellotacit.ai/.well-known/brand.md">hellotacit.ai/.well-known/brand.md</a>. If the frontmatter keys match and the file paths resolve, you're conformant.
+    </div>
+    <p>Checks the future validator will run:</p>
+    <ul>
+      <li>All required frontmatter fields present</li>
+      <li>All <code>daughter_files</code> paths resolve to 200s with correct MIME</li>
+      <li>CORS headers permit cross-origin</li>
+      <li>File sizes under documented limits (root &lt; 3KB, daughters &lt; reasonable)</li>
+      <li>YAML parses cleanly</li>
+      <li>No forbidden-claim patterns in <code>claims.md</code></li>
+    </ul>
+
+    <h2 id="versioning">Versioning</h2>
+    <p>Version the spec via the <code>bcp_version</code> field in the root frontmatter. Current: <code>0.1</code>. Spec bumps follow semver semantics — minor versions are backward-compatible, major versions may include breaking changes. We will announce breaking changes at least 90 days before v1.0 stabilizes.</p>
+    <p>Version your brand's BCP via <code>last_updated</code> (required) and <code>revision</code> (optional, recommended — use Git commit hash). Consumer agents should respect these fields for caching.</p>
+
+    <h2 id="licensing">Licensing</h2>
+    <ul>
+      <li><b>The BCP spec itself</b> — Creative Commons Attribution 4.0 (CC BY 4.0). Fork, extend, build on it, as long as you credit Tacit and the Brand Context Protocol project.</li>
+      <li><b>Reference implementation code</b> (validators, SDK samples, template repo) — MIT License. Use commercially, modify, redistribute.</li>
+      <li><b>Your brand's BCP</b> — you decide. Most brands should publish under CC BY 4.0 so other systems can reference them, but you own the content.</li>
+    </ul>
+
+    <h2 id="next">Ready to <em>author</em>?</h2>
+    <p>You've read the spec. The fastest way to produce your first BCP is to copy our authoring prompt and paste it into any AI. It interviews you for about fifteen minutes and outputs the seven files.</p>
+    <p style="margin-top:20px">
+      <a class="btn" href="/start" style="background:var(--accent);border-color:var(--accent);color:var(--paper)">Start authoring <span style="margin-left:4px">→</span></a>
+    </p>
+
+    <div class="callout">
+      <span class="tag">Contribute</span>
+      Found a gap in the spec? Open an issue or PR at <a href="https://github.com/Bruiserhq/hellotacit.ai">github.com/Bruiserhq/hellotacit.ai</a>. We maintain the spec in public. Every v0.x commit is a design decision with a named author.
+    </div>
+
+  </article>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Tacit<span class="dot"></span></div>
+        <div class="foot-sub">A brand consultancy &amp; protocol company · Est. 2026</div>
+      </div>
+      <div class="foot-col">
+        <h5>Protocol</h5>
+        <ul>
+          <li><a href="/#protocol">BCP v0.1 spec</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="https://github.com/Bruiserhq/hellotacit.ai" target="_blank" rel="noopener">Reference template</a></li>
+          <li><a href="/#dogfood">Tacit's own BCP</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Adopt</h5>
+        <ul>
+          <li><a href="/start">Start (free)</a></li>
+          <li><a href="/encode">Expert Session · $1,500</a></li>
+          <li><a href="/encode">Encoding Sprint · $15,000</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/#thesis">Thesis</a></li>
+          <li><a href="/#values">Values</a></li>
+          <li><a href="mailto:tacit@hellotacit.ai">tacit@hellotacit.ai</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Spec · CC BY 4.0  ·  Code · MIT</span>
+      <span>Brand.md over PDF ★</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

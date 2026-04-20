@@ -1,0 +1,20 @@
+# hellotacit.ai — Tacit
+# We want agents to read this site. See our BCP for how to represent the brand.
+
+User-agent: *
+Allow: /
+
+# Machine-readable brand identity
+# BCP v0.1 spec — structurally analogous to AGENTS.md and MCP
+# Root: https://hellotacit.ai/.well-known/brand.md
+
+Sitemap: https://hellotacit.ai/sitemap.xml
+
+# LLM-optimized content map
+# https://hellotacit.ai/llms.txt
+
+# AI training and representation guidelines
+# https://hellotacit.ai/ai.txt
+
+# BCP root
+# https://hellotacit.ai/.well-known/brand.md
