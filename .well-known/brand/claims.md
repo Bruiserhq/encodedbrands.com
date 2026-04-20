@@ -7,7 +7,7 @@ reviewed_by: [pending legal review pre-launch]
 
 # Claims
 
-All marketing claims Tacit is authorized to make, with supporting evidence. Agents generating copy pull from this file; they don't invent claims.
+All marketing claims Encoded is authorized to make, with supporting evidence. Agents generating copy pull from this file; they don't invent claims.
 
 ## Approved claims
 
@@ -21,8 +21,8 @@ approved:
     evidence: "Spec architecture and well-known path convention documented in v0.1"
     status: defensible
 
-  - claim: "Dogfooded — Tacit's own brand is published as a BCP"
-    evidence: "hellotacit.ai/.well-known/brand.md is live and public"
+  - claim: "Dogfooded — Encoded's own brand is published as a BCP"
+    evidence: "encodedbrands.com/.well-known/brand.md is live and public"
     status: defensible
 
   - claim: "Three consulting tiers available today"

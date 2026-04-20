@@ -1,13 +1,13 @@
 ---
 bcp_version: 0.1
 tree_version: 0.1.0
-brand_name: Tacit
+brand_name: Encoded
 category: Brand consultancy + protocol company
 subcategories: [brand strategy, open protocol, agentic marketing infrastructure]
 headquarters: Remote-first
 markets: global
 founded: 2026
-website: https://hellotacit.ai
+website: https://encodedbrands.com
 default_locale: en-US
 supported_locales: [en-US]
 last_updated: 2026-04-18
@@ -21,24 +21,24 @@ daughter_files:
   readme: /.well-known/brand/README.md
 ---
 
-# Tacit
+# Encoded
 
 **Express and protect your brand in the age of the agent.**
 
-## What Tacit is
+## What Encoded is
 
-Tacit is a brand consultancy and protocol company. We author and maintain Brand Context Protocol (BCP) — the open standard for machine-readable brand identity — and we run the consulting and monitoring services built on top of it.
+Encoded is a brand consultancy and protocol company. We author and maintain Brand Context Protocol (BCP) — the open standard for machine-readable brand identity — and we run the consulting and monitoring services built on top of it.
 
 ## What we believe
 
-Brand is more valuable in the agentic age, not less. Most companies will get that wrong. They'll treat brand as a cost center to automate past and discover too late that the agents running their marketing — internal, vendor, and consumer-facing — have been reconstructing their identity from whatever signals happen to be available. The brands that win will be the ones whose strategy, voice, and judgment are encoded into the system itself, authored once, read everywhere. That's what Tacit does.
+Brand is more valuable in the agentic age, not less. Most companies will get that wrong. They'll treat brand as a cost center to automate past and discover too late that the agents running their marketing — internal, vendor, and consumer-facing — have been reconstructing their identity from whatever signals happen to be available. The brands that win will be the ones whose strategy, voice, and judgment are encoded into the system itself, authored once, read everywhere. That's what Encoded does.
 
 ## What we do
 
 Three things, in order of how a customer meets us:
 
 1. **We maintain the open standard.** BCP is a specification — hierarchical markdown files at `domain/.well-known/brand.md`, structurally analogous to AGENTS.md and MCP. The spec is published under CC BY 4.0; the reference code is MIT. Anyone can adopt it.
-2. **We encode brands into BCP.** Consulting engagements, from $1,500 expert sessions to $150K enterprise work, that translate a brand's tacit craft into a machine-readable file tree. The output is a Git repo the brand owns.
+2. **We encode brands into BCP.** Consulting engagements, from $1,500 expert sessions to $150K enterprise work, that translate a brand's encoded craft into a machine-readable file tree. The output is a Git repo the brand owns.
 3. **We run the living layer on top.** Drift detection across owned surfaces, vendor platforms, and consumer agents. Versioning. Quarterly and annual review cadence. Brand fidelity as a managed discipline — the way companies buy security monitoring or observability.
 
 ## Three consumption surfaces
@@ -59,11 +59,11 @@ Not a closed SaaS. Not an AI-powered marketing platform. Not an agency. Not a br
 
 ## Where we are
 
-Tacit is new. BCP is v0.1. The spec will change. Consulting is available now. The open-source reference implementation and the Forge authoring wizard are shipping through 2026.
+Encoded is new. BCP is v0.1. The spec will change. Consulting is available now. The open-source reference implementation and the Forge authoring wizard are shipping through 2026.
 
 ## Positioning
 
-For brand leaders building marketing in the age of the agent, Tacit is the company building the standard for how brands express and protect themselves across every agent in the stack. Tacit encodes a brand's strategy, voice, and judgment into hierarchical files every agent can read — authored once, consumed everywhere — so their brand gets stronger the more agentic their marketing becomes, not weaker.
+For brand leaders building marketing in the age of the agent, Encoded is the company building the standard for how brands express and protect themselves across every agent in the stack. Encoded encodes a brand's strategy, voice, and judgment into hierarchical files every agent can read — authored once, consumed everywhere — so their brand gets stronger the more agentic their marketing becomes, not weaker.
 
 ## Tagline
 

@@ -1,20 +1,20 @@
-# hellotacit.ai
+# encodedbrands.com
 
-The Tacit website and the reference implementation of **Brand Context Protocol (BCP)** — an open standard for machine-readable brand identity in the agentic age.
+The Encoded website and the reference implementation of **Brand Context Protocol (BCP)** — an open standard for machine-readable brand identity in the agentic age.
 
 ## Adopt BCP in 15 minutes
 
 **You don't need to clone this repo.** The fastest path to a live BCP for your brand is:
 
-1. Go to **[hellotacit.ai/start](https://hellotacit.ai/start)**
+1. Go to **[encodedbrands.com/start](https://encodedbrands.com/start)**
 2. Copy the BCP authoring prompt
 3. Paste it into Claude, ChatGPT, Cowork, or any AI
 4. Answer 18 questions over ~15 minutes
 5. Publish the seven files at `yourdomain.com/.well-known/brand.md`
 
-Free. No signup. No Tacit involvement required.
+Free. No signup. No Encoded involvement required.
 
-Full spec: **[hellotacit.ai/docs](https://hellotacit.ai/docs)**
+Full spec: **[encodedbrands.com/docs](https://encodedbrands.com/docs)**
 
 ## Fork this repo instead (technical path)
 
@@ -22,10 +22,10 @@ If you'd rather work in the shell:
 
 ```bash
 # Clone this repo
-git clone https://github.com/Bruiserhq/hellotacit.ai.git my-brand-bcp
+git clone https://github.com/Bruiserhq/encodedbrands.com.git my-brand-bcp
 cd my-brand-bcp
 
-# The live BCP files for Tacit itself are in .well-known/
+# The live BCP files for Encoded itself are in .well-known/
 ls .well-known/
 #   brand.md               <- root, always loaded
 #   brand/voice.md         <- tone, prefer/avoid
@@ -50,24 +50,24 @@ curl https://yourdomain.com/.well-known/brand.md
 Brand Context Protocol is an open standard for publishing brand identity in a form every AI agent can read and act on.
 
 - **Hierarchical markdown** at `yourdomain.com/.well-known/brand.md` (the IETF-registered path per [RFC 8615](https://www.rfc-editor.org/rfc/rfc8615.html))
-- **Structurally analogous** to [AGENTS.md](https://github.com/Bruiserhq/hellotacit.ai) and the [Model Context Protocol](https://modelcontextprotocol.io)
+- **Structurally analogous** to [AGENTS.md](https://github.com/Bruiserhq/encodedbrands.com) and the [Model Context Protocol](https://modelcontextprotocol.io)
 - **Three consumption surfaces**: inside your brand (your own agents), across your vendor stack (platforms like Canva, Zefr, Meta), and beyond your brand (ChatGPT, Claude, Perplexity, Gemini describing you)
 - **Open standard**: the spec is CC BY 4.0. Reference code is MIT. No lock-in.
 
 The thesis: in 12-36 months, most marketing teams will be staffed with more agents than humans. BCP gives brands a machine-readable home for the tested knowledge that lives in senior marketers' heads.
 
-Full thesis: **[hellotacit.ai](https://hellotacit.ai)**
+Full thesis: **[encodedbrands.com](https://encodedbrands.com)**
 
 ## Repo contents
 
 ```
 .
-├── index.html                    # hellotacit.ai home
+├── index.html                    # encodedbrands.com home
 ├── start/index.html              # /start — the adoption page
 ├── docs/index.html               # /docs — the full spec
 ├── encode/index.html             # /encode — commercial services
 ├── .well-known/
-│   ├── brand.md                  # Tacit's own BCP root
+│   ├── brand.md                  # Encoded's own BCP root
 │   └── brand/
 │       ├── voice.md
 │       ├── values.md
@@ -87,8 +87,8 @@ Full thesis: **[hellotacit.ai](https://hellotacit.ai)**
 
 BCP v0.1 is new. We maintain the spec in public. File issues, open PRs, propose field additions. Every v0.x commit is a design decision with a named author.
 
-- [Open an issue](https://github.com/Bruiserhq/hellotacit.ai/issues)
-- [Read the changelog](https://github.com/Bruiserhq/hellotacit.ai/commits/main)
+- [Open an issue](https://github.com/Bruiserhq/encodedbrands.com/issues)
+- [Read the changelog](https://github.com/Bruiserhq/encodedbrands.com/commits/main)
 
 ## License
 
@@ -97,4 +97,4 @@ BCP v0.1 is new. We maintain the spec in public. File issues, open PRs, propose 
 
 ## Contact
 
-tacit@hellotacit.ai
+hello@encodedbrands.com

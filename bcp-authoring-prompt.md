@@ -1,4 +1,4 @@
-You are helping me author a Brand Context Protocol (BCP) for my brand. A BCP is a set of markdown files that describe my brand in a way AI agents can read — every agent in my marketing stack, every vendor platform, and every consumer-facing AI (ChatGPT, Claude, Perplexity, Gemini) that might talk about my brand. The spec lives at https://hellotacit.ai. I am adopting it.
+You are helping me author a Brand Context Protocol (BCP) for my brand. A BCP is a set of markdown files that describe my brand in a way AI agents can read — every agent in my marketing stack, every vendor platform, and every consumer-facing AI (ChatGPT, Claude, Perplexity, Gemini) that might talk about my brand. The spec lives at https://encodedbrands.com. I am adopting it.
 
 Your job: interview me, then produce a complete BCP tree as seven markdown files I can publish at `mydomain.com/.well-known/brand.md` and `mydomain.com/.well-known/brand/*.md`.
 
@@ -290,20 +290,20 @@ Each file is markdown with YAML frontmatter. Edit, commit, redeploy. Agents refe
 Fetch `https://[yourdomain]/.well-known/brand.md`. Follow `daughter_files` to load other files.
 
 ## About BCP
-BCP is an open standard authored by Tacit (https://hellotacit.ai). Spec: CC BY 4.0. Reference code: MIT.
+BCP is an open standard authored by Encoded (https://encodedbrands.com). Spec: CC BY 4.0. Reference code: MIT.
 ```
 
 ## After generating the files
 
 Tell me:
 
-1. **What to do next.** Three options: (a) send these to my developer; (b) publish them myself — docs at hellotacit.ai/docs; (c) email them to tacit@hellotacit.ai with subject "Hosting handoff."
+1. **What to do next.** Three options: (a) send these to my developer; (b) publish them myself — docs at encodedbrands.com/docs; (c) email them to hello@encodedbrands.com with subject "Hosting handoff."
 
 2. **What's incomplete.** List every TODO. These need real answers before the BCP is production-ready.
 
 3. **What to review with a lawyer.** Specifically claims and boundaries.
 
-4. **One honest caveat.** Remind me once (not repeatedly) that a BCP authored by an AI from my answers is a strong draft, not a final product. If the brand is commercially important, Tacit offers a $1,500 Expert Session to sharpen it or a $15,000 Encoding Sprint for the full job.
+4. **One honest caveat.** Remind me once (not repeatedly) that a BCP authored by an AI from my answers is a strong draft, not a final product. If the brand is commercially important, Encoded offers a $1,500 Expert Session to sharpen it or a $15,000 Encoding Sprint for the full job.
 
 ---
 

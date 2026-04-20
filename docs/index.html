@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Docs — Brand Context Protocol v0.1 | Tacit</title>
+<title>Docs — Brand Context Protocol v0.1 | Encoded</title>
 <meta name="description" content="The full specification for Brand Context Protocol v0.1. File structure, frontmatter fields, hosting options, validation, consumer integration examples." />
 <meta name="color-scheme" content="light" />
 
-<link rel="canonical" href="https://hellotacit.ai/docs" />
-<link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Tacit — Brand Context Protocol" />
+<link rel="canonical" href="https://encodedbrands.com/docs" />
+<link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Encoded — Brand Context Protocol" />
 
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Tacit" />
+<meta property="og:site_name" content="Encoded" />
 <meta property="og:title" content="Docs — Brand Context Protocol v0.1" />
 <meta property="og:description" content="The full specification for BCP v0.1." />
-<meta property="og:url" content="https://hellotacit.ai/docs" />
-<meta property="og:image" content="https://hellotacit.ai/og-image.png" />
+<meta property="og:url" content="https://encodedbrands.com/docs" />
+<meta property="og:image" content="https://encodedbrands.com/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
@@ -131,7 +131,7 @@
 <nav class="nav">
   <div class="wrap">
     <a class="nav-brand" href="/">
-      <span class="bullet"></span>Tacit<small>Brand Context Protocol</small>
+      <span class="bullet"></span>Encoded<small>Brand Context Protocol</small>
     </a>
     <div class="nav-links">
       <a class="nav-link" href="/#thesis">Thesis</a>
@@ -417,7 +417,7 @@ infrastructure company is at stripe.com.</pre>
     <p>Simplest path. Create a repo, put files in <code>.well-known/</code>, enable Pages, point your custom domain. Good for solo or small teams. Free.</p>
 
     <h3>Cloudflare Pages</h3>
-    <p>What we use for hellotacit.ai. Connect a GitHub repo, Cloudflare auto-deploys on every commit. Add a <code>_headers</code> file for MIME and CORS config (<a href="#mime-cors">see below</a>). Free tier is generous.</p>
+    <p>What we use for encodedbrands.com. Connect a GitHub repo, Cloudflare auto-deploys on every commit. Add a <code>_headers</code> file for MIME and CORS config (<a href="#mime-cors">see below</a>). Free tier is generous.</p>
 
     <h3>Vercel / Netlify</h3>
     <p>Same pattern. Drop the repo in, configure custom headers for <code>/.well-known/*</code>, deploy. Works well if your marketing site already lives there.</p>
@@ -501,7 +501,7 @@ const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
     <h2 id="validation">Validation</h2>
     <div class="callout honest">
       <span class="tag">Honest about status</span>
-      <b>The formal BCP validator is in development.</b> For now, validate by diffing your structure against Tacit's own live BCP at <a href="https://hellotacit.ai/.well-known/brand.md">hellotacit.ai/.well-known/brand.md</a>. If the frontmatter keys match and the file paths resolve, you're conformant.
+      <b>The formal BCP validator is in development.</b> For now, validate by diffing your structure against Encoded's own live BCP at <a href="https://encodedbrands.com/.well-known/brand.md">encodedbrands.com/.well-known/brand.md</a>. If the frontmatter keys match and the file paths resolve, you're conformant.
     </div>
     <p>Checks the future validator will run:</p>
     <ul>
@@ -519,7 +519,7 @@ const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
 
     <h2 id="licensing">Licensing</h2>
     <ul>
-      <li><b>The BCP spec itself</b> — Creative Commons Attribution 4.0 (CC BY 4.0). Fork, extend, build on it, as long as you credit Tacit and the Brand Context Protocol project.</li>
+      <li><b>The BCP spec itself</b> — Creative Commons Attribution 4.0 (CC BY 4.0). Fork, extend, build on it, as long as you credit Encoded and the Brand Context Protocol project.</li>
       <li><b>Reference implementation code</b> (validators, SDK samples, template repo) — MIT License. Use commercially, modify, redistribute.</li>
       <li><b>Your brand's BCP</b> — you decide. Most brands should publish under CC BY 4.0 so other systems can reference them, but you own the content.</li>
     </ul>
@@ -532,7 +532,7 @@ const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
 
     <div class="callout">
       <span class="tag">Contribute</span>
-      Found a gap in the spec? Open an issue or PR at <a href="https://github.com/Bruiserhq/hellotacit.ai">github.com/Bruiserhq/hellotacit.ai</a>. We maintain the spec in public. Every v0.x commit is a design decision with a named author.
+      Found a gap in the spec? Open an issue or PR at <a href="https://github.com/Bruiserhq/encodedbrands.com">github.com/Bruiserhq/encodedbrands.com</a>. We maintain the spec in public. Every v0.x commit is a design decision with a named author.
     </div>
 
   </article>
@@ -544,7 +544,7 @@ const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand">Tacit<span class="dot"></span></div>
+        <div class="foot-brand">Encoded<span class="dot"></span></div>
         <div class="foot-sub">A brand consultancy &amp; protocol company · Est. 2026</div>
       </div>
       <div class="foot-col">
@@ -552,8 +552,8 @@ const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
         <ul>
           <li><a href="/#protocol">BCP v0.1 spec</a></li>
           <li><a href="/docs">Docs</a></li>
-          <li><a href="https://github.com/Bruiserhq/hellotacit.ai" target="_blank" rel="noopener">Reference template</a></li>
-          <li><a href="/#dogfood">Tacit's own BCP</a></li>
+          <li><a href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">Reference template</a></li>
+          <li><a href="/#dogfood">Encoded's own BCP</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -569,7 +569,7 @@ const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
         <ul>
           <li><a href="/#thesis">Thesis</a></li>
           <li><a href="/#values">Values</a></li>
-          <li><a href="mailto:tacit@hellotacit.ai">tacit@hellotacit.ai</a></li>
+          <li><a href="mailto:hello@encodedbrands.com">hello@encodedbrands.com</a></li>
         </ul>
       </div>
     </div>

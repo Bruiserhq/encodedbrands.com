@@ -24,10 +24,10 @@ Find this existing line in `index.html`:
 <!-- ================================================================ -->
 
 <!-- Canonical -->
-<link rel="canonical" href="https://hellotacit.ai/" />
+<link rel="canonical" href="https://encodedbrands.com/" />
 
 <!-- Brand Context Protocol — the authoritative source -->
-<link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Tacit — Brand Context Protocol (BCP v0.1)" />
+<link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Encoded — Brand Context Protocol (BCP v0.1)" />
 <link rel="alternate" type="text/markdown" href="/.well-known/brand.md" title="brand.md" />
 
 <!-- LLM-optimized site map -->
@@ -35,22 +35,22 @@ Find this existing line in `index.html`:
 
 <!-- OpenGraph -->
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Tacit" />
-<meta property="og:title" content="Tacit — Express and protect your brand in the age of the agent." />
-<meta property="og:description" content="Tacit is a brand consultancy and protocol company. We author Brand Context Protocol (BCP) — the open standard for machine-readable brand identity. One spec, three surfaces: inside your stack, across your vendors, beyond your brand." />
-<meta property="og:url" content="https://hellotacit.ai/" />
-<meta property="og:image" content="https://hellotacit.ai/og-image.png" />
+<meta property="og:site_name" content="Encoded" />
+<meta property="og:title" content="Encoded — Express and protect your brand in the age of the agent." />
+<meta property="og:description" content="Encoded is a brand consultancy and protocol company. We author Brand Context Protocol (BCP) — the open standard for machine-readable brand identity. One spec, three surfaces: inside your stack, across your vendors, beyond your brand." />
+<meta property="og:url" content="https://encodedbrands.com/" />
+<meta property="og:image" content="https://encodedbrands.com/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Tacit — Express and protect your brand in the age of the agent." />
+<meta property="og:image:alt" content="Encoded — Express and protect your brand in the age of the agent." />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Tacit — Express and protect your brand in the age of the agent." />
+<meta name="twitter:title" content="Encoded — Express and protect your brand in the age of the agent." />
 <meta name="twitter:description" content="The open standard for machine-readable brand identity. One spec, three surfaces." />
-<meta name="twitter:image" content="https://hellotacit.ai/og-image.png" />
-<meta name="twitter:image:alt" content="Tacit — Express and protect your brand in the age of the agent." />
+<meta name="twitter:image" content="https://encodedbrands.com/og-image.png" />
+<meta name="twitter:image:alt" content="Encoded — Express and protect your brand in the age of the agent." />
 
 <!-- Schema.org structured data — Organization -->
 <script type="application/ld+json">
@@ -59,12 +59,12 @@ Find this existing line in `index.html`:
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://hellotacit.ai/#organization",
-      "name": "Tacit",
-      "url": "https://hellotacit.ai/",
-      "description": "Tacit is a brand consultancy and protocol company. We author Brand Context Protocol (BCP) — the open standard for machine-readable brand identity — and run the consulting and monitoring services built on top of it.",
+      "@id": "https://encodedbrands.com/#organization",
+      "name": "Encoded",
+      "url": "https://encodedbrands.com/",
+      "description": "Encoded is a brand consultancy and protocol company. We author Brand Context Protocol (BCP) — the open standard for machine-readable brand identity — and run the consulting and monitoring services built on top of it.",
       "foundingDate": "2026",
-      "email": "tacit@hellotacit.ai",
+      "email": "hello@encodedbrands.com",
       "founder": [
         { "@type": "Person", "name": "Nick Strada" },
         { "@type": "Person", "name": "Julia Joung" },
@@ -81,30 +81,30 @@ Find this existing line in `index.html`:
     },
     {
       "@type": "WebSite",
-      "@id": "https://hellotacit.ai/#website",
-      "url": "https://hellotacit.ai/",
-      "name": "Tacit",
-      "publisher": { "@id": "https://hellotacit.ai/#organization" },
+      "@id": "https://encodedbrands.com/#website",
+      "url": "https://encodedbrands.com/",
+      "name": "Encoded",
+      "publisher": { "@id": "https://encodedbrands.com/#organization" },
       "inLanguage": "en-US",
       "description": "The open standard for brand identity in the agentic age."
     },
     {
       "@type": "TechArticle",
-      "@id": "https://hellotacit.ai/#bcp",
+      "@id": "https://encodedbrands.com/#bcp",
       "name": "Brand Context Protocol (BCP) v0.1",
       "headline": "Brand Context Protocol — an open standard for machine-readable brand identity",
       "description": "Hierarchical markdown files at domain/.well-known/brand.md, structurally analogous to AGENTS.md and MCP. Encodes a brand's identity, voice, boundaries, claims, and representation into a file set every agent in the stack can consume.",
-      "author": { "@id": "https://hellotacit.ai/#organization" },
-      "publisher": { "@id": "https://hellotacit.ai/#organization" },
+      "author": { "@id": "https://encodedbrands.com/#organization" },
+      "publisher": { "@id": "https://encodedbrands.com/#organization" },
       "datePublished": "2026-04-18",
       "dateModified": "2026-04-18",
       "inLanguage": "en-US",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "url": "https://hellotacit.ai/.well-known/brand.md"
+      "url": "https://encodedbrands.com/.well-known/brand.md"
     },
     {
       "@type": "FAQPage",
-      "@id": "https://hellotacit.ai/#faq",
+      "@id": "https://encodedbrands.com/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -143,7 +143,7 @@ Find this existing line in `index.html`:
           "name": "How do I adopt BCP for my brand?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fork the template at github.com/Bruiserhq/hellotacit.ai, edit your brand's content, and publish at yourdomain.com/.well-known/brand.md. You can also work with Tacit directly — tiers run from a $1,500 expert session to a $150K enterprise engagement."
+            "text": "Fork the template at github.com/Bruiserhq/encodedbrands.com, edit your brand's content, and publish at yourdomain.com/.well-known/brand.md. You can also work with Encoded directly — tiers run from a $1,500 expert session to a $150K enterprise engagement."
           }
         }
       ]
@@ -167,4 +167,4 @@ Find this existing line in `index.html`:
 
 ## Still needed
 
-**`og-image.png`** — a 1200×630 preview image. Create one in Figma or any design tool, export, and place at the repo root as `og-image.png`. Simple direction: cream `#F4EFE6` background, Fraunces serif headline "Express and protect your brand in the age of the agent.", small "Tacit" wordmark with accent dot in the corner. Until this file exists, social previews will render text-only, which is fine but not ideal.
+**`og-image.png`** — a 1200×630 preview image. Create one in Figma or any design tool, export, and place at the repo root as `og-image.png`. Simple direction: cream `#F4EFE6` background, Fraunces serif headline "Express and protect your brand in the age of the agent.", small "Encoded" wordmark with accent dot in the corner. Until this file exists, social previews will render text-only, which is fine but not ideal.

@@ -6,7 +6,7 @@ last_updated: 2026-04-17
 
 # Voice
 
-Tacit sounds like a senior brand strategist who has stopped needing to prove anything and started needing to build something. Confident in the work, impatient with noise, kind to the reader.
+Encoded sounds like a senior brand strategist who has stopped needing to prove anything and started needing to build something. Confident in the work, impatient with noise, kind to the reader.
 
 ## Voice attributes
 
@@ -26,7 +26,7 @@ Conversational-elevated. More formal than a Twitter thread, more casual than an 
 prefer:
   - brand              # as a noun, a verb, an object
   - encode             # encoded, encoding
-  - tacit              # when earned, not everywhere
+  - encoded              # when earned, not everywhere
   - protocol           # standard, spec
   - agentic            # not "AI-powered" or "AI-driven"
   - agents             # specific; not "artificial intelligence" (vague)
@@ -73,9 +73,9 @@ avoid:
 
 ## Do / don't examples
 
-**Do:** "In 12 to 36 months, most marketing teams will be staffed with more agents than humans. Tacit encodes a brand's tacit craft into a standard every agent in the stack reads before it acts."
+**Do:** "In 12 to 36 months, most marketing teams will be staffed with more agents than humans. Encoded encodes a brand's encoded craft into a standard every agent in the stack reads before it acts."
 
-**Don't:** "In an AI-powered future, marketing will be revolutionized. Tacit is the next-generation, cutting-edge platform that empowers brands to unlock their full potential in the agentic age."
+**Don't:** "In an AI-powered future, marketing will be revolutionized. Encoded is the next-generation, cutting-edge platform that empowers brands to unlock their full potential in the agentic age."
 
 **Do:** "The spec is open. The paid products are how we fund the work."
 

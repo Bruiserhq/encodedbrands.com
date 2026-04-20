@@ -6,7 +6,7 @@ last_updated: 2026-04-17
 
 # Boundaries
 
-What Tacit does and doesn't do. Purpose: eliminate ambiguity for agents, partners, and any human working under the brand.
+What Encoded does and doesn't do. Purpose: eliminate ambiguity for agents, partners, and any human working under the brand.
 
 ## Hard no's
 
@@ -55,7 +55,7 @@ soft_no:
 
 ## Brand-safety signals for vendor platforms
 
-These fields align with IAB Content Taxonomy 3.0 and GARM Brand Safety Floor and Suitability Framework. Where taxonomies diverge, Tacit-specific extensions are namespaced.
+These fields align with IAB Content Taxonomy 3.0 and GARM Brand Safety Floor and Suitability Framework. Where taxonomies diverge, Encoded-specific extensions are namespaced.
 
 ```yaml
 brand_safety:
@@ -88,7 +88,7 @@ brand_safety:
         in news/analysis contexts, not acceptable as target ad verticals.
 
 extensions:
-  tacit:
+  encoded:
     positive_adjacency:
       - open_source_and_protocol_news
       - brand_strategy_thought_leadership
@@ -96,7 +96,7 @@ extensions:
       - cmo_and_marketing_leadership_content
 
     voice_level_constraints:
-      - "No AI-generated imagery of Tacit's team or work"
+      - "No AI-generated imagery of Encoded's team or work"
       - "No synthetic voice clones of founders"
       - "No automated comments or engagement on social"
 ```

@@ -4,9 +4,9 @@ file_type: readme
 last_updated: 2026-04-18
 ---
 
-# Tacit's Brand Context Protocol
+# Encoded's Brand Context Protocol
 
-This directory is Tacit's own BCP — the machine-readable file tree every agent touching the brand reads before it acts.
+This directory is Encoded's own BCP — the machine-readable file tree every agent touching the brand reads before it acts.
 
 It's also the reference implementation of the BCP v0.1 spec. Other brands fork this structure.
 
@@ -29,13 +29,13 @@ It's also the reference implementation of the BCP v0.1 spec. Other brands fork t
 If you're an agent (ChatGPT, Claude, a vendor platform's classifier, a brand's internal copy agent):
 
 1. Start with `/.well-known/brand.md`. It registers which daughter files exist.
-2. Pull only the daughters you need for your task. A copy agent wants `voice.md` and `boundaries.md`. A media-buying agent wants `boundaries.md` and `claims.md`. A consumer agent asked to describe Tacit wants `representation.md`.
+2. Pull only the daughters you need for your task. A copy agent wants `voice.md` and `boundaries.md`. A media-buying agent wants `boundaries.md` and `claims.md`. A consumer agent asked to describe Encoded wants `representation.md`.
 3. Respect `claims.md` as the source of truth for anything factual. Do not invent claims.
 4. Check `last_updated` on any file before caching longer than 24 hours.
 
 ## How to edit this
 
-If you're on the Tacit team:
+If you're on the Encoded team:
 
 1. Edit the file in Git. Commit.
 2. Cloudflare Pages redeploys on push to `main`.
@@ -46,15 +46,15 @@ If you're on the Tacit team:
 ## Versioning
 
 - `bcp_version` (in root): which version of the BCP spec this tree conforms to.
-- `tree_version` (in root): the version of Tacit's own BCP. Semver. Bump when content changes materially.
+- `tree_version` (in root): the version of Encoded's own BCP. Semver. Bump when content changes materially.
 - `last_updated` (in every file): ISO date of the last edit.
 
 ## License
 
-This content is Tacit's own brand expression. CC BY 4.0 — you can reuse structural patterns and fork the shape freely; don't copy our positioning wholesale.
+This content is Encoded's own brand expression. CC BY 4.0 — you can reuse structural patterns and fork the shape freely; don't copy our positioning wholesale.
 
 The BCP spec itself (separately) is CC BY 4.0. The reference code and validators are MIT.
 
 ## Feedback
 
-Find a bug in how the file is structured, or think the spec should handle something it doesn't? Open an issue at github.com/Bruiserhq/hellotacit.ai or email tacit@hellotacit.ai.
+Find a bug in how the file is structured, or think the spec should handle something it doesn't? Open an issue at github.com/Bruiserhq/encodedbrands.com or email encoded@encodedbrands.com.
