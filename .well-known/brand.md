@@ -59,7 +59,7 @@ Not a closed SaaS. Not an AI-powered marketing platform. Not an agency. Not a br
 
 ## Where we are
 
-Encoded is new. BCP is v0.1. The spec will change. Consulting is available now. The open-source reference implementation and the Encoder authoring wizard are shipping through 2026.
+Encoded is new. BCP is v0.1. The spec will change. Consulting is available now. The open-source reference implementation and the Encoder authoring tool are shipping through 2026.
 
 ## Positioning
 

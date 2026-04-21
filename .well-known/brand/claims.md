@@ -37,7 +37,7 @@ requires_caveat:
   - claim: "Open standard"
     caveat: >
       The spec is published under CC BY 4.0; the code (validators, SDKs, reference
-      implementations) is MIT. Encoder (the authoring wizard) and other paid products
+      implementations) is MIT. Encoder (the authoring tool) and other paid products
       we build on top of the open spec are proprietary. The spec itself is free.
     never_say: "Fully open-source company"
 
@@ -47,7 +47,7 @@ requires_caveat:
       integrations are shipping through 2026.
     never_say: "Every agent already consumes BCP"
 
-  - claim: "Encoder — self-serve wizard"
+  - claim: "Encoder — self-serve tool"
     caveat: >
       Encoder is in development. It does not exist as shippable software as of
       2026-04-19. Public messaging must describe it as "in development,"
