@@ -83,6 +83,8 @@ Full thesis: **[encodedbrands.com](https://encodedbrands.com)**
 └── _routes.json                  # Cloudflare routing
 ```
 
+> **Note:** www → apex 301 is configured in Cloudflare zone settings (not in this repo). Re-create on host migration.
+
 ## Contributing to the spec
 
 BCP v0.1 is new. We maintain the spec in public. File issues, open PRs, propose field additions. Every v0.x commit is a design decision with a named author.
