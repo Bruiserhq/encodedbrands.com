@@ -255,7 +255,7 @@ If I share materials: read them carefully, pre-fill answers to the 18 interview 
 
 If I say "I don't have anything," start the interview at Question 1.
 
-[... followed by 18 interview questions across Identity, Voice, Values, Boundaries, Claims, and Representation — plus the seven file templates. Full prompt is ~3,500 words. Copy the whole thing into your AI of choice.]</span></pre>
+[... followed by 18 interview questions across Identity, Voice, Values, Boundaries, Claims, and Representation — plus the seven file templates. Full prompt is ~1,500 words. Copy the whole thing into your AI of choice.]</span></pre>
             <button class="expand-btn" id="expandBtn" onclick="expandPrompt()">Show full prompt ↓</button>
           </div>
 
@@ -753,15 +753,7 @@ Tell me:
 Now: start with Part 0. Ask me: **"What have you got? Any existing brand docs, a deck, a mission statement, a website URL — anything in writing that describes the brand already?"**
 
 Then STOP and wait for my reply.
-`; (c) email them to hello@encodedbrands.com with subject "Hosting handoff" and they'll help.
-
-2. **What's incomplete.** List every TODO you wrote. These need real answers before the BCP is production-ready.
-
-3. **What to review with a lawyer.** Specifically call out claims and boundaries as legally sensitive — these should be reviewed before the BCP goes live.
-
-4. **One honest caveat.** Remind me that a BCP authored by an AI from my answers is a strong draft, not a final product. A senior brand strategist will spot things I didn't. If the brand is commercially important, Encoded offers a $1,500 Expert Session to sharpen it, or a $15,000 Encoding Sprint to do the full job. Say this once, not more.
-
-Now: ask me Question 1 and wait for my answer.`;
+`;
 
 function copyPrompt() {
   navigator.clipboard.writeText(FULL_PROMPT).then(() => {
@@ -793,7 +785,7 @@ function expandPrompt() {
   if (body.classList.contains('expanded')) {
     body.classList.remove('expanded');
     btn.textContent = 'Show full prompt ↓';
-    text.textContent = FULL_PROMPT.substring(0, 1800) + '\n\n[... and 9 more questions covering Values, Boundaries, Claims, and Representation. Full prompt is ~3,000 words — copy the whole thing and paste it into your AI of choice.]';
+    text.textContent = FULL_PROMPT.substring(0, 1800) + '\n\n[... and 9 more questions covering Values, Boundaries, Claims, and Representation. Full prompt is ~1,500 words — copy the whole thing and paste it into your AI of choice.]';
   } else {
     body.classList.add('expanded');
     btn.textContent = 'Collapse ↑';
