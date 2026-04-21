@@ -1233,7 +1233,7 @@
         </h1>
 
         <p class="hero-sub reveal d5">
-         AI agents are, or soon will be, writing your copy, buying your media, and describing your brand to customers. <b>None of them have read your brand guidelines.</b> brand.md fixes that.
+          Every AI agent in your stack is making brand decisions. The copy bot. The media platform. The vendor tool. The ChatGPT window your customer is in right now. <b>None of them know who you are.</b> <code style="font-family:var(--mono);font-size:.95em;background:var(--paper-2);padding:1px 6px;border-radius:2px;border:1px solid var(--rule-soft);color:var(--ink-2)">brand.md</code> fixes that.
         </p>
 
         <p class="reveal d6" style="font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;color:var(--ink-3);line-height:1.65;margin:0 0 24px;max-width:560px">
@@ -1245,23 +1245,9 @@
           <a class="btn ghost" href="/docs">See the spec</a>
         </div>
 
-        <div class="hero-prompt reveal d6" style="margin-top:40px;max-width:560px">
-          <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:12px">
-            <em style="font-style:italic;color:var(--accent);text-transform:none;letter-spacing:0;font-family:var(--serif);font-size:16px">Your first brand.md, today.</em>
-          </div>
-          <div style="background:var(--ink);color:#e6e0d3;border:1px solid var(--ink);border-radius:2px;overflow:hidden">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#1a1714;border-bottom:1px solid rgba(244,239,230,.12)">
-              <span style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent-2);text-transform:uppercase">BCP authoring prompt</span>
-              <span style="font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:#8A8077">~15 min · any AI · free</span>
-            </div>
-            <pre style="font-family:var(--mono);font-size:11.5px;line-height:1.6;padding:16px 18px;margin:0;color:#e6e0d3;max-height:170px;overflow:hidden;position:relative;white-space:pre-wrap">You are helping me author a Brand Context Protocol (BCP). A BCP is a set of markdown files that describe my brand in a way AI agents can read.
-
-Your job: interview me, then produce a complete BCP tree as markdown files I can publish at mydomain.com/.well-known/brand.md.
-
-Rules: ONE question at a time. Then STOP. Wait for my answer before asking the next one. Start with Part 0 — what have you got?<span style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,#0E0D0B 85%);pointer-events:none;display:block"></span></pre>
-          </div>
-          <a class="btn" href="/start" style="margin-top:16px;background:var(--accent);border-color:var(--accent);color:var(--paper)">Copy prompt → paste into any AI</a>
-        </div>
+        <blockquote class="reveal d6" style="font-style:italic;font-family:var(--serif);font-size:20px;line-height:1.45;color:var(--ink-2);margin:28px 0 28px;padding:4px 0 4px 22px;border-left:3px solid var(--accent);max-width:580px">
+          The brand deck rotting on a shared drive is the antagonist of this decade. Your agents can't read it. Your vendors won't. ChatGPT never will.
+        </blockquote>
 
         <div class="hero-ticker reveal d6">
           <span>Open spec · CC BY 4.0</span>
@@ -1270,34 +1256,22 @@ Rules: ONE question at a time. Then STOP. Wait for my answer before asking the n
         </div>
       </div>
 
-      <!-- Agent's-eye view card -->
-      <aside class="agent-card reveal d6" aria-label="What an agent sees when it reads a brand's BCP">
-        <div class="agent-head">
-          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="path">agent.fetch('encodedbrands.com/.well-known/brand.md')</span>
-          <span>200 OK</span>
+      <aside class="hero-prompt reveal d6" aria-label="BCP authoring prompt. Copy into any AI to generate your first brand.md">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-bottom:12px">
+          <em style="font-style:italic;color:var(--accent);text-transform:none;letter-spacing:0;font-family:var(--serif);font-size:16px">Your first brand.md, today.</em>
         </div>
-        <pre class="agent-body" aria-label="brand.md"><span class="c">---</span>
-<span class="y">bcp_version</span>: <span class="s">0.1</span>
-<span class="y">brand_name</span>: <span class="s">Encoded</span>
-<span class="y">category</span>: <span class="s">Brand consultancy + protocol</span>
-<span class="y">tagline</span>: <span class="s">"Express and protect your
-           brand in the age of the agent."</span>
-<span class="y">default_locale</span>: <span class="s">en-US</span>
-<span class="y">daughter_files</span>:
-  <span class="y">voice</span>:        <span class="k">/.well-known/brand/voice.md</span>
-  <span class="y">values</span>:       <span class="k">/.well-known/brand/values.md</span>
-  <span class="y">boundaries</span>:   <span class="k">/.well-known/brand/boundaries.md</span>
-  <span class="y">claims</span>:       <span class="k">/.well-known/brand/claims.md</span>
-  <span class="y">representation</span>:<span class="k">/.well-known/brand/representation.md</span>
-<span class="c">---</span>
+        <div style="background:var(--ink);color:#e6e0d3;border:1px solid var(--ink);border-radius:2px;overflow:hidden">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:#1a1714;border-bottom:1px solid rgba(244,239,230,.12)">
+            <span style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--accent-2);text-transform:uppercase">BCP authoring prompt</span>
+            <span style="font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:#8A8077">~15 min · any AI · free</span>
+          </div>
+          <pre style="font-family:var(--mono);font-size:11.5px;line-height:1.6;padding:16px 18px;margin:0;color:#e6e0d3;max-height:170px;overflow:hidden;position:relative;white-space:pre-wrap">You are helping me author a Brand Context Protocol (BCP). A BCP is a set of markdown files that describe my brand in a way AI agents can read.
 
-<span class="h"># Encoded</span>
-<span class="h">Express and protect your brand in the age of the agent.</span><span class="cursor"></span></pre>
-        <div class="agent-foot">
-          <span class="ok">parsed · 8 files registered</span>
-          <span>cached · 12ms</span>
+Your job: interview me, then produce a complete BCP tree as markdown files I can publish at mydomain.com/.well-known/brand.md.
+
+Rules: ONE question at a time. Then STOP. Wait for my answer before asking the next one. Start with Part 0. What have you got?<span style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,#0E0D0B 85%);pointer-events:none;display:block"></span></pre>
         </div>
+        <a class="btn" href="/start" style="margin-top:16px;background:var(--accent);border-color:var(--accent);color:var(--paper)">Copy prompt → paste into any AI</a>
       </aside>
 
     </div>
@@ -1333,16 +1307,16 @@ Rules: ONE question at a time. Then STOP. Wait for my answer before asking the n
     <div class="thesis-grid">
       <div class="idx">01.1</div>
       <p class="lede">
-        Most companies will get that <span class="strike">wrong</span>. They'll treat brand as a cost center to automate past.
+        Most companies will get this <span class="strike">wrong</span>. They'll treat brand as a cost center to automate past. They'll save on headcount and discover, two years in, that their agents are producing copy in a voice that isn't theirs, media buys that miss their positioning, and ChatGPT describing them to customers using words they'd never put in writing.
       </p>
     </div>
 
     <div class="problem-body">
       <div class="idx">01.2</div>
       <div class="body">
-        <p>The tested brand knowledge that lives in senior marketers' heads. The judgment calls, the <i>"we don't say it that way,"</i> the instinct for what's on-brand at the edge. None of it has a machine-readable home.</p>
-        <p>Without it, <b>internal agents produce generic output</b>, <b>vendor platforms make decisions with partial information</b>, and <b>third-party consumer agents describe your brand however the model guesses.</b></p>
-        <p>The brands that win this cycle will be the ones whose strategy, voice, and judgment are encoded into the system itself. Authored once, read everywhere. That's what Encoded does.</p>
+        <p>The knowledge that makes your brand distinctive lives in senior marketers' heads. The judgment calls. The <i>'we don't say it that way.'</i> The instinct for what's on-brand at the edge. That's the value a brand consultancy has always sold. It's also the value agents can't access.</p>
+        <p>When your marketing team is half agents, your own and your vendors', brand fidelity stops being a guidelines problem. It becomes an infrastructure problem. Every agent in the stack needs a version of that senior strategist's judgment, on call, in a form they can read.</p>
+        <p>That's what Encoded builds. We encode the tacit work of brand into a file every agent reads before it acts. Authored once. Consumed everywhere. <b>Brand-led. Technically rigorous. Open standard.</b></p>
       </div>
     </div>
 
@@ -1502,6 +1476,36 @@ Go one question at a time. Wait for my answer before asking the next. If my answ
 └── <span class="dir">campaigns/</span>                 <span class="cmt"># with sunset dates</span></pre>
       </aside>
     </div>
+
+    <!-- Agent's-eye view of the root file -->
+    <aside class="agent-card" style="margin-top:56px;max-width:720px" aria-label="What an agent sees when it reads a brand's BCP">
+      <div class="agent-head">
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="path">agent.fetch('encodedbrands.com/.well-known/brand.md')</span>
+        <span>200 OK</span>
+      </div>
+      <pre class="agent-body" aria-label="brand.md"><span class="c">---</span>
+<span class="y">bcp_version</span>: <span class="s">0.1</span>
+<span class="y">brand_name</span>: <span class="s">Encoded</span>
+<span class="y">category</span>: <span class="s">Brand consultancy + protocol</span>
+<span class="y">tagline</span>: <span class="s">"Express and protect your
+           brand in the age of the agent."</span>
+<span class="y">default_locale</span>: <span class="s">en-US</span>
+<span class="y">daughter_files</span>:
+  <span class="y">voice</span>:        <span class="k">/.well-known/brand/voice.md</span>
+  <span class="y">values</span>:       <span class="k">/.well-known/brand/values.md</span>
+  <span class="y">boundaries</span>:   <span class="k">/.well-known/brand/boundaries.md</span>
+  <span class="y">claims</span>:       <span class="k">/.well-known/brand/claims.md</span>
+  <span class="y">representation</span>:<span class="k">/.well-known/brand/representation.md</span>
+<span class="c">---</span>
+
+<span class="h"># Encoded</span>
+<span class="h">Express and protect your brand in the age of the agent.</span><span class="cursor"></span></pre>
+      <div class="agent-foot">
+        <span class="ok">parsed · 8 files registered</span>
+        <span>cached · 12ms</span>
+      </div>
+    </aside>
 
     <!-- Two rings of distribution -->
     <div class="compare" style="margin-top: 72px">
