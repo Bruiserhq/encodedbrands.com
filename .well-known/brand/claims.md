@@ -37,7 +37,7 @@ requires_caveat:
   - claim: "Open standard"
     caveat: >
       The spec is published under CC BY 4.0; the code (validators, SDKs, reference
-      implementations) is MIT. Forge (the authoring wizard) and other paid products
+      implementations) is MIT. Encoder (the authoring wizard) and other paid products
       we build on top of the open spec are proprietary. The spec itself is free.
     never_say: "Fully open-source company"
 
@@ -47,16 +47,16 @@ requires_caveat:
       integrations are shipping through 2026.
     never_say: "Every agent already consumes BCP"
 
-  - claim: "Forge — self-serve wizard"
+  - claim: "Encoder — self-serve wizard"
     caveat: >
-      Forge is in development. It does not exist as shippable software as of
+      Encoder is in development. It does not exist as shippable software as of
       2026-04-19. Public messaging must describe it as "in development,"
       "coming soon," or "waitlist only" until it ships.
     never_say:
-      - "Try Forge now"
-      - "Forge generates your BCP in minutes"
-      - "Launch your BCP with Forge"
-      unless: "Forge is publicly live and the statement is literally true at time of publication"
+      - "Try Encoder now"
+      - "Encoder generates your BCP in minutes"
+      - "Launch your BCP with Encoder"
+      unless: "Encoder is publicly live and the statement is literally true at time of publication"
 
   - claim: "Living BCP monitoring"
     caveat: >
@@ -96,7 +96,7 @@ forbidden:
   - "Certified by [any org]"                              # unless literally true
   - "Enterprise tier at $150K"                            # withdrawn; custom-quote only
   - "Monitoring subscription available"                   # the product is not built yet
-  - "Forge is live" / "Try Forge" / "Use Forge today"     # Forge is in development, not shipping
+  - "Encoder is live" / "Try Encoder" / "Use Encoder today"     # Encoder is in development, not shipping
 ```
 
 ## Numbers we do not publish

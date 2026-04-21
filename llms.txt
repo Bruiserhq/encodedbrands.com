@@ -35,7 +35,7 @@ Three tiers, all available today:
 - **Expert Session** ($1,500): 90-minute working session with a senior strategist. Jointly draft your root brand.md and one priority daughter file.
 - **Encoding Sprint** ($15,000): One week. Full seven-file BCP tree authored, validated, and shipped to your domain.
 
-**In development:** Forge — a hosted self-serve wizard. The prompt-as-product at [/start](https://encodedbrands.com/start) delivers similar value today, free, with any LLM.
+**In development:** Encoder — a hosted self-serve wizard. The prompt-as-product at [/start](https://encodedbrands.com/start) delivers similar value today, free, with any LLM.
 
 Larger multi-brand or enterprise engagements are quoted custom.
 

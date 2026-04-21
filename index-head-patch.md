@@ -135,7 +135,7 @@ Find this existing line in `index.html`:
           "name": "Is BCP open source?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The BCP specification is published under CC BY 4.0. Reference code, validators, and SDKs are MIT. The Forge authoring wizard and Living BCP monitoring runtime are proprietary products built on top of the open spec."
+            "text": "The BCP specification is published under CC BY 4.0. Reference code, validators, and SDKs are MIT. The Encoder authoring wizard and Living BCP monitoring runtime are proprietary products built on top of the open spec."
           }
         },
         {
