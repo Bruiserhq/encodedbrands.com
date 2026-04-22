@@ -3,195 +3,592 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Encode your brand | Encoded</title>
-<meta name="description" content="Three ways to encode your brand into BCP: free self-serve, expert sessions, and full one-week Encoding Sprints." />
+<title>Encode — Three ways to get your BCP live. | Encoded</title>
+<meta name="description" content="Fork it free, book a 90-minute Expert Session for $1,500, or commission a full Encoding Sprint for $15,000. Every path produces versioned markdown you own." />
 <meta name="color-scheme" content="light" />
 
 <link rel="canonical" href="https://encodedbrands.com/encode" />
-<link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Encoded | Brand Context Protocol" />
+<link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Encoded — Brand Context Protocol" />
 
-<!-- OpenGraph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Encoded" />
-<meta property="og:title" content="Encode your brand | Encoded" />
-<meta property="og:description" content="Three ways to encode your brand into BCP: free self-serve, expert sessions, and full one-week Encoding Sprints." />
+<meta property="og:title" content="Encode — Three ways to get your BCP live." />
+<meta property="og:description" content="Fork it free, book an Expert Session, or commission a full Encoding Sprint." />
 <meta property="og:url" content="https://encodedbrands.com/encode" />
 <meta property="og:image" content="https://encodedbrands.com/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Encode your brand | Encoded" />
-<meta name="twitter:description" content="Three ways to encode your brand into BCP." />
+<meta name="twitter:title" content="Encode — Three ways to get your BCP live." />
+<meta name="twitter:description" content="Fork it free, book an Expert Session, or commission an Encoding Sprint." />
 <meta name="twitter:image" content="https://encodedbrands.com/og-image.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500;600&display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
 <style>
-  :root{
-    --paper:#F4EFE6; --paper-2:#EDE6D8;
-    --ink:#0E0D0B; --ink-2:#2B2722; --ink-3:#5A524A; --ink-4:#8A8077;
-    --rule:#1a1714; --rule-soft:rgba(14,13,11,.12);
-    --accent:#D93A1A; --accent-2:#E8894A; --moss:#3B4A2A; --sky:#2A3B5C;
-    --serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-    --sans: "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial;
-    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
-    --container: 1280px; --gutter: clamp(20px, 4vw, 56px);
-  }
-  *{box-sizing:border-box} html,body{margin:0;padding:0} html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-feature-settings:"ss01","cv11","kern";-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.5;font-size:16px;overflow-x:hidden}
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;background-image:radial-gradient(ellipse at 20% 0%,rgba(217,58,26,.05),transparent 55%),radial-gradient(ellipse at 100% 100%,rgba(42,59,92,.06),transparent 55%)}
-  body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:2;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.06  0 0 0 0 0.05  0 0 0 0 0.04  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");opacity:.42;mix-blend-mode:multiply}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter);position:relative;z-index:5}
+/* ================================================================
+   DESIGN SYSTEM — shared with index.html
+   ================================================================ */
+:root {
+  --paper:    #FAFAF6;
+  --paper-2:  #F0EDE6;
+  --ink:      #0F0F0D;
+  --ink-2:    #2B2923;
+  --ink-3:    #6B6560;
+  --ink-4:    #928C85;
+  --rule:     #0F0F0D;
+  --rule-soft: rgba(15,15,13,.10);
+  --accent:   #B33D2A;
+  --accent-warm: #D48845;
+  --moss:     #3B4A2A;
+  --sky:      #2A3B5C;
 
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:inline-flex;align-items:center;gap:10px}
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(217,58,26,.15);animation:pulse 2.2s ease-in-out infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(217,58,26,.15)}50%{box-shadow:0 0 0 8px rgba(217,58,26,.05)}}
+  --sans:  'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --mono:  'IBM Plex Mono', 'SF Mono', Menlo, monospace;
 
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:2px;transition:transform .25s ease,background .25s ease,color .25s ease;cursor:pointer}
-  .btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
-  .btn.ghost{background:transparent;color:var(--ink)}
-  .btn.ghost:hover{background:var(--ink);color:var(--paper)}
-  .btn .arrow{transition:transform .25s ease}
-  .btn:hover .arrow{transform:translateX(3px)}
+  --container: 1280px;
+  --gutter: clamp(20px, 4vw, 56px);
+  --idx-col: 160px;
+}
 
-  /* nav (shared aesthetic with home) */
-  .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px) saturate(1.1);-webkit-backdrop-filter:blur(10px) saturate(1.1);background:rgba(244,239,230,.82);border-bottom:1px solid var(--rule-soft)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .nav-brand{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.01em}
-  .nav-brand .bullet{width:8px;height:8px;background:var(--accent);border-radius:50%;display:inline-block;translate:0 -3px}
-  .nav-brand small{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;font-weight:400;margin-left:8px}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-link{font-family:var(--mono);font-size:13px;letter-spacing:.02em;color:var(--ink-2);position:relative}
-  .nav-link::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1px;background:var(--ink);transition:right .3s ease}
-  .nav-link:hover::after{right:0}
-  .nav-link.active{color:var(--accent)}
-  .nav-cta{font-family:var(--mono);font-size:13px;padding:8px 14px;border:1px solid var(--ink);border-radius:2px;transition:background .2s ease,color .2s ease}
-  .nav-cta:hover{background:var(--ink);color:var(--paper)}
-  @media (max-width:820px){.nav-links{display:none}}
+/* ================================================================
+   RESET + BASE
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1;
+  background: radial-gradient(ellipse at 20% -5%, rgba(179,61,42,.04), transparent 50%);
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: var(--paper); }
 
-  /* hero for /encode */
-  .page-hero{padding:clamp(48px,8vh,96px) 0 clamp(40px,6vh,72px)}
-  .page-hero .meta{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-bottom:22px;border-bottom:1px solid var(--rule)}
-  .page-hero-grid{display:grid;grid-template-columns:140px minmax(0,1fr);gap:32px;margin-top:56px;align-items:baseline}
-  @media (max-width:700px){.page-hero-grid{grid-template-columns:1fr;gap:14px}}
-  .page-hero-grid .idx{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
-  .page-hero-grid h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7vw,96px);line-height:.94;letter-spacing:-.03em;margin:0}
-  .page-hero-grid h1 em{font-style:italic;color:var(--accent);font-weight:500}
-  .page-hero-grid .lede{margin-top:28px;max-width:58ch;font-size:clamp(16px,1.3vw,19px);color:var(--ink-2);line-height:1.55}
-  .page-hero-grid .lede b{color:var(--ink);font-weight:600}
+/* ================================================================
+   LAYOUT
+   ================================================================ */
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+  z-index: 5;
+}
 
-  /* tier cards */
-  .tiers{margin-top:clamp(56px,8vh,96px);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media (max-width:900px){.tiers{grid-template-columns:1fr}}
-  .tier{background:#FBF8F1;border:1px solid var(--ink);padding:32px 28px 32px;border-radius:2px;display:flex;flex-direction:column;min-height:440px;position:relative;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease}
-  .tier:hover{transform:translateY(-4px);box-shadow:10px 10px 0 var(--ink)}
-  .tier .head-row{display:flex;justify-content:space-between;align-items:baseline}
-  .tier .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-  .tier .price{font-family:var(--mono);font-size:14px;color:var(--ink);font-weight:500}
-  .tier h2{font-family:var(--serif);font-weight:500;font-size:36px;letter-spacing:-.015em;margin:18px 0 4px;line-height:1.05}
-  .tier h2 em{font-style:italic;color:var(--accent)}
-  .tier .k{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.05em}
-  .tier p{color:var(--ink-2);line-height:1.6;font-size:15px;margin:16px 0 0}
-  .tier .feat{margin-top:22px;padding-top:22px;border-top:1px dashed var(--rule-soft);list-style:none;padding-left:0;display:grid;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
-  .tier .feat li{display:flex;gap:10px;align-items:baseline}
-  .tier .feat li::before{content:"→";color:var(--accent);font-weight:600;font-size:14px}
-  .tier .cta{margin-top:auto;padding-top:28px;display:flex;gap:10px;flex-wrap:wrap}
-  .tier.flag{background:var(--ink);color:var(--paper)}
-  .tier.flag .tag{color:var(--accent-2)}
-  .tier.flag .price{color:var(--paper)}
-  .tier.flag h2{color:var(--paper)}
-  .tier.flag h2 em{color:var(--accent-2)}
-  .tier.flag .k{color:var(--paper-2)}
-  .tier.flag p{color:var(--paper-2)}
-  .tier.flag .feat{color:var(--paper-2);border-top-color:rgba(244,239,230,.2)}
-  .tier.flag .feat li::before{color:var(--accent-2)}
-  .tier.flag .btn.ghost{color:var(--paper);border-color:var(--paper)}
-  .tier.flag .btn.ghost:hover{background:var(--paper);color:var(--ink)}
-  .tier.flag:hover{box-shadow:10px 10px 0 var(--accent)}
+/* ================================================================
+   BUTTONS
+   ================================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: .04em;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.btn .arrow { transition: transform .2s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+}
+.btn.ghost:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.btn.accent-bg {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn.accent-bg:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.btn.big {
+  padding: 18px 28px;
+  font-size: 14px;
+}
 
-  /* tier corner "coming soon" stripe */
-  .tier .soon{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:var(--sky);padding:4px 8px;border-radius:2px}
+/* ================================================================
+   NAV
+   ================================================================ */
+.nav {
+  position: sticky; top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px) saturate(1.15);
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+  background: rgba(250,250,246,.82);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -.01em;
+}
+.nav-brand .bullet {
+  width: 7px; height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  translate: 0 -3px;
+}
+.nav-brand small {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-left: 8px;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nav-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--ink-2);
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -4px; height: 1px;
+  background: var(--ink);
+  transition: right .3s ease;
+}
+.nav-link:hover::after { right: 0; }
+.nav-link.active { color: var(--accent); }
+.nav-cta {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--ink);
+  transition: background .2s ease, color .2s ease;
+}
+.nav-cta:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+@media (max-width: 820px) {
+  .nav-links { display: none; }
+}
 
-  /* encoder waitlist row */
-  .waitlist{margin-top:clamp(48px,6vh,72px);padding:32px 32px 36px;background:var(--paper-2);border:1px solid var(--ink);border-radius:2px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
-  @media (max-width:820px){.waitlist{grid-template-columns:1fr;gap:20px}}
-  .waitlist .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
-  .waitlist h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.01em;margin:8px 0 10px;line-height:1.1}
-  .waitlist h3 em{font-style:italic;color:var(--accent)}
-  .waitlist p{color:var(--ink-2);font-size:15.5px;line-height:1.55;max-width:52ch;margin:0}
+/* ================================================================
+   PAGE HERO
+   ================================================================ */
+.page-hero {
+  padding: clamp(48px, 8vh, 88px) 0 clamp(24px, 3vh, 40px);
+}
+.page-hero .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.page-hero h1 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: .94;
+  letter-spacing: -.03em;
+  margin: 48px 0 0;
+  max-width: 18ch;
+}
+.page-hero h1 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
+.page-hero .lede {
+  margin-top: 24px;
+  max-width: 60ch;
+  font-size: clamp(16px, 1.3vw, 19px);
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+.page-hero .lede b { color: var(--ink); font-weight: 600; }
 
-  /* process / encoding sprint breakdown */
-  .process{margin-top:clamp(80px,12vh,160px)}
-  .process-head{display:grid;grid-template-columns:140px minmax(0,1fr);gap:32px;padding-bottom:28px;border-bottom:1px solid var(--rule);align-items:baseline}
-  .process-head .idx{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
-  .process-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4vw,54px);letter-spacing:-.02em;margin:0;line-height:1.02}
-  .process-head h2 em{font-style:italic;color:var(--accent);font-weight:500}
-  @media (max-width:700px){.process-head{grid-template-columns:1fr;gap:14px}}
+/* ================================================================
+   TIER SECTIONS
+   ================================================================ */
+.tier-section {
+  padding: clamp(56px, 8vh, 96px) 0;
+  border-top: 1px solid var(--rule);
+}
+.tier-head {
+  display: grid;
+  grid-template-columns: var(--idx-col) minmax(0, 1fr);
+  gap: 32px;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+@media (max-width: 700px) { .tier-head { grid-template-columns: 1fr; gap: 14px; } }
+.tier-head .idx {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.tier-head .price {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+.tier-head h2 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(32px, 4.4vw, 56px);
+  letter-spacing: -.02em;
+  margin: 0;
+  line-height: 1.02;
+}
+.tier-head h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
 
-  .steps{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-  @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
-  @media (max-width:540px){.steps{grid-template-columns:1fr}}
-  .step{padding:32px 24px 36px;border-right:1px solid var(--rule);position:relative;transition:background .3s ease}
-  .step:hover{background:var(--paper-2)}
-  .step:last-child{border-right:0}
-  @media (max-width:900px){.step:nth-child(2){border-right:0}.step:nth-child(1),.step:nth-child(2){border-bottom:1px solid var(--rule)}}
-  @media (max-width:540px){.step{border-right:0 !important;border-bottom:1px solid var(--rule) !important}.step:last-child{border-bottom:0 !important}}
-  .step .n{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
-  .step h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2vw,28px);letter-spacing:-.01em;margin:14px 0 8px;line-height:1.15}
-  .step p{color:var(--ink-2);font-size:14.5px;line-height:1.55}
-  .step .d{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-top:14px;display:block}
+.tier-body {
+  display: grid;
+  grid-template-columns: var(--idx-col) minmax(0, 1fr);
+  gap: 32px;
+}
+@media (max-width: 700px) { .tier-body { grid-template-columns: 1fr; gap: 14px; } }
+.tier-body .spacer {}
+.tier-body p {
+  color: var(--ink-2);
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 64ch;
+  margin: 0 0 16px;
+}
+.tier-body p b { color: var(--ink); font-weight: 600; }
+.tier-body code {
+  font-family: var(--mono);
+  font-size: .92em;
+  background: var(--paper-2);
+  padding: 1px 6px;
+  border: 1px solid var(--rule-soft);
+}
+.tier-body a.link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.tier-body a.link:hover { color: var(--ink); }
 
-  /* faq */
-  .faq{margin-top:clamp(80px,12vh,160px)}
-  .faq-head{display:grid;grid-template-columns:140px minmax(0,1fr);gap:32px;padding-bottom:28px;border-bottom:1px solid var(--rule);align-items:baseline}
-  .faq-head .idx{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
-  .faq-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4vw,54px);letter-spacing:-.02em;margin:0;line-height:1.02}
-  .faq-head h2 em{font-style:italic;color:var(--accent);font-weight:500}
-  @media (max-width:700px){.faq-head{grid-template-columns:1fr;gap:14px}}
+/* deliverable cards */
+.deliverables {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.deliverable {
+  padding: 22px 20px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.deliverable:hover {
+  transform: translateY(-3px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+.deliverable .tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.deliverable h4 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -.01em;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+.deliverable h4 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
+.deliverable p {
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
 
-  .faq-items{margin-top:48px;max-width:72ch}
-  .faq-item{border-bottom:1px solid var(--rule-soft);padding:22px 0}
-  .faq-item:first-child{border-top:1px solid var(--rule-soft)}
-  .faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:20px;font-family:var(--serif);font-weight:500;font-size:clamp(17px,1.5vw,21px);letter-spacing:-.005em;color:var(--ink);line-height:1.35;padding:4px 0;user-select:none}
-  .faq-item summary::-webkit-details-marker{display:none}
-  .faq-item summary::after{content:"+";font-family:var(--mono);font-size:22px;color:var(--accent);font-weight:400;line-height:1;transition:transform .3s ease;flex-shrink:0;translate:0 -2px}
-  .faq-item[open] summary::after{content:"−"}
-  .faq-item .answer{margin-top:12px;color:var(--ink-2);font-size:16px;line-height:1.65;padding-right:40px}
-  .faq-item .answer p + p{margin-top:.9em}
-  .faq-item .answer a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+/* ================================================================
+   COMPARISON TABLE
+   ================================================================ */
+.compare {
+  margin-top: clamp(56px, 8vh, 96px);
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(56px, 8vh, 96px);
+}
+.compare-head {
+  display: grid;
+  grid-template-columns: var(--idx-col) minmax(0, 1fr);
+  gap: 32px;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+@media (max-width: 700px) { .compare-head { grid-template-columns: 1fr; gap: 14px; } }
+.compare-head .idx {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.compare-head h2 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(28px, 3.6vw, 48px);
+  letter-spacing: -.02em;
+  margin: 0;
+  line-height: 1.02;
+}
+.compare-head h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 400;
+}
 
-  /* cta band */
-  .bigcta{margin-top:clamp(80px,12vh,160px);padding:clamp(56px,8vh,96px) 0;background:var(--ink);color:var(--paper);border-radius:2px;position:relative;overflow:hidden}
-  .bigcta::before{content:"";position:absolute;inset:0;background-image:radial-gradient(ellipse at 10% 10%,rgba(217,58,26,.14),transparent 55%),radial-gradient(ellipse at 90% 90%,rgba(42,59,92,.18),transparent 55%);pointer-events:none}
-  .bigcta .wrap{position:relative;z-index:2}
-  .bigcta h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,64px);letter-spacing:-.025em;line-height:1;margin:0;max-width:20ch}
-  .bigcta h2 em{font-style:italic;color:var(--accent-2);font-weight:500}
-  .bigcta p{margin-top:24px;color:var(--paper-2);font-size:17px;line-height:1.6;max-width:50ch}
-  .bigcta .ctas{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
-  .bigcta .btn.ghost{color:var(--paper);border-color:var(--paper)}
-  .bigcta .btn.ghost:hover{background:var(--paper);color:var(--ink)}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.compare-table th {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--ink);
+  vertical-align: bottom;
+}
+.compare-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top;
+  color: var(--ink-2);
+}
+.compare-table td:first-child {
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 14.5px;
+}
+.compare-table tr:last-child td { border-bottom: 2px solid var(--ink); }
+.compare-table .check { color: var(--moss); font-weight: 600; }
+.compare-table .dash { color: var(--ink-4); }
+@media (max-width: 700px) {
+  .compare-table { font-size: 13px; }
+  .compare-table th, .compare-table td { padding: 10px 8px; }
+}
 
-  /* footer (shared with home) */
-  footer{background:var(--ink);color:var(--paper-2);padding:72px 0 28px;margin-top:0}
-  .foot-grid{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:clamp(24px,4vw,56px)}
-  @media (max-width:820px){.foot-grid{grid-template-columns:1fr 1fr}}
-  @media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
-  .foot-brand{font-family:var(--serif);font-size:clamp(52px,11vw,180px);line-height:.9;letter-spacing:-.04em;font-weight:500;color:var(--paper)}
-  .foot-brand .dot{display:inline-block;width:.14em;height:.14em;background:var(--accent);border-radius:50%;translate:0 -.08em}
-  .foot-sub{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--paper-2);letter-spacing:.1em;text-transform:uppercase}
-  .foot-col h5{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-2);font-weight:500;margin:0 0 16px}
-  .foot-col ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-family:var(--sans);font-size:14.5px;color:var(--paper-2)}
-  .foot-col a{transition:color .2s ease}
-  .foot-col a:hover{color:var(--accent-2)}
-  .foot-bottom{margin-top:72px;padding-top:20px;border-top:1px solid rgba(244,239,230,.12);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-4)}
+/* ================================================================
+   CLOSING CTA
+   ================================================================ */
+.closing {
+  margin-top: clamp(72px, 10vh, 120px);
+  padding: clamp(48px, 7vh, 88px) 0;
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.closing::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 8% 8%, rgba(179,61,42,.1), transparent 50%),
+    radial-gradient(ellipse at 92% 92%, rgba(42,59,92,.12), transparent 50%);
+  pointer-events: none;
+}
+.closing .wrap { position: relative; z-index: 2; }
+.closing h2 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(28px, 4.2vw, 48px);
+  letter-spacing: -.02em;
+  line-height: 1.05;
+  margin: 0;
+  max-width: 24ch;
+}
+.closing h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--accent-warm);
+  font-weight: 400;
+}
+.closing p {
+  margin-top: 20px;
+  color: rgba(250,250,246,.7);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 56ch;
+}
+.closing .ctas {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.closing .btn.ghost {
+  color: var(--paper);
+  border-color: rgba(250,250,246,.4);
+}
+.closing .btn.ghost:hover {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
 
-  ::selection{background:var(--accent);color:var(--paper)}
-  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+/* ================================================================
+   FOOTER
+   ================================================================ */
+footer {
+  background: var(--ink);
+  color: rgba(250,250,246,.7);
+  padding: 72px 0 28px;
+}
+.foot-grid {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 56px);
+}
+@media (max-width: 820px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .foot-grid { grid-template-columns: 1fr; } }
+
+.foot-brand {
+  font-family: var(--serif);
+  font-size: clamp(56px, 12vw, 180px);
+  line-height: .88;
+  letter-spacing: -.04em;
+  font-weight: 400;
+  color: var(--paper);
+}
+.foot-brand .fdot {
+  display: inline-block;
+  width: .14em; height: .14em;
+  background: var(--accent);
+  border-radius: 50%;
+  translate: 0 -.08em;
+}
+.foot-sub {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: rgba(250,250,246,.5);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.foot-col h5 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+.foot-col ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid; gap: 10px;
+  font-size: 14px;
+}
+.foot-col a { transition: color .2s ease; }
+.foot-col a:hover { color: var(--accent-warm); }
+.foot-bottom {
+  margin-top: 72px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(250,250,246,.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+}
+.foot-bottom a:hover { color: var(--paper); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
 </style>
 </head>
 <body>
@@ -200,15 +597,16 @@
 <nav class="nav">
   <div class="wrap">
     <a class="nav-brand" href="/">
-      <span class="bullet"></span>Encoded<small>Brand Context Protocol</small>
+      <span class="bullet" aria-hidden="true"></span>Encoded<small>Brand Context Protocol</small>
     </a>
     <div class="nav-links">
       <a class="nav-link" href="/#thesis">Thesis</a>
+      <a class="nav-link" href="/start">Start</a>
       <a class="nav-link" href="/#protocol">Protocol</a>
+      <a class="nav-link" href="/docs">Docs</a>
       <a class="nav-link active" href="/encode">Encode</a>
-      <a class="nav-link" href="/#dogfood">See it live</a>
     </div>
-    <a class="nav-cta" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint">Start a sprint →</a>
+    <a class="nav-cta" href="mailto:hello@encodedbrands.com?subject=Encoding%20inquiry">Get in touch →</a>
   </div>
 </nav>
 
@@ -217,273 +615,277 @@
   <div class="wrap">
     <div class="meta">
       <span>Encoded · Encode</span>
-      <span>Three ways in · All produce a repo you own</span>
+      <span>Free → $15,000</span>
     </div>
-    <div class="page-hero-grid">
-      <div class="idx">§ Encode</div>
-      <div>
-        <h1>Author your BCP. <em>Three ways in.</em></h1>
-        <p class="lede">
-          Self-serve, book a 90-minute expert session, or commission a one-week sprint. Every path produces the same artifact: <b>a versioned Git repo you own</b>, published at your own domain, ready for every agent in your stack to read.
-        </p>
-      </div>
-    </div>
-
-    <!-- THREE TIERS -->
-    <div class="tiers">
-
-      <!-- Tier 1: Free -->
-      <article class="tier">
-        <div class="head-row">
-          <span class="tag">Tier 01 · Free</span>
-          <span class="price">$0</span>
-        </div>
-        <h2>Fork the <em>template</em></h2>
-        <div class="k">Self-serve · no strings</div>
-        <p>Fork our public BCP template repo. Edit the seven files to describe your brand. Push to your own domain at <code>/.well-known/brand.md</code>. The spec and code are yours to keep.</p>
-        <ul class="feat">
-          <li>Public template on GitHub</li>
-          <li>CC BY 4.0 spec · MIT code</li>
-          <li>Full 7-file tree to work from</li>
-          <li>Docs + reference implementation</li>
-        </ul>
-        <div class="cta">
-          <a class="btn" href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">Fork on GitHub <span class="arrow">→</span></a>
-        </div>
-      </article>
-
-      <!-- Tier 2: Expert Session -->
-      <article class="tier">
-        <div class="head-row">
-          <span class="tag">Tier 02 · Guided</span>
-          <span class="price">$1,500</span>
-        </div>
-        <h2>Expert <em>Session</em></h2>
-        <div class="k">90 min · live · one-shot</div>
-        <p>A 90-minute working session with a senior Encoded strategist. We jointly draft your root <code>brand.md</code> (identity, category, tagline, daughter file registry) plus one priority daughter file like voice or boundaries. You leave with a working draft in your repo.</p>
-        <ul class="feat">
-          <li>Senior strategist, not a form</li>
-          <li>Live working session</li>
-          <li>Root + one daughter file</li>
-          <li>Same-day delivery to your repo</li>
-        </ul>
-        <div class="cta">
-          <a class="btn" href="mailto:hello@encodedbrands.com?subject=Expert%20Session%20-%20%241%2C500">Book a session <span class="arrow">→</span></a>
-        </div>
-      </article>
-
-      <!-- Tier 3: Encoding Sprint (flagship) -->
-      <article class="tier flag">
-        <div class="head-row">
-          <span class="tag">Tier 03 · Flagship</span>
-          <span class="price">$15,000</span>
-        </div>
-        <h2>Encoding <em>Sprint</em></h2>
-        <div class="k">One week · full tree · delivered</div>
-        <p>A one-week engagement. We author your full seven-file BCP tree (voice, values, boundaries, claims, representation, audiences), validate it against the v0.1 spec, and ship it to your domain. You own the repo. We disappear cleanly when the week ends.</p>
-        <ul class="feat">
-          <li>Full 7-file BCP tree</li>
-          <li>Senior strategist + validator</li>
-          <li>Shipped to your domain</li>
-          <li>Repo + docs · yours to maintain</li>
-        </ul>
-        <div class="cta">
-          <a class="btn ghost" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint%20-%20%2415K">Start a sprint <span class="arrow">→</span></a>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- FORGE WAITLIST -->
-    <div class="waitlist">
-      <div>
-        <div class="k">Coming soon · Free</div>
-        <h3>Encoder<em>.</em> The self-serve tool.</h3>
-        <p>Point Encoder at your brand's URL. It audits your site, pulls deterministic inputs, runs them against Encoded's opinionated corpus, and generates a BCP tree as a Git-ready file set. In development. Join the list for early access.</p>
-      </div>
-      <div>
-        <a class="btn" href="mailto:hello@encodedbrands.com?subject=Encoder%20waitlist">Join the waitlist <span class="arrow">→</span></a>
-      </div>
-    </div>
-
+    <h1>The spec is open. The <em>work</em> is priced.</h1>
+    <p class="lede">
+      Every path produces the same artifact: a <b>versioned Git repo you own</b>, published at your own domain, ready for every agent in your stack to read. Fork it free, work with us for 90 minutes, or have us <b>deliver a full BCP tree in a week</b>.
+    </p>
   </div>
 </header>
 
-<!-- PROCESS (Encoding Sprint breakdown) -->
-<section class="process">
+<!-- TIER 01 — FREE -->
+<section class="tier-section" id="free">
   <div class="wrap">
-    <div class="process-head">
-      <div class="idx">§ Sprint process</div>
-      <h2>What the <em>one-week sprint</em> actually looks like.</h2>
+    <div class="tier-head">
+      <div>
+        <div class="idx">Tier 01</div>
+        <div class="price">Free · Forever</div>
+      </div>
+      <h2>Fork it <em>yourself</em>.</h2>
     </div>
-    <div class="steps">
-      <div class="step">
-        <div class="n">Day 01</div>
-        <h3>Discovery</h3>
-        <p>90-min kickoff. We map your brand's current state, audience, competitors, boundaries, and the vendors that should be consuming BCP first. You hand off decks, guidelines, any existing positioning.</p>
-        <span class="d">60–90 min</span>
-      </div>
-      <div class="step">
-        <div class="n">Days 02–03</div>
-        <h3>Draft</h3>
-        <p>We author the full seven-file tree. Root identity, voice, values, boundaries, claims, representation, README. Every file traces to evidence from discovery. No invented claims. No hallucinated positioning.</p>
-        <span class="d">Async · we work</span>
-      </div>
-      <div class="step">
-        <div class="n">Day 04</div>
-        <h3>Review</h3>
-        <p>Working session with your team. We redline live, push back where your positioning is soft, lock the tree. Every file becomes a reviewed Git commit.</p>
-        <span class="d">2 hours · live</span>
-      </div>
-      <div class="step">
-        <div class="n">Day 05</div>
-        <h3>Ship</h3>
-        <p>Published to your repo and your domain at <code>/.well-known/brand.md</code>. Validator passes. Agents can fetch. You own the repo, the content, and the next edit.</p>
-        <span class="d">Delivered · done</span>
+    <div class="tier-body">
+      <div class="spacer"></div>
+      <div>
+        <p>The spec is CC BY 4.0. The reference template is MIT. Copy the prompt from our <a class="link" href="/start">Start page</a>, paste it into any AI, and get a complete BCP tree in fifteen minutes. Publish it at your domain. <b>No signup. No account. No catch.</b></p>
+        <p>This is the real product. We built the protocol so it could be adopted without us. If you never pay Encoded a dollar and your brand has a working BCP, we succeeded.</p>
+
+        <div class="deliverables">
+          <div class="deliverable">
+            <div class="tag">Included</div>
+            <h4>BCP authoring <em>prompt</em></h4>
+            <p>A senior brand strategist compressed into a single prompt. It interviews you, pushes back on vague answers, and produces seven files.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Included</div>
+            <h4>Reference <em>template</em></h4>
+            <p>MIT-licensed repo with all seven files, hosting configs for Cloudflare/Vercel/Netlify, and CORS headers pre-configured.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Included</div>
+            <h4>Publishing <em>docs</em></h4>
+            <p>Step-by-step instructions for every major hosting platform. MIME types, DNS, headers — everything you need.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn accent-bg" href="/start">Copy the prompt <span class="arrow">→</span></a>
+          <a class="btn ghost" href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">Fork the template</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq">
+<!-- TIER 02 — EXPERT SESSION -->
+<section class="tier-section" id="expert-session">
   <div class="wrap">
-    <div class="faq-head">
-      <div class="idx">§ FAQ</div>
-      <h2>Questions we hear, <em>answered.</em></h2>
+    <div class="tier-head">
+      <div>
+        <div class="idx">Tier 02</div>
+        <div class="price">$1,500 · One-time</div>
+      </div>
+      <h2>Expert <em>Session</em>.</h2>
     </div>
-    <div class="faq-items">
+    <div class="tier-body">
+      <div class="spacer"></div>
+      <div>
+        <p>A 90-minute working session with a senior brand strategist. You bring your existing brand materials — or the draft BCP you made with our free prompt. We sharpen it, challenge it, and <b>get it live on your domain before the call ends</b>.</p>
+        <p>This isn't a consultation. It's a <b>working session with a deliverable</b>. You leave with a production-ready BCP published at your domain, not a deck full of recommendations.</p>
 
-      <details class="faq-item">
-        <summary>How is this different from just updating our brand guidelines doc?</summary>
-        <div class="answer">
-          <p>A guidelines doc is written for humans. BCP is written for agents. It is hierarchical, versioned, queryable, and readable by every LLM, vendor platform, and consumer agent in your stack.</p>
-          <p>Your doc tells one designer how to pick a color. Your BCP tells a thousand agents at once what you do and don't stand for. That includes ChatGPT describing you, your media-buying agent making a call, and your creative-gen tool writing copy. Different artifact for a different job.</p>
+        <div class="deliverables">
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>90-min <em>session</em></h4>
+            <p>Video call with a senior strategist. We interview, challenge, and refine — live. You talk, we type.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>Production <em>BCP</em></h4>
+            <p>Seven markdown files, professionally authored, committed to a Git repo you own.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>Hosted &amp; <em>live</em></h4>
+            <p>We deploy your BCP to your domain during the session. You leave with a working <code>/.well-known/brand.md</code>.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>30-day <em>revisions</em></h4>
+            <p>Change your mind on something? Email us within 30 days and we'll update the files.</p>
+          </div>
         </div>
-      </details>
 
-      <details class="faq-item">
-        <summary>Can't I just put my brand guidelines in a PDF and feed that to ChatGPT?</summary>
-        <div class="answer">
-          <p>You can, and you should expect it to work poorly. PDFs are unstructured, session-bound, and re-uploaded per chat. Every agent on every platform has to re-parse it, and every conversation starts from zero.</p>
-          <p>BCP is structured markdown at a public URL with a canonical path. Once it's there, every agent can fetch it, cache it, diff it when you update, and act on it without a human in the loop. It's the difference between emailing a style guide and publishing an API.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn accent-bg" href="mailto:hello@encodedbrands.com?subject=Expert%20Session">Book an Expert Session <span class="arrow">→</span></a>
         </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What happens to my brand if I do nothing?</summary>
-        <div class="answer">
-          <p>ChatGPT, Claude, Perplexity, and Gemini are already describing your brand right now. They use whatever signals are cheapest to reconstruct: a scraped product page, a five-year-old press release, a Reddit comment, or a competitor's positioning. The gaps get filled by hallucination.</p>
-          <p>Every day without a BCP is a day of someone else authoring your representation. The cost of doing nothing isn't zero. It is a slow drift of your brand into whatever the models happen to guess.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Who owns the BCP file?</summary>
-        <div class="answer">
-          <p>You. Every tier produces a Git repo you own, on your GitHub (or any Git host), served from your domain. Encoded doesn't custody your brand data. The spec is CC BY 4.0, the code is MIT. There is no lock-in by design.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How much does this cost?</summary>
-        <div class="answer">
-          <p>Three tiers, all available today. Free: fork our public template and publish your own BCP with no Encoded involvement. <b>$1,500 Expert Session</b>: 90 minutes with a senior strategist who helps you draft your root brand.md and one priority daughter file. <b>$15,000 Encoding Sprint</b>: one week, full seven-file tree, authored and shipped to your domain.</p>
-          <p>For larger multi-brand or enterprise scope, we quote custom engagements. Encoder (the self-serve tool) is in development and will be free when it ships.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Do my vendor platforms actually read this?</summary>
-        <div class="answer">
-          <p>Honest answer: BCP is v0.1, and native integrations with vendor platforms are being built through 2026. Today, BCP works as a system-prompt paste into any LLM, and its boundaries file maps directly to IAB 3.0 and GARM Brand Safety Framework fields that brand-safety platforms already consume.</p>
-          <p>The long-term bet: vendor platforms adopt BCP because reading one structured file beats reconstructing brand intent from account-rep notes and onboarding interviews. Early vendor conversations are in progress.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What if my brand strategy changes? Is this going to be out of date in six months?</summary>
-        <div class="answer">
-          <p>BCP is versioned infrastructure, not a static deliverable. Every edit is a Git commit. Every file has a <code>last_updated</code> date and a <code>revision</code> hash. Your agents re-fetch and re-cache on the cadence you set.</p>
-          <p>The problem isn't change. It's drift. The monitoring layer we're building will surface the gap between what your BCP declares and how agents actually describe you. That's the part that turns a file into a living system.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Do I need engineers to do this?</summary>
-        <div class="answer">
-          <p>Only if you go fully self-serve and push the template to your domain yourself (a dev task). The Expert Session and Encoding Sprint are both fully done-for-you. We author the tree, validate it, and ship it to your domain. Non-technical teams can hand us the login and receive a published BCP.</p>
-          <p>When Encoder ships, even the self-serve path will be a tool, not a repo fork.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Why would a platform adopt your spec instead of building its own brand-input layer?</summary>
-        <div class="answer">
-          <p>For the same reason platforms adopted OAuth instead of proprietary login, and Schema.org instead of platform-specific markup: open standards free vendors from doing the onboarding discovery for every new brand, and they signal interoperability to customers.</p>
-          <p>Every brand wants to author its identity once and have every platform consume it. Every platform wants onboarding friction to drop. Open standards are how those two goals meet.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What do we need to do to integrate this if we're a platform?</summary>
-        <div class="answer">
-          <p>At the simplest level: fetch <code>{brand}.{tld}/.well-known/brand.md</code>, parse the markdown and YAML frontmatter, and map BCP fields to your internal schema. Reference integration patterns and validators are shipping as SDK samples.</p>
-          <p>If you're a vendor platform exploring integration, reach out directly. We will scope it as a joint design conversation.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Who else is adopting BCP?</summary>
-        <div class="answer">
-          <p>BCP v0.1 is new. Encoded itself is the reference implementation. Our brand is published at <a href="/.well-known/brand.md">encodedbrands.com/.well-known/brand.md</a>. Early partner brands are being encoded now. We will name adopters publicly once partnerships are live and logos are approved. We don't claim partnerships we haven't signed.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How does BCP fit with IAB Content Taxonomy and GARM?</summary>
-        <div class="answer">
-          <p>BCP's boundaries file maps directly to IAB Content Taxonomy 3.0 and GARM Brand Safety Floor and Suitability Framework. Encoded-specific extensions (like positive adjacency and voice-level constraints) are namespaced under <code>extensions:</code> so vendor platforms can consume the standard fields cleanly and optionally read the extensions.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Why should I take this seriously? What makes this different from a thousand other "open standards" that die?</summary>
-        <div class="answer">
-          <p>Three things. The reference implementation is live and dogfooded (the company selling the spec publishes its own BCP at its own domain). The licensing is real | MIT code, CC BY 4.0 spec | and the code is public on GitHub. And the pattern is proven: AGENTS.md and MCP used the same well-known-path convention and are already seeing real adoption.</p>
-          <p>Standards die when the maintainer doesn't use them, when the license is vague, or when there's no integration path. BCP is trying to fail at none of those.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What's the relationship to AGENTS.md, MCP, and schema.org?</summary>
-        <div class="answer">
-          <p>They share the same structural pattern: a well-known path, hierarchical markdown or JSON, and developer-native tooling. Different domains. AGENTS.md is codebase-level instructions for coding agents. MCP is a protocol for tool and resource use. Schema.org is structured data for search engines.</p>
-          <p>BCP is the brand-identity layer. Together, they form the agent-readable web: what to build, what to do, what you look like.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Can I fork this and host my brand's BCP without using Encoded at all?</summary>
-        <div class="answer">
-          <p>Yes. Entirely. Fork the template on <a href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">GitHub</a>, edit for your brand, publish at your domain. The spec is CC BY 4.0, the reference code is MIT. We don't gate access to the standard.</p>
-          <p>Encoded makes money from authoring tools like Encoder, consulting via Expert Sessions and Encoding Sprints, and eventually monitoring. We do not gatekeep the spec.</p>
-        </div>
-      </details>
-
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BIG CTA -->
-<section class="bigcta">
+<!-- TIER 03 — ENCODING SPRINT -->
+<section class="tier-section" id="encoding-sprint">
   <div class="wrap">
-    <p class="eyebrow" style="color:var(--paper-2)"><span class="dot"></span>Ready when you are</p>
-    <h2 style="margin-top:16px">Encode your brand. <em>Or have us do it.</em></h2>
-    <p>The spec is free. The help is priced to match the scope. Pick your entry point.</p>
+    <div class="tier-head">
+      <div>
+        <div class="idx">Tier 03</div>
+        <div class="price">$15,000 · One-time</div>
+      </div>
+      <h2>Encoding <em>Sprint</em>.</h2>
+    </div>
+    <div class="tier-body">
+      <div class="spacer"></div>
+      <div>
+        <p>The full job. We embed with your team for a week — interviewing stakeholders, auditing existing brand materials, mapping your competitive position, and producing a <b>comprehensive BCP tree that represents your brand the way you'd want it represented</b> to every AI agent in your stack.</p>
+        <p>This is brand strategy work, not template-filling. We challenge assumptions, resolve contradictions between what your brand says and what it does, and produce files that are <b>specific enough to actually constrain agent behavior</b>.</p>
+
+        <div class="deliverables">
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>Stakeholder <em>interviews</em></h4>
+            <p>We talk to founders, marketing leads, product, and customer-facing staff. The BCP reflects the real brand, not just marketing's version.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>Brand <em>audit</em></h4>
+            <p>We read everything — decks, guidelines, website copy, competitor positioning, customer reviews. We find the gaps.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>Full BCP <em>tree</em></h4>
+            <p>Seven files, deeply researched, precisely written. Claims verified. Boundaries mapped to IAB/GARM taxonomies. Voice calibrated against real copy.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>Deployed &amp; <em>documented</em></h4>
+            <p>Hosted at your domain. Git repo with full commit history. Internal README so your team knows how to update it.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>Agent <em>testing</em></h4>
+            <p>We test your BCP against ChatGPT, Claude, Perplexity, and Gemini. We verify the agents actually read it and represent you correctly.</p>
+          </div>
+          <div class="deliverable">
+            <div class="tag">Delivered</div>
+            <h4>90-day <em>support</em></h4>
+            <p>Quarterly review, unlimited revisions, and a direct line to your strategist for 90 days after delivery.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn accent-bg" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint">Start an Encoding Sprint <span class="arrow">→</span></a>
+          <a class="btn ghost" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint%20—%20Questions">I have questions first</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare">
+  <div class="wrap">
+    <div class="compare-head">
+      <div class="idx">Compare</div>
+      <h2>What you get at <em>each tier</em>.</h2>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="min-width:200px"></th>
+            <th>Free</th>
+            <th>Expert Session · $1.5k</th>
+            <th>Encoding Sprint · $15k</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BCP authoring prompt</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Reference template repo</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Publishing docs</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Senior strategist session</td>
+            <td class="dash">—</td>
+            <td class="check">90 min</td>
+            <td class="check">Full week</td>
+          </tr>
+          <tr>
+            <td>Professional BCP authoring</td>
+            <td class="dash">—</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Stakeholder interviews</td>
+            <td class="dash">—</td>
+            <td class="dash">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Brand audit</td>
+            <td class="dash">—</td>
+            <td class="dash">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Hosted & deployed</td>
+            <td class="dash">—</td>
+            <td class="check">✓</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Agent testing & verification</td>
+            <td class="dash">—</td>
+            <td class="dash">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Post-delivery support</td>
+            <td class="dash">—</td>
+            <td>30 days</td>
+            <td>90 days</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ENCODER WAITLIST -->
+<section class="tier-section" style="border-top:1px solid var(--rule)">
+  <div class="wrap">
+    <div class="tier-head">
+      <div>
+        <div class="idx">Coming soon</div>
+        <div class="price">Self-serve tool</div>
+      </div>
+      <h2>Encoder<em>.</em></h2>
+    </div>
+    <div class="tier-body">
+      <div class="spacer"></div>
+      <div>
+        <p>A self-serve tool that guides you through the BCP authoring process with a structured UI instead of a raw prompt. <b>Currently in development.</b></p>
+        <p>If you want early access, <a class="link" href="mailto:hello@encodedbrands.com?subject=Encoder%20waitlist">join the waitlist</a>. We'll email you when it's ready. No spam — one email, when it ships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="closing">
+  <div class="wrap">
+    <h2>Every brand needs a BCP. <em>Start yours today.</em></h2>
+    <p>The free path is real. The prompt works. If you want help, we're here — but the protocol belongs to everyone.</p>
     <div class="ctas">
-      <a class="btn" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint%20-%20%2415K">Start a sprint ($15K) <span class="arrow">→</span></a>
-      <a class="btn ghost" href="mailto:hello@encodedbrands.com?subject=Expert%20Session%20-%20%241%2C500">Book a session ($1,500)</a>
+      <a class="btn accent-bg big" href="/start">Copy the prompt — free <span class="arrow">→</span></a>
+      <a class="btn ghost big" href="mailto:hello@encodedbrands.com?subject=Expert%20Session">Book an Expert Session</a>
+      <a class="btn ghost big" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint">Start an Encoding Sprint</a>
     </div>
   </div>
 </section>
@@ -493,25 +895,24 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand">Encoded<span class="dot"></span></div>
+        <div class="foot-brand">Encoded<span class="fdot"></span></div>
         <div class="foot-sub">A brand consultancy &amp; protocol company · Est. 2026</div>
       </div>
       <div class="foot-col">
         <h5>Protocol</h5>
         <ul>
           <li><a href="/#protocol">BCP v0.1 spec</a></li>
-          <li><a href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">Reference template (GitHub)</a></li>
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">Reference template</a></li>
           <li><a href="/#dogfood">Encoded's own BCP</a></li>
-          <li><a href="https://github.com/Bruiserhq/encodedbrands.com/commits/main" target="_blank" rel="noopener">Changelog</a></li>
         </ul>
       </div>
       <div class="foot-col">
-        <h5>Encode</h5>
+        <h5>Adopt</h5>
         <ul>
-          <li><a href="/encode">Fork (free)</a></li>
+          <li><a href="/start">Start (free)</a></li>
           <li><a href="/encode">Expert Session · $1,500</a></li>
-          <li><a href="/encode">Encoding Sprint · $15K</a></li>
-          <li><a href="mailto:hello@encodedbrands.com?subject=Encoder%20waitlist">Encoder (waitlist)</a></li>
+          <li><a href="/encode">Encoding Sprint · $15,000</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -524,7 +925,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>Spec · CC BY 4.0 &nbsp;·&nbsp; Code · MIT</span>
+      <span>Spec · CC BY 4.0  ·  Code · MIT</span>
       <span>Brand.md over PDF ★</span>
     </div>
   </div>
