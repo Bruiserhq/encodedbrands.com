@@ -658,22 +658,33 @@ Payments infrastructure for the internet.
 [One sentence per top competitor on what makes you different.]</pre>
 
     <h3>Required frontmatter fields</h3>
+    <p>These four are required by <code>spec/brand-context.schema.json</code>. A strict validator will reject a root file missing any of them.</p>
     <table>
       <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
       <tr><td>bcp_version</td><td>string</td><td><code>"0.1"</code> currently. Agents use this to handle version-specific behavior.</td></tr>
       <tr><td>brand_name</td><td>string</td><td>The name humans call your brand. Not your legal entity.</td></tr>
       <tr><td>file_type</td><td>string</td><td><code>root</code> for the root file. Daughter files use their kind, e.g. <code>voice</code>, <code>values</code>. Lets consumers identify a file without URL context.</td></tr>
-      <tr><td>domain</td><td>string</td><td>Canonical domain. Used for disambiguation when brand names collide.</td></tr>
-      <tr><td>category</td><td>string</td><td>What you do in plain English. IAB Content Taxonomy language preferred if applicable.</td></tr>
-      <tr><td>tagline</td><td>string</td><td>The public-facing tagline. Agents may surface this in descriptions.</td></tr>
       <tr><td>last_updated</td><td>date</td><td>ISO 8601 (YYYY-MM-DD). Agents use this to decide when to refetch.</td></tr>
-      <tr><td>daughter_files</td><td>map</td><td>Registry of available daughter files. Agents resolve paths relative to the domain.</td></tr>
     </table>
 
     <h3>Optional fields</h3>
+    <p>Defined in the schema but not required. Strongly recommended in practice.</p>
     <table>
-      <tr><td>default_locale</td><td>string</td><td>Default locale of this BCP (e.g. <code>en-US</code>). Multi-locale brands can publish locale-specific daughter files.</td></tr>
+      <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+      <tr><td>tree_version</td><td>string</td><td>Semantic version of this brand's own BCP tree, e.g. <code>"0.1.0"</code>. Bump on meaningful updates.</td></tr>
       <tr><td>revision</td><td>string</td><td>Git commit hash or custom revision identifier. Useful for caching.</td></tr>
+      <tr><td>default_locale</td><td>string</td><td>Default locale of this BCP (e.g. <code>en-US</code>). Multi-locale brands can publish locale-specific daughter files.</td></tr>
+      <tr><td>supported_locales</td><td>list</td><td>Locales the brand publishes content in, e.g. <code>[en-US, fr-CA]</code>.</td></tr>
+      <tr><td>daughter_files</td><td>map</td><td>Registry of available daughter files. Agents resolve paths relative to the domain. Optional in the schema, but a root without daughters is rarely useful.</td></tr>
+    </table>
+
+    <h3>Common extensions</h3>
+    <p>The schema allows additional properties. These aren't defined in the spec but are common in practice. Pick what fits your brand.</p>
+    <table>
+      <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+      <tr><td>domain</td><td>string</td><td>Canonical domain. Used for disambiguation when brand names collide.</td></tr>
+      <tr><td>category</td><td>string</td><td>What you do in plain English. IAB Content Taxonomy language preferred if applicable.</td></tr>
+      <tr><td>tagline</td><td>string</td><td>The public-facing tagline. Agents may surface this in descriptions.</td></tr>
       <tr><td>contact</td><td>email</td><td>Email for questions about the BCP itself.</td></tr>
       <tr><td>license</td><td>string</td><td>Usually inherits the spec's CC BY 4.0. Overridable per-brand.</td></tr>
     </table>
