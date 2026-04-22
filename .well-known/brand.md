@@ -2,6 +2,7 @@
 bcp_version: 0.1
 tree_version: 0.1.0
 brand_name: Encoded
+file_type: root
 category: Brand consultancy + protocol company
 subcategories: [brand strategy, open protocol, agentic marketing infrastructure]
 headquarters: Remote-first

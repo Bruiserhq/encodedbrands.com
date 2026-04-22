@@ -631,6 +631,7 @@ footer {
 <pre>---
 bcp_version: 0.1
 brand_name: Stripe
+file_type: root
 domain: stripe.com
 category: Financial infrastructure
 tagline: "Payments infrastructure for the internet."
@@ -661,6 +662,7 @@ Payments infrastructure for the internet.
       <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
       <tr><td>bcp_version</td><td>string</td><td><code>"0.1"</code> currently. Agents use this to handle version-specific behavior.</td></tr>
       <tr><td>brand_name</td><td>string</td><td>The name humans call your brand. Not your legal entity.</td></tr>
+      <tr><td>file_type</td><td>string</td><td><code>root</code> for the root file. Daughter files use their kind, e.g. <code>voice</code>, <code>values</code>. Lets consumers identify a file without URL context.</td></tr>
       <tr><td>domain</td><td>string</td><td>Canonical domain. Used for disambiguation when brand names collide.</td></tr>
       <tr><td>category</td><td>string</td><td>What you do in plain English. IAB Content Taxonomy language preferred if applicable.</td></tr>
       <tr><td>tagline</td><td>string</td><td>The public-facing tagline. Agents may surface this in descriptions.</td></tr>
