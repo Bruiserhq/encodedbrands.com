@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import "../styles/docs.css";
+import body from "./_docs-body.html?raw";
+---
+<Base
+  title="Docs — Brand Context Protocol v0.1 | Encoded"
+  description="The full specification for Brand Context Protocol v0.1. File structure, frontmatter fields, hosting options, validation, consumer integration examples."
+>
+  <Fragment set:html={body} />
+</Base>

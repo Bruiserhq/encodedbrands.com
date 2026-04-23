@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Hero from "../components/Hero.astro";
 import Strip from "../components/Strip.astro";
+import HomeBody from "../components/HomeBody.astro";
 import { getEntry } from "astro:content";
 
 const hero = await getEntry("homepage", "hero");
@@ -13,4 +14,5 @@ const strip = await getEntry("homepage", "strip");
 >
   <Hero data={hero!.data} />
   <Strip data={strip!.data} />
+  <HomeBody />
 </Base>

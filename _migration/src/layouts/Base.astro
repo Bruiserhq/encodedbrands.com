@@ -52,6 +52,21 @@ const footer = await getEntry("site", "footer");
         io.observe(el);
       }
     });
+
+    const sections = [...document.querySelectorAll<HTMLElement>("section[id], header[id]")];
+    const links = [...document.querySelectorAll<HTMLAnchorElement>(".nav-link")];
+    const map = new Map(links.map(l => [l.getAttribute("href"), l]));
+    const navIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const link = map.get("#" + e.target.id);
+        if (!link) return;
+        if (e.isIntersecting) {
+          links.forEach(l => (l.style.color = ""));
+          link.style.color = "var(--accent)";
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => navIO.observe(s));
   </script>
 </body>
 </html>
