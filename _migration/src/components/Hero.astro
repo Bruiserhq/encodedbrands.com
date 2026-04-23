@@ -1,0 +1,84 @@
+---
+interface MetaRight { text: string; }
+interface HeadlineLine { text: string; style?: "normal" | "em" | "amp"; break_after?: boolean; }
+interface CTA { label: string; href: string; ghost?: boolean; }
+interface TickerItem { text: string; }
+interface HeroData {
+  meta_left: string;
+  meta_right: MetaRight[];
+  eyebrow: string;
+  headline_lines: HeadlineLine[];
+  subtitle: string;
+  detail: string;
+  ctas: CTA[];
+  quote: string;
+  ticker: TickerItem[];
+  prompt_card_label: string;
+  prompt_card_title: string;
+  prompt_card_meta: string;
+  prompt_card_body: string;
+  prompt_cta_label: string;
+  prompt_cta_href: string;
+}
+const { data } = Astro.props as { data: HeroData };
+const delays = ["d2","d3","d4","d5","d6","d6","d6","d6"];
+---
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-meta reveal d1">
+      <span>{data.meta_left}</span>
+      <div class="right">
+        {data.meta_right.map(m => <span>{m.text}</span>)}
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow reveal d2"><span class="dot" aria-hidden="true"></span>&nbsp;{data.eyebrow}</p>
+
+        <h1 class="hero-headline">
+          {data.headline_lines.map((line, i) => {
+            const cls = line.style === "em" ? "em " : line.style === "amp" ? "amp " : "";
+            return (
+              <>
+                <span class={`${cls}reveal ${delays[Math.min(i, delays.length - 1)]}`} set:html={line.text}></span>
+                {line.break_after && <br />}
+                {!line.break_after && " "}
+              </>
+            );
+          })}
+        </h1>
+
+        <p class="hero-sub reveal d5" set:html={data.subtitle}></p>
+
+        <p class="hero-detail reveal d6" set:html={data.detail}></p>
+
+        <div class="hero-cta reveal d6">
+          {data.ctas.map(cta => (
+            <a class={`btn${cta.ghost ? " ghost" : ""}`} href={cta.href}>
+              {cta.label}{!cta.ghost && <span class="arrow">→</span>}
+            </a>
+          ))}
+        </div>
+
+        <blockquote class="hero-quote reveal d6">{data.quote}</blockquote>
+
+        <div class="hero-ticker reveal d6">
+          {data.ticker.map(t => <span>{t.text}</span>)}
+        </div>
+      </div>
+
+      <aside class="reveal d6" aria-label="BCP authoring prompt">
+        <div class="prompt-card-label"><em>{data.prompt_card_label}</em></div>
+        <div class="prompt-card">
+          <div class="prompt-head">
+            <span class="label">{data.prompt_card_title}</span>
+            <span class="meta">{data.prompt_card_meta}</span>
+          </div>
+          <pre class="prompt-body">{data.prompt_card_body}<span class="prompt-fade"></span></pre>
+        </div>
+        <a class="btn accent-bg" href={data.prompt_cta_href} style="margin-top:16px;width:100%;justify-content:center">{data.prompt_cta_label}</a>
+      </aside>
+    </div>
+  </div>
+</header>

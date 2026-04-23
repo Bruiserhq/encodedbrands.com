@@ -1,22 +1,16 @@
 ---
-import { getEntry, render } from "astro:content";
-const entry = await getEntry("homepage", "index");
-const { Content } = await render(entry);
----
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import Strip from "../components/Strip.astro";
+import { getEntry } from "astro:content";
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{entry.data.title} — Phase 0</title>
-  </head>
-  <body style="font-family: system-ui, sans-serif; max-width: 42rem; margin: 4rem auto; padding: 0 1.5rem; line-height: 1.5;">
-    <h1>{entry.data.title}</h1>
-    <p style="font-size: 1.25rem;">{entry.data.tagline}</p>
-    <hr />
-    <Content />
-    <p style="margin-top: 3rem; color: #666; font-size: 0.875rem;">
-      Phase 0 — Astro + TinaCMS proof of stack. Not production.
-    </p>
-  </body>
-</html>
+const hero = await getEntry("homepage", "hero");
+const strip = await getEntry("homepage", "strip");
+---
+<Base
+  title="Encoded: Express and protect your brand in the age of the agent."
+  description="Encoded is a brand consultancy and protocol company. We author Brand Context Protocol (BCP), the open standard for machine-readable brand identity."
+>
+  <Hero data={hero!.data} />
+  <Strip data={strip!.data} />
+</Base>

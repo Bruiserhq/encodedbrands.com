@@ -1,0 +1,24 @@
+---
+interface NavLink { label: string; href: string; }
+interface NavData {
+  brand: string;
+  brand_small: string;
+  links: NavLink[];
+  cta_label: string;
+  cta_href: string;
+}
+const { data } = Astro.props as { data: NavData };
+---
+<nav class="nav">
+  <div class="wrap">
+    <a class="nav-brand" href="/">
+      <span class="bullet" aria-hidden="true"></span>
+      {data.brand}
+      <small>{data.brand_small}</small>
+    </a>
+    <div class="nav-links">
+      {data.links.map(l => <a class="nav-link" href={l.href}>{l.label}</a>)}
+    </div>
+    <a class="nav-cta" href={data.cta_href}>{data.cta_label}</a>
+  </div>
+</nav>

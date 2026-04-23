@@ -13,7 +13,89 @@ collections:
     format: frontmatter
     extension: md
     create: false
-    fields:
-      - { name: title, label: Title, widget: string }
-      - { name: tagline, label: Tagline, widget: string }
-      - { name: body, label: Body, widget: markdown }
+    files:
+      - name: hero
+        label: Hero
+        file: "_migration/src/content/homepage/hero.md"
+        fields:
+          - { name: meta_left, label: "Meta bar — left text", widget: string }
+          - name: meta_right
+            label: "Meta bar — right items"
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: string }
+          - { name: eyebrow, label: Eyebrow, widget: string }
+          - name: headline_lines
+            label: "Headline lines"
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: string }
+              - { name: style, label: Style, widget: select, options: [normal, em, amp], default: normal }
+              - { name: break_after, label: "Line break after?", widget: boolean, default: false }
+          - { name: subtitle, label: Subtitle (HTML allowed), widget: text }
+          - { name: detail, label: Detail (HTML allowed), widget: text }
+          - name: ctas
+            label: CTAs
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: URL, widget: string }
+              - { name: ghost, label: "Ghost style?", widget: boolean, default: false }
+          - { name: quote, label: Pull quote, widget: text }
+          - name: ticker
+            label: Ticker items
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: string }
+          - { name: prompt_card_label, label: "Prompt card label", widget: string }
+          - { name: prompt_card_title, label: "Prompt card title", widget: string }
+          - { name: prompt_card_meta, label: "Prompt card meta", widget: string }
+          - { name: prompt_card_body, label: "Prompt body", widget: text }
+          - { name: prompt_cta_label, label: "Prompt CTA label", widget: string }
+          - { name: prompt_cta_href, label: "Prompt CTA URL", widget: string }
+      - name: strip
+        label: "Ticker strip"
+        file: "_migration/src/content/homepage/strip.md"
+        fields:
+          - name: items
+            label: Items
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: string }
+
+  - name: site
+    label: Site
+    files:
+      - name: nav
+        label: Navigation
+        file: "_migration/src/content/site/nav.md"
+        fields:
+          - { name: brand, label: "Brand name", widget: string }
+          - { name: brand_small, label: "Brand subtitle", widget: string }
+          - name: links
+            label: Links
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: URL, widget: string }
+          - { name: cta_label, label: "CTA label", widget: string }
+          - { name: cta_href, label: "CTA URL", widget: string }
+      - name: footer
+        label: Footer
+        file: "_migration/src/content/site/footer.md"
+        fields:
+          - { name: brand, label: "Brand", widget: string }
+          - { name: sub, label: "Sub-line (HTML allowed)", widget: string }
+          - name: columns
+            label: Columns
+            widget: list
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - name: links
+                label: Links
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: URL, widget: string }
+          - { name: bottom_left, label: "Bottom left", widget: string }
+          - { name: bottom_right, label: "Bottom right (HTML allowed)", widget: string }

@@ -1,0 +1,14 @@
+---
+interface StripData { items: { text: string }[]; }
+const { data } = Astro.props as { data: StripData };
+---
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>
+      {data.items.map(i => <>{i.text} <span class="star">★</span> </>)}
+    </span>
+    <span aria-hidden="true">
+      {data.items.map(i => <>{i.text} <span class="star">★</span> </>)}
+    </span>
+  </div>
+</div>
