@@ -9,10 +9,8 @@ public_folder: "/uploads"
 collections:
   - name: homepage
     label: Homepage
-    folder: "_migration/src/content/homepage"
     format: frontmatter
     extension: md
-    create: false
     files:
       - name: hero
         label: Hero
