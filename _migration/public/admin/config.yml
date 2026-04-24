@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: Bruiserhq/encodedbrands.com
-  branch: migration/phase-0-astro
+  branch: homepage/rebuild-v1
 
 media_folder: "_migration/public/uploads"
 public_folder: "/uploads"
