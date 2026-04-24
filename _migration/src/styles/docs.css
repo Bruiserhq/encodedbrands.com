@@ -82,7 +82,7 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--accent);
   transform: translateY(-1px);
 }
-.btn .arrow { transition: transform .2s ease; }
+.btn .arrow { transition: transform .2s ease; display: inline-block; text-decoration: none; }
 .btn:hover .arrow { transform: translateX(3px); }
 .btn.ghost {
   background: transparent;
