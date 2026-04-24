@@ -121,6 +121,91 @@ const pages = defineCollection({
     meta_right: z.string().optional(),
     hero_heading: z.string().optional(),
     hero_lede: z.string().optional(),
+
+    // /start — step 1
+    step1_idx: z.string().optional(),
+    step1_sub: z.string().optional(),
+    step1_heading: z.string().optional(),
+    step1_intro: z.string().optional(),
+    callout_1: z.string().optional(),
+    callout_2_label: z.string().optional(),
+    callout_2: z.string().optional(),
+
+    // /start — step 2
+    step2_idx: z.string().optional(),
+    step2_sub: z.string().optional(),
+    step2_heading: z.string().optional(),
+    step2_intro: z.string().optional(),
+    step2_list_intro: z.string().optional(),
+    step2_items: z.array(z.object({ text: z.string() })).optional(),
+    step2_outro: z.string().optional(),
+
+    // /start — step 3
+    step3_idx: z.string().optional(),
+    step3_sub: z.string().optional(),
+    step3_heading: z.string().optional(),
+    step3_intro: z.string().optional(),
+    paths: z.array(z.object({
+      tag: z.string(),
+      title: z.string(),
+      body: z.string(),
+      cta_label: z.string(),
+      cta_href: z.string(),
+    })).optional(),
+
+    // /start — alt (CLI)
+    alt_idx: z.string().optional(),
+    alt_sub: z.string().optional(),
+    alt_heading: z.string().optional(),
+    alt_intro: z.string().optional(),
+    alt_outro: z.string().optional(),
+
+    // /start — closing
+    closing_heading: z.string().optional(),
+    closing_body: z.string().optional(),
+    closing_ctas: z.array(z.object({
+      label: z.string(),
+      href: z.string(),
+      ghost: z.boolean().default(false),
+    })).optional(),
+
+    // /encode — tiers
+    tiers: z.array(z.object({
+      id: z.string(),
+      idx: z.string(),
+      price: z.string(),
+      heading: z.string(),
+      intros: z.array(z.object({ text: z.string() })).optional(),
+      deliverables: z.array(z.object({
+        tag: z.string(),
+        title: z.string(),
+        body: z.string(),
+      })).optional(),
+      ctas: z.array(z.object({
+        label: z.string(),
+        href: z.string(),
+        ghost: z.boolean().default(false),
+      })).optional(),
+    })).optional(),
+
+    // /encode — comparison
+    compare_idx: z.string().optional(),
+    compare_heading: z.string().optional(),
+    compare_head_free: z.string().optional(),
+    compare_head_session: z.string().optional(),
+    compare_head_sprint: z.string().optional(),
+    compare_rows: z.array(z.object({
+      label: z.string(),
+      free: z.string(),
+      session: z.string(),
+      sprint: z.string(),
+    })).optional(),
+
+    // /encode — encoder
+    encoder_idx: z.string().optional(),
+    encoder_price: z.string().optional(),
+    encoder_heading: z.string().optional(),
+    encoder_body: z.string().optional(),
   }),
 });
 

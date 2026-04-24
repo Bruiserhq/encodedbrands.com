@@ -251,6 +251,57 @@ collections:
           - { name: meta_right, label: "Hero meta — right", widget: string }
           - { name: hero_heading, label: "Hero heading (HTML allowed)", widget: text }
           - { name: hero_lede, label: "Hero lede (HTML allowed)", widget: text }
+
+          - { name: step1_idx, label: "Step 01 — index label", widget: string }
+          - { name: step1_sub, label: "Step 01 — sub label", widget: string }
+          - { name: step1_heading, label: "Step 01 — heading (HTML allowed)", widget: string }
+          - { name: step1_intro, label: "Step 01 — intro (HTML allowed)", widget: text }
+          - { name: callout_1, label: "Callout 1 (HTML allowed)", widget: text }
+          - { name: callout_2_label, label: "Callout 2 — small label", widget: string }
+          - { name: callout_2, label: "Callout 2 — body (HTML allowed)", widget: text }
+
+          - { name: step2_idx, label: "Step 02 — index label", widget: string }
+          - { name: step2_sub, label: "Step 02 — sub label", widget: string }
+          - { name: step2_heading, label: "Step 02 — heading (HTML allowed)", widget: string }
+          - { name: step2_intro, label: "Step 02 — intro (HTML allowed)", widget: text }
+          - { name: step2_list_intro, label: "Step 02 — list intro", widget: string, required: false }
+          - name: step2_items
+            label: "Step 02 — list items (HTML allowed)"
+            widget: list
+            fields:
+              - { name: text, label: Text, widget: text }
+          - { name: step2_outro, label: "Step 02 — outro (HTML allowed)", widget: text }
+
+          - { name: step3_idx, label: "Step 03 — index label", widget: string }
+          - { name: step3_sub, label: "Step 03 — sub label", widget: string }
+          - { name: step3_heading, label: "Step 03 — heading (HTML allowed)", widget: string }
+          - { name: step3_intro, label: "Step 03 — intro (HTML allowed)", widget: text }
+          - name: paths
+            label: "Step 03 — paths"
+            widget: list
+            fields:
+              - { name: tag, label: "Tag", widget: string }
+              - { name: title, label: "Title (HTML allowed)", widget: string }
+              - { name: body, label: "Body (HTML allowed)", widget: text }
+              - { name: cta_label, label: "CTA label", widget: string }
+              - { name: cta_href, label: "CTA URL", widget: string }
+
+          - { name: alt_idx, label: "CLI — index label", widget: string }
+          - { name: alt_sub, label: "CLI — sub label", widget: string }
+          - { name: alt_heading, label: "CLI — heading (HTML allowed)", widget: string }
+          - { name: alt_intro, label: "CLI — intro (HTML allowed)", widget: text }
+          - { name: alt_outro, label: "CLI — outro (HTML allowed)", widget: text }
+
+          - { name: closing_heading, label: "Closing — heading (HTML allowed)", widget: string }
+          - { name: closing_body, label: "Closing — body (HTML allowed)", widget: text }
+          - name: closing_ctas
+            label: "Closing — CTAs"
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: URL, widget: string }
+              - { name: ghost, label: "Ghost style?", widget: boolean, default: false }
+
       - name: encode
         label: "/encode"
         file: "_migration/src/content/pages/encode.md"
@@ -261,6 +312,63 @@ collections:
           - { name: meta_right, label: "Hero meta — right", widget: string }
           - { name: hero_heading, label: "Hero heading (HTML allowed)", widget: text }
           - { name: hero_lede, label: "Hero lede (HTML allowed)", widget: text }
+
+          - name: tiers
+            label: "Tiers (Free / Expert Session / Sprint)"
+            widget: list
+            fields:
+              - { name: id, label: "Anchor ID (e.g. free, expert-session)", widget: string }
+              - { name: idx, label: "Index label", widget: string }
+              - { name: price, label: "Price label", widget: string }
+              - { name: heading, label: "Heading (HTML allowed)", widget: string }
+              - name: intros
+                label: "Intro paragraphs"
+                widget: list
+                fields:
+                  - { name: text, label: Text (HTML allowed), widget: text }
+              - name: deliverables
+                label: "Deliverables"
+                widget: list
+                fields:
+                  - { name: tag, label: "Tag", widget: string }
+                  - { name: title, label: "Title (HTML allowed)", widget: string }
+                  - { name: body, label: "Body (HTML allowed)", widget: text }
+              - name: ctas
+                label: "CTAs"
+                widget: list
+                fields:
+                  - { name: label, label: Label, widget: string }
+                  - { name: href, label: URL, widget: string }
+                  - { name: ghost, label: "Ghost style?", widget: boolean, default: false }
+
+          - { name: compare_idx, label: "Compare — index label", widget: string }
+          - { name: compare_heading, label: "Compare — heading (HTML allowed)", widget: string }
+          - { name: compare_head_free, label: "Compare — Free column header", widget: string }
+          - { name: compare_head_session, label: "Compare — Session column header", widget: string }
+          - { name: compare_head_sprint, label: "Compare — Sprint column header", widget: string }
+          - name: compare_rows
+            label: "Compare — rows"
+            widget: list
+            fields:
+              - { name: label, label: "Row label", widget: string }
+              - { name: free, label: "Free column", widget: string }
+              - { name: session, label: "Session column", widget: string }
+              - { name: sprint, label: "Sprint column", widget: string }
+
+          - { name: encoder_idx, label: "Encoder — index label", widget: string }
+          - { name: encoder_price, label: "Encoder — price label", widget: string }
+          - { name: encoder_heading, label: "Encoder — heading (HTML allowed)", widget: string }
+          - { name: encoder_body, label: "Encoder — body (use blank line between paragraphs; HTML allowed)", widget: text }
+
+          - { name: closing_heading, label: "Closing — heading (HTML allowed)", widget: string }
+          - { name: closing_body, label: "Closing — body (HTML allowed)", widget: text }
+          - name: closing_ctas
+            label: "Closing — CTAs"
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: URL, widget: string }
+              - { name: ghost, label: "Ghost style?", widget: boolean, default: false }
       - name: docs
         label: "/docs"
         file: "_migration/src/content/pages/docs.md"

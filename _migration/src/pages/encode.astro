@@ -578,160 +578,54 @@ footer {
   </div>
 </header>
 
-<!-- TIER 01 — FREE -->
-<section class="tier-section" id="free">
-  <div class="wrap">
-    <div class="tier-head">
-      <div>
-        <div class="idx">Tier 01</div>
-        <div class="price">Free · Forever</div>
-      </div>
-      <h2>Fork it <em>yourself</em>.</h2>
-    </div>
-    <div class="tier-body">
-      <div class="spacer"></div>
-      <div>
-        <p>The spec is CC BY 4.0. The reference template is MIT. Copy the prompt from our <a class="link" href="/start">Start page</a>, paste it into any AI, and get a complete BCP tree in fifteen minutes. Publish it at your domain. <b>No signup. No account. No catch.</b></p>
-        <p>This is the real product. We built the protocol so it could be adopted without us. If you never pay Encoded a dollar and your brand has a working BCP, we succeeded.</p>
-
-        <div class="deliverables">
-          <div class="deliverable">
-            <div class="tag">Included</div>
-            <h4>BCP authoring <em>prompt</em></h4>
-            <p>A senior brand strategist compressed into a single prompt. It interviews you, pushes back on vague answers, and produces seven files.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Included</div>
-            <h4>Reference <em>template</em></h4>
-            <p>MIT-licensed repo with all seven files, hosting configs for Cloudflare/Vercel/Netlify, and CORS headers pre-configured.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Included</div>
-            <h4>Publishing <em>docs</em></h4>
-            <p>Step-by-step instructions for every major hosting platform. MIME types, DNS, headers — everything you need.</p>
-          </div>
+{page.tiers?.map((t: any) => (
+  <section class="tier-section" id={t.id}>
+    <div class="wrap">
+      <div class="tier-head">
+        <div>
+          <div class="idx">{t.idx}</div>
+          <div class="price">{t.price}</div>
         </div>
-
-        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn accent-bg" href="/start">Copy the prompt <span class="arrow">→</span></a>
-          <a class="btn ghost" href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">Fork the template</a>
-        </div>
+        <h2 set:html={t.heading}></h2>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="tier-body">
+        <div class="spacer"></div>
+        <div>
+          {t.intros?.map((p: any) => <p set:html={p.text}></p>)}
 
-<!-- TIER 02 — EXPERT SESSION -->
-<section class="tier-section" id="expert-session">
-  <div class="wrap">
-    <div class="tier-head">
-      <div>
-        <div class="idx">Tier 02</div>
-        <div class="price">$1,500 · One-time</div>
-      </div>
-      <h2>Expert <em>Session</em>.</h2>
-    </div>
-    <div class="tier-body">
-      <div class="spacer"></div>
-      <div>
-        <p>A 90-minute working session with a senior brand strategist. You bring your existing brand materials — or the draft BCP you made with our free prompt. We sharpen it, challenge it, and <b>get it live on your domain before the call ends</b>.</p>
-        <p>This isn't a consultation. It's a <b>working session with a deliverable</b>. You leave with a production-ready BCP published at your domain, not a deck full of recommendations.</p>
+          <div class="deliverables">
+            {t.deliverables?.map((d: any) => (
+              <div class="deliverable">
+                <div class="tag">{d.tag}</div>
+                <h4 set:html={d.title}></h4>
+                <p set:html={d.body}></p>
+              </div>
+            ))}
+          </div>
 
-        <div class="deliverables">
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>90-min <em>session</em></h4>
-            <p>Video call with a senior strategist. We interview, challenge, and refine — live. You talk, we type.</p>
+          <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+            {t.ctas?.map((c: any) => (
+              <a
+                class={`btn${c.ghost ? " ghost" : " accent-bg"}`}
+                href={c.href}
+                {...(c.href?.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}
+              >
+                {c.label}{!c.ghost && <> <span class="arrow">→</span></>}
+              </a>
+            ))}
           </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>Production <em>BCP</em></h4>
-            <p>Seven markdown files, professionally authored, committed to a Git repo you own.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>Hosted &amp; <em>live</em></h4>
-            <p>We deploy your BCP to your domain during the session. You leave with a working <code>/.well-known/brand.md</code>.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>30-day <em>revisions</em></h4>
-            <p>Change your mind on something? Email us within 30 days and we'll update the files.</p>
-          </div>
-        </div>
-
-        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn accent-bg" href="mailto:hello@encodedbrands.com?subject=Expert%20Session">Book an Expert Session <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TIER 03 — ENCODING SPRINT -->
-<section class="tier-section" id="encoding-sprint">
-  <div class="wrap">
-    <div class="tier-head">
-      <div>
-        <div class="idx">Tier 03</div>
-        <div class="price">$15,000 · One-time</div>
-      </div>
-      <h2>Encoding <em>Sprint</em>.</h2>
-    </div>
-    <div class="tier-body">
-      <div class="spacer"></div>
-      <div>
-        <p>The full job. We embed with your team for a week — interviewing stakeholders, auditing existing brand materials, mapping your competitive position, and producing a <b>comprehensive BCP tree that represents your brand the way you'd want it represented</b> to every AI agent in your stack.</p>
-        <p>This is brand strategy work, not template-filling. We challenge assumptions, resolve contradictions between what your brand says and what it does, and produce files that are <b>specific enough to actually constrain agent behavior</b>.</p>
-
-        <div class="deliverables">
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>Stakeholder <em>interviews</em></h4>
-            <p>We talk to founders, marketing leads, product, and customer-facing staff. The BCP reflects the real brand, not just marketing's version.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>Brand <em>audit</em></h4>
-            <p>We read everything — decks, guidelines, website copy, competitor positioning, customer reviews. We find the gaps.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>Full BCP <em>tree</em></h4>
-            <p>Seven files, deeply researched, precisely written. Claims verified. Boundaries mapped to IAB/GARM taxonomies. Voice calibrated against real copy.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>Deployed &amp; <em>documented</em></h4>
-            <p>Hosted at your domain. Git repo with full commit history. Internal README so your team knows how to update it.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>Agent <em>testing</em></h4>
-            <p>We test your BCP against ChatGPT, Claude, Perplexity, and Gemini. We verify the agents actually read it and represent you correctly.</p>
-          </div>
-          <div class="deliverable">
-            <div class="tag">Delivered</div>
-            <h4>90-day <em>support</em></h4>
-            <p>Quarterly review, unlimited revisions, and a direct line to your strategist for 90 days after delivery.</p>
-          </div>
-        </div>
-
-        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn accent-bg" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint">Start an Encoding Sprint <span class="arrow">→</span></a>
-          <a class="btn ghost" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint%20—%20Questions">I have questions first</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+))}
 
 <!-- COMPARISON TABLE -->
 <section class="compare">
   <div class="wrap">
     <div class="compare-head">
-      <div class="idx">Compare</div>
-      <h2>What you get at <em>each tier</em>.</h2>
+      <div class="idx">{page.compare_idx}</div>
+      <h2 set:html={page.compare_heading}></h2>
     </div>
 
     <div style="overflow-x:auto">
@@ -739,72 +633,20 @@ footer {
         <thead>
           <tr>
             <th style="min-width:200px"></th>
-            <th>Free</th>
-            <th>Expert Session · $1.5k</th>
-            <th>Encoding Sprint · $15k</th>
+            <th>{page.compare_head_free}</th>
+            <th>{page.compare_head_session}</th>
+            <th>{page.compare_head_sprint}</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>BCP authoring prompt</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Reference template repo</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Publishing docs</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Senior strategist session</td>
-            <td class="dash">—</td>
-            <td class="check">90 min</td>
-            <td class="check">Full week</td>
-          </tr>
-          <tr>
-            <td>Professional BCP authoring</td>
-            <td class="dash">—</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Stakeholder interviews</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Brand audit</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Hosted & deployed</td>
-            <td class="dash">—</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Agent testing & verification</td>
-            <td class="dash">—</td>
-            <td class="dash">—</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Post-delivery support</td>
-            <td class="dash">—</td>
-            <td>30 days</td>
-            <td>90 days</td>
-          </tr>
+          {page.compare_rows?.map((r: any) => (
+            <tr>
+              <td>{r.label}</td>
+              <td class={r.free === "✓" ? "check" : r.free === "—" ? "dash" : ""}>{r.free}</td>
+              <td class={r.session === "✓" ? "check" : r.session === "—" ? "dash" : ""}>{r.session}</td>
+              <td class={r.sprint === "✓" ? "check" : r.sprint === "—" ? "dash" : ""}>{r.sprint}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -816,16 +658,15 @@ footer {
   <div class="wrap">
     <div class="tier-head">
       <div>
-        <div class="idx">Coming soon</div>
-        <div class="price">Self-serve tool</div>
+        <div class="idx">{page.encoder_idx}</div>
+        <div class="price">{page.encoder_price}</div>
       </div>
-      <h2>Encoder<em>.</em></h2>
+      <h2 set:html={page.encoder_heading}></h2>
     </div>
     <div class="tier-body">
       <div class="spacer"></div>
       <div>
-        <p>A self-serve tool that guides you through the BCP authoring process with a structured UI instead of a raw prompt. <b>Currently in development.</b></p>
-        <p>If you want early access, <a class="link" href="mailto:hello@encodedbrands.com?subject=Encoder%20waitlist">join the waitlist</a>. We'll email you when it's ready. No spam — one email, when it ships.</p>
+        {(page.encoder_body ?? "").split("\n\n").map((para: string) => <p set:html={para}></p>)}
       </div>
     </div>
   </div>
@@ -834,12 +675,14 @@ footer {
 <!-- CLOSING CTA -->
 <section class="closing">
   <div class="wrap">
-    <h2>Every brand needs a BCP. <em>Start yours today.</em></h2>
-    <p>The free path is real. The prompt works. If you want help, we're here — but the protocol belongs to everyone.</p>
+    <h2 set:html={page.closing_heading}></h2>
+    <p set:html={page.closing_body}></p>
     <div class="ctas">
-      <a class="btn accent-bg big" href="/start">Copy the prompt — free <span class="arrow">→</span></a>
-      <a class="btn ghost big" href="mailto:hello@encodedbrands.com?subject=Expert%20Session">Book an Expert Session</a>
-      <a class="btn ghost big" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint">Start an Encoding Sprint</a>
+      {page.closing_ctas?.map((c: any) => (
+        <a class={`btn big${c.ghost ? " ghost" : " accent-bg"}`} href={c.href}>
+          {c.label}{!c.ghost && <> <span class="arrow">→</span></>}
+        </a>
+      ))}
     </div>
   </div>
 </section>
