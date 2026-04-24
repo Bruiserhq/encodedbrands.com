@@ -1,37 +1,44 @@
 ---
+import { getEntry } from "astro:content";
+
 interface Props {
   brandYaml: string;
   voicePreview: string;
 }
 const { brandYaml, voicePreview } = Astro.props as Props;
+
+const thesis = (await getEntry("homepage", "thesis"))!.data;
+const surfaces = (await getEntry("homepage", "surfaces"))!.data;
+const how = (await getEntry("homepage", "how"))!.data;
+const pricing = (await getEntry("homepage", "pricing"))!.data;
+const tech = (await getEntry("homepage", "tech"))!.data;
+const manifesto = (await getEntry("homepage", "manifesto"))!.data;
+const dogfood = (await getEntry("homepage", "dogfood"))!.data;
+const launch = (await getEntry("homepage", "launch"))!.data;
 ---
 <section id="thesis" class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="idx">§ 01 · Why it matters</div>
-      <h2>Brand is <em>more</em> valuable in the agentic age, not less.</h2>
+      <div class="idx">{thesis.idx}</div>
+      <h2 set:html={thesis.heading}></h2>
     </div>
 
     <div class="idx-grid" style="margin-top:56px">
-      <div class="section-idx">01.1</div>
-      <p class="lede">
-        Most companies will get this <span class="strike">wrong</span>. They'll treat brand as a cost center to automate past. They'll save on headcount and discover, two years in, that their agents are producing copy in a voice that isn't theirs, media buys that miss their positioning, and ChatGPT describing them to customers using words they'd never put in writing.
-      </p>
+      <div class="section-idx">{thesis.lede_idx}</div>
+      <p class="lede" set:html={thesis.lede}></p>
     </div>
 
     <div class="idx-grid" style="margin-top:56px">
-      <div class="section-idx">01.2</div>
+      <div class="section-idx">{thesis.body_idx}</div>
       <div class="body-text">
-        <p>The knowledge that makes your brand distinctive lives in senior marketers' heads. The judgment calls. The <i>'we don't say it that way.'</i> The instinct for what's on-brand at the edge. That's the value a brand consultancy has always sold. It's also the value agents can't access.</p>
-        <p>When your marketing team is half agents, your own and your vendors', brand fidelity stops being a guidelines problem. It becomes an infrastructure problem. Every agent in the stack needs a version of that senior strategist's judgment, on call, in a form they can read.</p>
-        <p>That's what Encoded builds. We encode the tacit work of brand into a file every agent reads before it acts. Authored once. Consumed everywhere. <b>Brand-led. Technically rigorous. Open standard.</b></p>
+        {thesis.body_paragraphs?.map((p: any) => <p set:html={p.text}></p>)}
       </div>
     </div>
 
     <div class="idx-grid pull-quote" style="margin-top:64px">
-      <div class="section-idx">The thought</div>
+      <div class="section-idx">{thesis.quote_idx}</div>
       <div>
-        <blockquote>In the world of agentic marketing, brand fidelity becomes an <em>infrastructure</em> problem, not a guidelines problem.</blockquote>
+        <blockquote set:html={thesis.quote}></blockquote>
       </div>
     </div>
   </div>
@@ -42,48 +49,23 @@ const { brandYaml, voicePreview } = Astro.props as Props;
 <section id="surfaces" class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="idx">§ 02 · Where your brand needs to live</div>
-      <h2>One spec. <em>Three</em> places it gets read.</h2>
+      <div class="idx">{surfaces.idx}</div>
+      <h2 set:html={surfaces.heading}></h2>
     </div>
 
-    <p class="smallprint" style="margin-top:28px;max-width:62ch">
-      Same file, different agents, different moments. Your BCP is designed to be consumed by your own team, across your vendor stack, and beyond your control. No rewriting for each audience.
-    </p>
+    <p class="smallprint" style="margin-top:28px;max-width:62ch">{surfaces.blurb}</p>
 
     <div class="surfaces">
-      <div class="surface">
-        <div class="num">Inside your team</div>
-        <h3>Your <em>own</em> agents.</h3>
-        <p>Copy, creative, media, compliance. The internal agent stack consumes <code>brand.md</code> to preserve senior-strategist judgment at machine scale. Every agent inherits the reflex on the first try.</p>
-        <div class="examples">
-          <span class="chip">copywriting</span>
-          <span class="chip">creative gen</span>
-          <span class="chip">media buying</span>
-          <span class="chip">review and approval</span>
+      {surfaces.cards?.map((c: any) => (
+        <div class="surface">
+          <div class="num">{c.num}</div>
+          <h3 set:html={c.title}></h3>
+          <p set:html={c.body}></p>
+          <div class="examples">
+            {c.chips?.map((chip: any) => <span class="chip">{chip.text}</span>)}
+          </div>
         </div>
-      </div>
-      <div class="surface">
-        <div class="num">Across your partners</div>
-        <h3>The <em>vendor</em> stack.</h3>
-        <p>Zefr, Canva, Adobe, Meta, The Trade Desk, DSPs, creative-gen tools. Their agents read your <code>brand.md</code> to make better calls on your behalf. Faster onboarding, sharper classification, fewer brand-safety misses.</p>
-        <div class="examples">
-          <span class="chip">Zefr BSP</span>
-          <span class="chip">Meta Advantage+</span>
-          <span class="chip">Adobe GenStudio</span>
-          <span class="chip">DSP briefs</span>
-        </div>
-      </div>
-      <div class="surface">
-        <div class="num">Beyond your control</div>
-        <h3>The <em>consumer</em> agents.</h3>
-        <p>ChatGPT, Claude, Perplexity, Gemini, agentic storefronts. BCP is the first time you get <i>input</i> into how third-party consumer agents describe your brand. You get input, not control.</p>
-        <div class="examples">
-          <span class="chip">ChatGPT</span>
-          <span class="chip">Perplexity</span>
-          <span class="chip">Gemini</span>
-          <span class="chip">agentic commerce</span>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
@@ -91,37 +73,29 @@ const { brandYaml, voicePreview } = Astro.props as Props;
 <section id="how" class="section" style="padding-top:0">
   <div class="wrap">
     <div class="section-head">
-      <div class="idx">§ · How it works</div>
-      <h2>Author once. <em>Publish</em>. Every agent reads it.</h2>
+      <div class="idx">{how.idx}</div>
+      <h2 set:html={how.heading}></h2>
     </div>
 
     <ol class="steps">
-      <li>
-        <div class="step-n">01</div>
-        <div>
-          <h3>Author your <em>brand.md</em>.</h3>
-          <p>Interview yourself with the free prompt, book an Expert Session, or commission a full Encoding Sprint. Output is a Git repo you own: <code>brand.md</code> plus six daughter files for voice, values, boundaries, claims, representation, and audiences.</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-n">02</div>
-        <div>
-          <h3>Publish at <em>your domain</em>.</h3>
-          <p>Host the files at <code>yourdomain.com/.well-known/brand.md</code>. Works on any static host: GitHub Pages, Cloudflare Pages, Vercel, Netlify, your own CDN. Ten-minute job for whoever ships your site.</p>
-        </div>
-      </li>
-      <li>
-        <div class="step-n">03</div>
-        <div>
-          <h3>Every agent <em>reads it</em>.</h3>
-          <p>Internal copy agents, vendor platforms, consumer AIs. They fetch your BCP before they act. Your brand shows up to each one with exactly the context that task requires.</p>
-        </div>
-      </li>
+      {how.steps?.map((s: any, i: number) => (
+        <li>
+          <div class="step-n">{String(i + 1).padStart(2, "0")}</div>
+          <div>
+            <h3 set:html={s.title}></h3>
+            <p set:html={s.body}></p>
+          </div>
+        </li>
+      ))}
     </ol>
 
     <div style="margin-top:40px;display:flex;gap:12px;flex-wrap:wrap">
-      <a class="btn accent-bg" href="/start">Start with the free prompt <span class="arrow">→</span></a>
-      <a class="btn ghost" href="/docs">Read the spec</a>
+      {how.cta_primary_label && (
+        <a class="btn accent-bg" href={how.cta_primary_href}>{how.cta_primary_label} <span class="arrow">→</span></a>
+      )}
+      {how.cta_secondary_label && (
+        <a class="btn ghost" href={how.cta_secondary_href}>{how.cta_secondary_label}</a>
+      )}
     </div>
   </div>
 </section>
@@ -129,97 +103,68 @@ const { brandYaml, voicePreview } = Astro.props as Props;
 <section id="pricing" class="section" style="padding-top:0">
   <div class="wrap">
     <div class="section-head">
-      <div class="idx">§ · Pricing</div>
-      <h2>Three levels of depth, applied to <em>your brand</em>.</h2>
+      <div class="idx">{pricing.idx}</div>
+      <h2 set:html={pricing.heading}></h2>
     </div>
 
-    <p class="smallprint" style="margin-top:28px;max-width:62ch">
-      Not three ways to get the same file. Three different degrees of strategic rigor. Pick the one that matches how load-bearing your brand is.
-    </p>
+    <p class="smallprint" style="margin-top:28px;max-width:62ch">{pricing.blurb}</p>
 
     <div class="pricing">
-      <div class="tier">
-        <div class="tier-tag">Free</div>
-        <div class="tier-price"><span class="num">$0</span><span class="per">your AI, your time</span></div>
-        <h3>Self-authored.</h3>
-        <p>Copy our prompt. Paste it into Claude, ChatGPT, Cowork, or Gemini. Answer the interview. You get a first-draft BCP in about 15 minutes. Honest about what it is: a strong draft, not a final product.</p>
-        <ul class="tier-list">
-          <li>The full authoring prompt, verbatim</li>
-          <li>Seven markdown files you can publish today</li>
-          <li>No signup, no account, no agency</li>
-        </ul>
-        <a class="btn ghost" href="/start">Copy the prompt <span class="arrow">→</span></a>
-      </div>
-
-      <div class="tier popular">
-        <div class="tier-badge">Most popular</div>
-        <div class="tier-tag">Expert Session</div>
-        <div class="tier-price"><span class="num">$1,500</span><span class="per">90 minutes with a strategist</span></div>
-        <h3>Structured, opinionated, reviewed.</h3>
-        <p>Self-service run through our opinionated corpus, then a senior strategist reviews your draft, catches the gaps your AI missed, and sharpens voice, values, and boundaries. You leave with a BCP that's ready to ship.</p>
-        <ul class="tier-list">
-          <li>Our internal BCP authoring corpus</li>
-          <li>90-minute review session, recorded</li>
-          <li>One round of revisions on the output</li>
-        </ul>
-        <a class="btn accent-bg" href="mailto:hello@encodedbrands.com?subject=Expert%20Session%20-%20%241%2C500">Book an Expert Session <span class="arrow">→</span></a>
-      </div>
-
-      <div class="tier">
-        <div class="tier-tag">Encoding Sprint</div>
-        <div class="tier-price"><span class="num">$15,000</span><span class="per">one-week engagement</span></div>
-        <h3>Senior judgment, applied.</h3>
-        <p>A senior brand strategist takes your existing materials, interviews the people with the decisions in their heads, and writes a production BCP applied to your brand. The judgment an automated flow can't reach. Legal-reviewed claims, competitive positioning, platform-ready boundaries.</p>
-        <ul class="tier-list">
-          <li>Stakeholder interviews, positioning work</li>
-          <li>Legal-reviewed claims and boundaries</li>
-          <li>Launched on your domain, your repo</li>
-        </ul>
-        <a class="btn ghost" href="mailto:hello@encodedbrands.com?subject=Encoding%20Sprint%20-%20%2415K">Start a Sprint <span class="arrow">→</span></a>
-      </div>
+      {pricing.tiers?.map((t: any) => (
+        <div class={`tier${t.popular ? " popular" : ""}`}>
+          {t.popular && <div class="tier-badge">Most popular</div>}
+          <div class="tier-tag">{t.tag}</div>
+          <div class="tier-price"><span class="num">{t.price_num}</span><span class="per">{t.price_per}</span></div>
+          <h3 set:html={t.title}></h3>
+          <p set:html={t.body}></p>
+          <ul class="tier-list">
+            {t.features?.map((f: any) => <li set:html={f.text}></li>)}
+          </ul>
+          <a class={`btn${t.cta_accent ? " accent-bg" : " ghost"}`} href={t.cta_href}>{t.cta_label} <span class="arrow">→</span></a>
+        </div>
+      ))}
     </div>
 
-    <p class="smallprint" style="margin-top:28px;max-width:62ch">
-      Enterprise engagements scale up from Sprint. <a href="mailto:hello@encodedbrands.com?subject=Enterprise" style="color:var(--accent)">Talk to us</a> if your brand is load-bearing on a ~nine-figure basis.
-    </p>
+    {pricing.footer && (
+      <p class="smallprint" style="margin-top:28px;max-width:62ch" set:html={pricing.footer}></p>
+    )}
   </div>
 </section>
 
 <section id="protocol" class="section" style="padding-top:0">
   <div class="wrap">
     <div class="section-head">
-      <div class="idx">§ · For the technically curious</div>
-      <h2>It's <em>markdown</em>. Under version control. At a well-known path.</h2>
+      <div class="idx">{tech.idx}</div>
+      <h2 set:html={tech.heading}></h2>
     </div>
 
-    <p class="smallprint" style="margin-top:28px;max-width:62ch">
-      The root file's YAML frontmatter, pulled live from our repo at build time. Same structure every BCP gets.
-    </p>
+    <p class="smallprint" style="margin-top:28px;max-width:62ch">{tech.blurb}</p>
 
     <aside class="dark-card" style="margin-top:36px" aria-label="Live brand.md frontmatter">
       <div class="dark-card-head">
-        <span>encodedbrands.com/.well-known/brand.md</span>
-        <span>live · pulled at build</span>
+        <span>{tech.card_title}</span>
+        <span>{tech.card_meta}</span>
       </div>
       <pre>{brandYaml}</pre>
     </aside>
 
-    <p class="smallprint" style="margin-top:28px;max-width:62ch">
-      Spec under CC BY 4.0, reference code under MIT. <a href="/docs" style="color:var(--accent)">Read the full spec at /docs</a>.
-    </p>
+    {tech.footer && (
+      <p class="smallprint" style="margin-top:28px;max-width:62ch" set:html={tech.footer}></p>
+    )}
   </div>
 </section>
 
 <section class="manifesto">
   <div class="wrap">
-    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>&nbsp;Manifesto</p>
+    <p class="eyebrow"><span class="dot" aria-hidden="true"></span>&nbsp;{manifesto.eyebrow}</p>
 
     <div class="idx-grid" style="margin-top:36px">
-      <div class="section-idx">§ · Manifesto</div>
+      <div class="section-idx">{manifesto.idx}</div>
       <div>
-        <blockquote style="font-family:var(--serif);font-size:clamp(28px,3.2vw,44px);line-height:1.2;margin:0;font-style:italic">
-          The brand deck <em>rotting</em> on a shared drive is the antagonist of this decade. Your agents can't read it. Your vendors won't. ChatGPT never will.
-        </blockquote>
+        <blockquote
+          style="font-family:var(--serif);font-size:clamp(28px,3.2vw,44px);line-height:1.2;margin:0;font-style:italic"
+          set:html={manifesto.quote}
+        ></blockquote>
       </div>
     </div>
   </div>
@@ -228,31 +173,33 @@ const { brandYaml, voicePreview } = Astro.props as Props;
 <section id="dogfood" class="section">
   <div class="wrap">
     <div class="section-head">
-      <div class="idx">§ · We use it ourselves</div>
-      <h2>We <em>ship</em> our own brand as BCP.</h2>
+      <div class="idx">{dogfood.idx}</div>
+      <h2 set:html={dogfood.heading}></h2>
     </div>
 
     <div class="dogfood">
       <div class="dogfood-left">
-        <div class="kicker">Reference implementation</div>
-        <h3>Our brand is <em>a repo you can fork.</em></h3>
-        <p>A brand consultancy that can't encode its own brand into BCP has a credibility problem. So we ship ours in public, at <b>encodedbrands.com/.well-known/brand.md</b>. It's the reference template every brand forks.</p>
-        <p>The snippet on the right is pulled live from our <code>voice.md</code> at build. It's the same file our copy agents read before they write anything under the Encoded name.</p>
+        <div class="kicker">{dogfood.kicker}</div>
+        <h3 set:html={dogfood.sub_heading}></h3>
+        {dogfood.body_paragraphs?.map((p: any) => <p set:html={p.text}></p>)}
         <div class="meta">
-          <span>License: <b>CC BY 4.0</b> (spec), <b>MIT</b> (code)</span>
-          <span>Version: <b>0.1.0</b></span>
+          {dogfood.meta?.map((m: any) => <span set:html={m.text}></span>)}
         </div>
         <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn" href="/.well-known/brand.md">Read our brand.md <span class="arrow">→</span></a>
-          <a class="btn ghost" href="https://github.com/Bruiserhq/encodedbrands.com" target="_blank" rel="noopener">Fork the template</a>
+          {dogfood.cta_primary_label && (
+            <a class="btn" href={dogfood.cta_primary_href}>{dogfood.cta_primary_label} <span class="arrow">→</span></a>
+          )}
+          {dogfood.cta_secondary_label && (
+            <a class="btn ghost" href={dogfood.cta_secondary_href} target="_blank" rel="noopener">{dogfood.cta_secondary_label}</a>
+          )}
         </div>
       </div>
 
       <div class="code-block" aria-label="voice.md preview, live">
         <div class="code-head">
           <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span>encoded / .well-known / brand / voice.md</span>
-          <span>live</span>
+          <span>{dogfood.code_card_title}</span>
+          <span>{dogfood.code_card_meta}</span>
         </div>
         <pre class="code-body">{voicePreview}</pre>
       </div>
@@ -265,14 +212,18 @@ const { brandYaml, voicePreview } = Astro.props as Props;
 <section id="launch" class="launch">
   <div class="wrap">
     <div class="idx-grid" style="align-items:baseline">
-      <div class="section-idx">§ · Launch</div>
+      <div class="section-idx">{launch.idx}</div>
       <div>
-        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>&nbsp;Now encoding founding brands</p>
-        <h2>Author your BCP before <em>the category</em> authors it for you.</h2>
-        <p>We're encoding a small cohort of founding brands. Live platform integrations, co-announcement at launch, logo rights, hosting, versioning, and founding-customer status on paid tiers.</p>
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>&nbsp;{launch.eyebrow}</p>
+        <h2 set:html={launch.heading}></h2>
+        <p set:html={launch.body}></p>
         <div class="cta-row">
-          <a class="btn" href="mailto:hello@encodedbrands.com?subject=Founding%20brand%20partner">Become a founding partner <span class="arrow">→</span></a>
-          <a class="btn ghost" href="/docs">Read the v0.1 spec</a>
+          {launch.cta_primary_label && (
+            <a class="btn" href={launch.cta_primary_href}>{launch.cta_primary_label} <span class="arrow">→</span></a>
+          )}
+          {launch.cta_secondary_label && (
+            <a class="btn ghost" href={launch.cta_secondary_href}>{launch.cta_secondary_label}</a>
+          )}
         </div>
       </div>
     </div>

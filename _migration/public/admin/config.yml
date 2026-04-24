@@ -61,6 +61,144 @@ collections:
             fields:
               - { name: text, label: Text, widget: string }
 
+      - name: thesis
+        label: "§01 Why it matters"
+        file: "_migration/src/content/homepage/thesis.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: heading, label: "Heading (HTML allowed)", widget: text }
+          - { name: lede_idx, label: "Lede index", widget: string }
+          - { name: lede, label: "Lede (HTML allowed)", widget: text }
+          - { name: body_idx, label: "Body index", widget: string }
+          - name: body_paragraphs
+            label: "Body paragraphs"
+            widget: list
+            fields:
+              - { name: text, label: Text (HTML allowed), widget: text }
+          - { name: quote_idx, label: "Quote index label", widget: string }
+          - { name: quote, label: "Pull quote (HTML allowed)", widget: text }
+
+      - name: surfaces
+        label: "§02 Where your brand lives"
+        file: "_migration/src/content/homepage/surfaces.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: heading, label: "Heading (HTML allowed)", widget: text }
+          - { name: blurb, label: "Blurb", widget: text }
+          - name: cards
+            label: "Surface cards"
+            widget: list
+            fields:
+              - { name: num, label: "Number/label", widget: string }
+              - { name: title, label: "Title (HTML allowed)", widget: string }
+              - { name: body, label: "Body (HTML allowed)", widget: text }
+              - name: chips
+                label: "Chips"
+                widget: list
+                fields:
+                  - { name: text, label: Text, widget: string }
+
+      - name: how
+        label: "How it works"
+        file: "_migration/src/content/homepage/how.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: heading, label: "Heading (HTML allowed)", widget: text }
+          - name: steps
+            label: "Steps"
+            widget: list
+            fields:
+              - { name: title, label: "Title (HTML allowed)", widget: string }
+              - { name: body, label: "Body (HTML allowed)", widget: text }
+          - { name: cta_primary_label, label: "Primary CTA label", widget: string }
+          - { name: cta_primary_href, label: "Primary CTA URL", widget: string }
+          - { name: cta_secondary_label, label: "Secondary CTA label", widget: string }
+          - { name: cta_secondary_href, label: "Secondary CTA URL", widget: string }
+
+      - name: pricing
+        label: "Pricing"
+        file: "_migration/src/content/homepage/pricing.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: heading, label: "Heading (HTML allowed)", widget: text }
+          - { name: blurb, label: "Blurb", widget: text }
+          - name: tiers
+            label: "Tiers"
+            widget: list
+            fields:
+              - { name: popular, label: "Most popular?", widget: boolean, default: false }
+              - { name: tag, label: "Tag", widget: string }
+              - { name: price_num, label: "Price", widget: string }
+              - { name: price_per, label: "Price subtitle", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: body, label: "Body", widget: text }
+              - name: features
+                label: "Features"
+                widget: list
+                fields:
+                  - { name: text, label: Text, widget: string }
+              - { name: cta_label, label: "CTA label", widget: string }
+              - { name: cta_href, label: "CTA URL", widget: string }
+              - { name: cta_accent, label: "Accent button?", widget: boolean, default: false }
+          - { name: footer, label: "Footer (HTML allowed)", widget: text }
+
+      - name: tech
+        label: "For the technically curious"
+        file: "_migration/src/content/homepage/tech.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: heading, label: "Heading (HTML allowed)", widget: text }
+          - { name: blurb, label: "Blurb", widget: text }
+          - { name: card_title, label: "Code card title", widget: string }
+          - { name: card_meta, label: "Code card meta", widget: string }
+          - { name: footer, label: "Footer (HTML allowed)", widget: text }
+
+      - name: manifesto
+        label: "Manifesto"
+        file: "_migration/src/content/homepage/manifesto.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: eyebrow, label: "Eyebrow", widget: string }
+          - { name: quote, label: "Quote (HTML allowed)", widget: text }
+
+      - name: dogfood
+        label: "We use it ourselves"
+        file: "_migration/src/content/homepage/dogfood.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: heading, label: "Heading (HTML allowed)", widget: text }
+          - { name: kicker, label: "Kicker", widget: string }
+          - { name: sub_heading, label: "Sub-heading (HTML allowed)", widget: string }
+          - name: body_paragraphs
+            label: "Body paragraphs"
+            widget: list
+            fields:
+              - { name: text, label: Text (HTML allowed), widget: text }
+          - name: meta
+            label: "Meta items"
+            widget: list
+            fields:
+              - { name: text, label: Text (HTML allowed), widget: string }
+          - { name: cta_primary_label, label: "Primary CTA label", widget: string }
+          - { name: cta_primary_href, label: "Primary CTA URL", widget: string }
+          - { name: cta_secondary_label, label: "Secondary CTA label", widget: string }
+          - { name: cta_secondary_href, label: "Secondary CTA URL", widget: string }
+          - { name: code_card_title, label: "Code card title", widget: string }
+          - { name: code_card_meta, label: "Code card meta", widget: string }
+
+      - name: launch
+        label: "Launch"
+        file: "_migration/src/content/homepage/launch.md"
+        fields:
+          - { name: idx, label: "Index label", widget: string }
+          - { name: eyebrow, label: "Eyebrow", widget: string }
+          - { name: heading, label: "Heading (HTML allowed)", widget: text }
+          - { name: body, label: "Body (HTML allowed)", widget: text }
+          - { name: cta_primary_label, label: "Primary CTA label", widget: string }
+          - { name: cta_primary_href, label: "Primary CTA URL", widget: string }
+          - { name: cta_secondary_label, label: "Secondary CTA label", widget: string }
+          - { name: cta_secondary_href, label: "Secondary CTA URL", widget: string }
+
   - name: site
     label: Site
     files:
