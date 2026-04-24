@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" width="360" height="100" role="img" aria-label="encoded_brands">
+  <g transform="translate(10, 8)">
+    <circle cx="10" cy="10" r="10" fill="currentColor"/>
+    <circle cx="38" cy="10" r="10" fill="currentColor"/>
+    <circle cx="66" cy="10" r="10" fill="currentColor"/>
+    <circle cx="10" cy="42" r="10" fill="currentColor"/>
+    <circle cx="38" cy="42" r="10" fill="currentColor"/>
+    <circle cx="10" cy="74" r="10" fill="currentColor"/>
+    <circle cx="38" cy="74" r="10" fill="currentColor"/>
+    <circle cx="66" cy="74" r="10" fill="currentColor"/>
+  </g>
+  <text x="118" y="64" font-family="ui-monospace, 'SF Mono', Menlo, Monaco, 'Cascadia Mono', Consolas, monospace" font-size="26" font-weight="700" fill="currentColor" letter-spacing="0">encoded_brands</text>
+</svg>

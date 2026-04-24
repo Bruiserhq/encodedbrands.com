@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Encoded Brands">
+  <rect width="256" height="256" rx="48" fill="#0A0A0A"/>
+  <g fill="#FFFFFF">
+    <circle cx="74" cy="68" r="20"/>
+    <circle cx="128" cy="68" r="20"/>
+    <circle cx="182" cy="68" r="20"/>
+    <circle cx="74" cy="128" r="20"/>
+    <circle cx="128" cy="128" r="20"/>
+    <circle cx="74" cy="188" r="20"/>
+    <circle cx="128" cy="188" r="20"/>
+    <circle cx="182" cy="188" r="20"/>
+  </g>
+</svg>
