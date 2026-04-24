@@ -204,8 +204,10 @@ function show(n) {
 document.getElementById('prev').onclick = () => { if(current > 0) show(--current); };
 document.getElementById('next').onclick = () => { if(current < total-1) show(++current); };
 document.addEventListener('keydown', e => {
-  if(e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if(current < total-1) show(++current); }
+  // Disable spacebar nav on the interactive slide (slide 7, index 6)
+  if(e.key === 'ArrowRight') { if(current < total-1) show(++current); }
   if(e.key === 'ArrowLeft') { if(current > 0) show(--current); }
+  if(e.key === ' ' && current !== 6) { e.preventDefault(); if(current < total-1) show(++current); }
 });
 
 // Slide 7 chat simulation
