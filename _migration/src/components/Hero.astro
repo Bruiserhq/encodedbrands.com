@@ -61,7 +61,7 @@ const delays = ["d2","d3","d4","d5","d6","d6","d6","d6"];
           ))}
         </div>
 
-        <blockquote class="hero-quote reveal d6">{data.quote}</blockquote>
+        <blockquote class="hero-quote reveal d6" set:html={data.quote}></blockquote>
 
         <div class="hero-ticker reveal d6">
           {data.ticker.map(t => <span>{t.text}</span>)}
