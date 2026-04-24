@@ -1,7 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
+import { getEntry } from "astro:content";
+const page = (await getEntry("pages", "encode"))!.data;
 ---
-<Base title="Encode — Three ways to get your BCP live. | Encoded" description="Fork it free, book a 90-minute Expert Session for $1,500, or commission a full Encoding Sprint for $15,000. Every path produces versioned markdown you own.">
+<Base title={page.title!} description={page.description!}>
 <style is:global>
 /* ================================================================
    DESIGN SYSTEM — shared with index.html
@@ -568,13 +570,11 @@ footer {
 <header class="page-hero">
   <div class="wrap">
     <div class="meta">
-      <span>Encoded · Encode</span>
-      <span>Free → $15,000</span>
+      <span>{page.meta_left}</span>
+      <span>{page.meta_right}</span>
     </div>
-    <h1>The spec is open.<br/>The <em>work</em> is priced.</h1>
-    <p class="lede">
-      Every path produces the same artifact: a <b>versioned Git repo you own</b>, published at your own domain, ready for every agent in your stack to read. Fork it free, work with us for 90 minutes, or have us <b>deliver a full BCP tree in a week</b>.
-    </p>
+    <h1 set:html={page.hero_heading}></h1>
+    <p class="lede" set:html={page.hero_lede}></p>
   </div>
 </header>
 

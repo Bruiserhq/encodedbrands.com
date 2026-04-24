@@ -235,3 +235,35 @@ collections:
                   - { name: href, label: URL, widget: string }
           - { name: bottom_left, label: "Bottom left", widget: string }
           - { name: bottom_right, label: "Bottom right (HTML allowed)", widget: string }
+
+  - name: pages
+    label: Pages
+    format: frontmatter
+    extension: md
+    files:
+      - name: start
+        label: "/start"
+        file: "_migration/src/content/pages/start.md"
+        fields:
+          - { name: title, label: "<title> (browser tab)", widget: string }
+          - { name: description, label: "Meta description", widget: text }
+          - { name: meta_left, label: "Hero meta — left", widget: string }
+          - { name: meta_right, label: "Hero meta — right", widget: string }
+          - { name: hero_heading, label: "Hero heading (HTML allowed)", widget: text }
+          - { name: hero_lede, label: "Hero lede (HTML allowed)", widget: text }
+      - name: encode
+        label: "/encode"
+        file: "_migration/src/content/pages/encode.md"
+        fields:
+          - { name: title, label: "<title> (browser tab)", widget: string }
+          - { name: description, label: "Meta description", widget: text }
+          - { name: meta_left, label: "Hero meta — left", widget: string }
+          - { name: meta_right, label: "Hero meta — right", widget: string }
+          - { name: hero_heading, label: "Hero heading (HTML allowed)", widget: text }
+          - { name: hero_lede, label: "Hero lede (HTML allowed)", widget: text }
+      - name: docs
+        label: "/docs"
+        file: "_migration/src/content/pages/docs.md"
+        fields:
+          - { name: title, label: "<title> (browser tab)", widget: string }
+          - { name: description, label: "Meta description", widget: text }

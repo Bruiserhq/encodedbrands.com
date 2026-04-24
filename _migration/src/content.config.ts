@@ -117,6 +117,10 @@ const pages = defineCollection({
     title: z.string().optional(),
     description: z.string().optional(),
     eyebrow: z.string().optional(),
+    meta_left: z.string().optional(),
+    meta_right: z.string().optional(),
+    hero_heading: z.string().optional(),
+    hero_lede: z.string().optional(),
   }),
 });
 

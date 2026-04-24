@@ -1,7 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
+import { getEntry } from "astro:content";
+const page = (await getEntry("pages", "start"))!.data;
 ---
-<Base title="Start — Your first brand.md, today. | Encoded" description="Copy the prompt. Paste it into any AI. Get a complete BCP tree for your brand in 15 minutes. Publish it at your domain.">
+<Base title={page.title!} description={page.description!}>
 <style is:global>
 /* ================================================================
    DESIGN SYSTEM — shared with index.html
@@ -654,13 +656,11 @@ footer {
 <header class="page-hero">
   <div class="wrap">
     <div class="meta">
-      <span>Encoded · Start</span>
-      <span>Free · Any AI · ~15 min</span>
+      <span>{page.meta_left}</span>
+      <span>{page.meta_right}</span>
     </div>
-    <h1>Your first brand.md. <em>Today.</em></h1>
-    <p class="lede">
-      Copy the prompt below. Paste it into Claude, ChatGPT, Cowork, or whatever AI you already use. It will <b>interview you for about fifteen minutes</b>, then hand you back a complete set of BCP files ready to publish at your domain. <b>No signup. No account. Free forever.</b>
-    </p>
+    <h1 set:html={page.hero_heading}></h1>
+    <p class="lede" set:html={page.hero_lede}></p>
   </div>
 </header>
 
