@@ -9,6 +9,6 @@ lede: |-
 body_idx: '01.2'
 body_paragraphs:
   - text: That's what Encoded delivers. We encode the tacit knowledge of your marketing leadership into a file every agent reads before it acts. Authored once. Consumed everywhere. <b>Brand-led. Technically rigorous. Open standard.</b>
-quote_idx: The thought
-quote: In the world of agentic marketing, brand fidelity becomes an <em>infrastructure</em> problem, not a guidelines problem.
+quote_idx: ''
+quote: ''
 ---
