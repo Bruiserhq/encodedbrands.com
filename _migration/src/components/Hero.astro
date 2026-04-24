@@ -32,7 +32,7 @@ const delays = ["d2","d3","d4","d5","d6","d6","d6","d6"];
       </div>
     </div>
 
-    <div class="hero-grid">
+    <div class="hero-grid hero-grid--single">
       <div>
         <p class="eyebrow reveal d2"><span class="dot" aria-hidden="true"></span>&nbsp;{data.eyebrow}</p>
 
@@ -51,7 +51,7 @@ const delays = ["d2","d3","d4","d5","d6","d6","d6","d6"];
 
         <p class="hero-sub reveal d5" set:html={data.subtitle}></p>
 
-        <p class="hero-detail reveal d6" set:html={data.detail}></p>
+        {data.detail && <p class="hero-detail reveal d6" set:html={data.detail}></p>}
 
         <div class="hero-cta reveal d6">
           {data.ctas.map(cta => (
@@ -67,20 +67,10 @@ const delays = ["d2","d3","d4","d5","d6","d6","d6","d6"];
           {data.ticker.map(t => <span>{t.text}</span>)}
         </div>
       </div>
-
-      <aside class="reveal d6" id="copy-prompt" aria-label="BCP authoring prompt">
-        <div class="prompt-card-label"><em>{data.prompt_card_label}</em></div>
-        <div class="prompt-card">
-          <div class="prompt-head">
-            <span class="label">{data.prompt_card_title}</span>
-            <span class="meta">{data.prompt_card_meta}</span>
-          </div>
-          <pre class="prompt-body" id="heroPromptBody">{data.prompt_card_body}<span class="prompt-fade"></span></pre>
-        </div>
-        <a class="btn accent-bg" href={data.prompt_cta_href} style="margin-top:16px;width:100%;justify-content:center">
-          {data.prompt_cta_label} <span class="arrow">→</span>
-        </a>
-      </aside>
     </div>
+<style>
+  .hero-grid--single { grid-template-columns: 1fr !important; }
+  .hero-grid--single > div { max-width: 820px; }
+</style>
   </div>
 </header>

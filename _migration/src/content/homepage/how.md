@@ -1,15 +1,15 @@
 ---
-idx: "§ · How it works"
-heading: "Author once. <em>Publish</em>. Every agent reads it."
+idx: § · How it works
+heading: Your brand briefing, <em>live</em> in a week or less.
 steps:
-  - title: "Author your <em>brand.md</em>."
-    body: "Interview yourself with the free prompt, book an Expert Session, or commission a full Encoding Sprint. Output is a Git repo you own: <code>brand.md</code> plus six daughter files for voice, values, boundaries, claims, representation, and audiences."
-  - title: "Publish at <em>your domain</em>."
-    body: "Host the files at <code>yourdomain.com/.well-known/brand.md</code>. Works on any static host: GitHub Pages, Cloudflare Pages, Vercel, Netlify, your own CDN. Ten-minute job for whoever ships your site."
-  - title: "Every agent <em>reads it</em>."
-    body: "Internal copy agents, vendor platforms, consumer AIs. They fetch your BCP before they act. Your brand shows up to each one with exactly the context that task requires."
-cta_primary_label: "Start with the free prompt"
-cta_primary_href: "/start"
-cta_secondary_label: "Read the spec"
-cta_secondary_href: "/docs"
+  - title: We <em>interview</em> your brand.
+    body: A structured conversation about your voice, values, and what your brand would never do. About 90 minutes with a senior Encoded strategist — or 15 minutes with our free AI-guided process.
+  - title: We <em>encode</em> it.
+    body: We translate that knowledge into a structured briefing every AI tool can read. Not a PDF. A living document that agents actually use — before every piece of output they produce.
+  - title: Every agent <em>reads it first</em>.
+    body: Your brand briefing goes live at your domain. Every AI tool in your stack reads it automatically. Your brand stays consistent — without anyone having to brief each tool individually.
+cta_primary_label: See how the process works
+cta_primary_href: /start
+cta_secondary_label: ""
+cta_secondary_href: ""
 ---

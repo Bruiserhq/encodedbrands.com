@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encoded — Full Homepage Redesign Brief</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 10pt; line-height: 1.7; color: #1a1a1a; background: #fff; max-width: 820px; margin: 0 auto; padding: 48px 40px 80px; }
+
+.cover { border-bottom: 2px solid #0f0f0f; padding-bottom: 24px; margin-bottom: 28px; }
+.cover-eyebrow { font-size: 8pt; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+.cover-title { font-size: 22pt; font-weight: 700; line-height: 1.15; margin-bottom: 6px; }
+.cover-sub { font-size: 11pt; color: #555; line-height: 1.5; margin-bottom: 16px; }
+.cover-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid #e5e5e5; padding-top: 12px; }
+.meta-label { font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: #999; margin-bottom: 2px; }
+.meta-value { font-size: 9pt; font-weight: 500; }
+
+.principle { background: #0f0f0f; color: #e0e0e0; border-radius: 8px; padding: 16px 18px; margin-bottom: 24px; font-size: 9.5pt; line-height: 1.65; }
+.principle strong { color: #fff; font-weight: 600; }
+
+hr { border: none; border-top: 1px solid #e5e5e5; margin: 28px 0; }
+.sl { font-size: 8pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #999; margin-bottom: 8px; }
+h2 { font-size: 14pt; font-weight: 700; margin-bottom: 6px; }
+.section-intro { font-size: 9.5pt; color: #666; margin-bottom: 16px; line-height: 1.6; }
+
+/* AUDIT TABLE */
+.audit { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 20px; }
+.audit th { background: #0f0f0f; color: #fff; font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; padding: 8px 12px; text-align: left; }
+.audit td { padding: 8px 12px; border-bottom: 1px solid #eee; vertical-align: top; line-height: 1.5; }
+.audit tr:last-child td { border-bottom: none; }
+.audit td:first-child { font-weight: 600; width: 200px; }
+.audit td:last-child { width: 80px; text-align: center; }
+.badge { display: inline-block; font-size: 7.5pt; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+.b-remove { background: #fde8e8; color: #8b1a1a; }
+.b-rewrite { background: #fef3e2; color: #7a4a00; }
+.b-move { background: #eef0ff; color: #3d2e8c; }
+.b-keep { background: #eef7f2; color: #1a5c3a; }
+.b-add { background: #e6f1fb; color: #0c447c; }
+
+/* ARCHITECTURE */
+.arch-section { margin-bottom: 6px; display: grid; grid-template-columns: 60px 1fr; border: 1px solid #e5e5e5; border-radius: 6px; overflow: hidden; }
+.arch-num { background: #f7f7f5; display: flex; align-items: center; justify-content: center; font-size: 10pt; font-weight: 700; color: #333; border-right: 1px solid #e5e5e5; }
+.arch-body { padding: 12px 16px; }
+.arch-kicker { font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: #999; margin-bottom: 3px; }
+.arch-title { font-size: 11pt; font-weight: 700; margin-bottom: 4px; }
+.arch-desc { font-size: 9pt; color: #555; line-height: 1.6; }
+.arch-tag { display: inline-block; font-size: 7.5pt; font-weight: 700; padding: 1px 7px; border-radius: 3px; margin-top: 5px; }
+.at-new { background: #e6f1fb; color: #0c447c; }
+.at-changed { background: #fef3e2; color: #7a4a00; }
+.at-keep { background: #eef7f2; color: #1a5c3a; }
+.at-tech { background: #eef0ff; color: #3d2e8c; }
+.at-remove { background: #fde8e8; color: #8b1a1a; }
+
+/* COPY BLOCKS */
+.copy-card { border: 1px solid #e5e5e5; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.copy-header { display: flex; justify-content: space-between; align-items: center; padding: 9px 14px; background: #fafaf9; border-bottom: 1px solid #e5e5e5; }
+.copy-loc { font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: #999; }
+.copy-body { padding: 12px 14px; }
+.copy-label { font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 4px; }
+.label-remove { color: #8b1a1a; }
+.label-replace { color: #1a5c3a; }
+.label-why { color: #7a4a00; }
+.before { font-size: 9pt; color: #999; text-decoration: line-through; background: #fafaf9; border: 1px solid #f0f0f0; border-radius: 4px; padding: 8px 10px; margin-bottom: 6px; line-height: 1.6; }
+.after { font-size: 9pt; color: #0f0f0f; background: #eef7f2; border: 1px solid #c8e8d8; border-radius: 4px; padding: 8px 10px; line-height: 1.6; }
+.after strong { font-weight: 600; }
+.why { font-size: 8.5pt; color: #666; line-height: 1.55; margin-top: 5px; }
+.remove-block { font-size: 9pt; color: #8b1a1a; background: #fde8e8; border: 1px solid #f0a0a0; border-radius: 4px; padding: 8px 10px; line-height: 1.6; margin-bottom: 5px; }
+
+/* DESIGN SECTION */
+.design-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.design-card { border: 1px solid #e5e5e5; border-radius: 8px; padding: 12px 14px; }
+.design-label { font-size: 7.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: #999; margin-bottom: 4px; }
+.design-title { font-size: 10.5pt; font-weight: 700; margin-bottom: 5px; }
+.design-body { font-size: 9pt; color: #555; line-height: 1.6; }
+
+/* CLAUDE CODE PROMPT */
+.prompt-block { background: #0f0f0f; color: #e0e0e0; border-radius: 8px; padding: 20px 24px; font-family: 'Courier New', monospace; font-size: 8.5pt; line-height: 1.9; white-space: pre-wrap; margin-bottom: 20px; }
+.prompt-block .cm { color: #555; }
+.prompt-block .hl { color: #a8d8b0; font-weight: 600; }
+.prompt-block .hl2 { color: #c8b8f8; }
+.prompt-block .hl3 { color: #f8c878; }
+
+.doc-footer { margin-top: 40px; border-top: 1px solid #e5e5e5; padding-top: 12px; font-size: 8pt; color: #bbb; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-eyebrow">Nick — full homepage redesign</div>
+  <div class="cover-title">Encoded: Brand-first homepage<br>redesign brief + Claude Code prompt</div>
+  <div class="cover-sub">A complete redesign of the homepage page architecture, copy, and design direction — targeting a senior brand marketer who is familiar with AI but not technical. Includes the Claude Code prompt to generate the new page.</div>
+  <div class="cover-meta">
+    <div><div class="meta-label">For</div><div class="meta-value">Nick — dev/design</div></div>
+    <div><div class="meta-label">Scope</div><div class="meta-value">Full homepage rebuild</div></div>
+    <div><div class="meta-label">Output</div><div class="meta-value">New page + Claude Code prompt</div></div>
+    <div><div class="meta-label">Deadline</div><div class="meta-value">Before Cannes</div></div>
+  </div>
+</div>
+
+<div class="principle">
+  <strong>The one-sentence brief:</strong> A Head of Brand at a mid-to-large company — someone who uses ChatGPT regularly, has read two articles about AI agents, and is quietly worried about brand consistency — should land on this page and feel: "Yes, this is my problem. These people have solved it. I can get started today." Every element that makes them think "I should forward this to IT" is removed or moved below the fold.
+</div>
+
+<div class="sl">What changes — full audit</div>
+<table class="audit">
+  <tr><th>Element</th><th>What happens</th><th>Action</th></tr>
+  <tr><td>Hero black terminal box (agent.fetch)</td><td>First thing a CMO sees. Signals "developer tool." Kills intent.</td><td><span class="badge b-remove">Remove</span></td></tr>
+  <tr><td>Hero prompt code block</td><td>3,000-word code block in the hero before value is established.</td><td><span class="badge b-move">→ /start only</span></td></tr>
+  <tr><td>Open spec · CC BY 4.0 · AGENTS.md</td><td>Licence badges and AGENTS.md reference mean nothing to brand leaders.</td><td><span class="badge b-remove">Remove</span></td></tr>
+  <tr><td>Ticker: "A spec, not a SaaS"</td><td>Requires knowing what both words mean in context.</td><td><span class="badge b-remove">Remove item</span></td></tr>
+  <tr><td>Ticker: "Brand.md over PDF"</td><td>Assumes prior knowledge of brand.md concept.</td><td><span class="badge b-remove">Remove item</span></td></tr>
+  <tr><td>Hero headline + standfirst</td><td>Strong, clear, keep exactly as written.</td><td><span class="badge b-keep">Keep</span></td></tr>
+  <tr><td>§ 01 Thesis</td><td>Excellent brand-leader language throughout. No changes.</td><td><span class="badge b-keep">Keep</span></td></tr>
+  <tr><td>§ 02 "Three surfaces"</td><td>Full rewrite in plain language. Section title, intro, headlines, tags.</td><td><span class="badge b-rewrite">Rewrite</span></td></tr>
+  <tr><td>§ 2.5 Start / prompt preview</td><td>Remove prompt preview from homepage. Replace with process overview.</td><td><span class="badge b-remove">Remove</span></td></tr>
+  <tr><td>NEW: How it works (3 steps)</td><td>Simple numbered process. Links to /start for full detail.</td><td><span class="badge b-add">New section</span></td></tr>
+  <tr><td>NEW: Pricing (3 cards)</td><td>Free / Expert Session / Full Sprint. Clear, simple, "most popular" badge.</td><td><span class="badge b-add">New section</span></td></tr>
+  <tr><td>§ 03 Protocol / file tree</td><td>Move below pricing. Relabel "For the technically curious." Simplify heading.</td><td><span class="badge b-move">Move down</span></td></tr>
+  <tr><td>§ 04 Manifesto</td><td>Best copy on the site. Keep every word. Move pull-quote to hero.</td><td><span class="badge b-keep">Keep</span></td></tr>
+  <tr><td>§ 05 Dogfood</td><td>Keep concept. Edit heading: "We use it ourselves" not "a repo you can fork."</td><td><span class="badge b-rewrite">Edit heading</span></td></tr>
+  <tr><td>§ 06 Encode section</td><td>Retired. Content replaced by new Pricing section earlier on page.</td><td><span class="badge b-remove">Retire</span></td></tr>
+  <tr><td>§ 08 Launch</td><td>Keep exactly as written.</td><td><span class="badge b-keep">Keep</span></td></tr>
+  <tr><td>Nav primary CTA</td><td>"Encode your brand" → "Book a call"</td><td><span class="badge b-rewrite">Edit</span></td></tr>
+  <tr><td>Nav links</td><td>Thesis/Protocol/Docs → Why it matters / How it works / Pricing</td><td><span class="badge b-rewrite">Edit</span></td></tr>
+</table>
+
+<hr>
+
+<div class="sl">New page architecture — scroll order</div>
+<h2>Section sequence</h2>
+<p class="section-intro">This is the new page order. Every section is defined with the copy to use and the design intent.</p>
+
+<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:24px;">
+
+  <div class="arch-section">
+    <div class="arch-num">Nav</div>
+    <div class="arch-body">
+      <div class="arch-kicker">Navigation</div>
+      <div class="arch-title">Encoded · Why it matters · How it works · Pricing · [Book a call →]</div>
+      <div class="arch-desc">Sticky nav. Primary CTA: "Book a call" (filled, dark). Secondary: nav links in plain language. Remove "Thesis," "Protocol," "Docs" as primary nav items — these become footer links.</div>
+      <span class="arch-tag at-changed">Edit</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">1</div>
+    <div class="arch-body">
+      <div class="arch-kicker">Hero</div>
+      <div class="arch-title">Express &amp; protect your brand in the age of the agent.</div>
+      <div class="arch-desc">Keep headline and standfirst exactly. Remove both code boxes entirely. Two CTAs: "Book a discovery call →" (primary, filled) and "Try it free — 15 minutes" (text link). Immediately below CTAs, add the manifesto line as a pull-quote: "The brand deck rotting on a shared drive is the antagonist of this decade." No ticker items: "A spec, not a SaaS" and "Brand.md over PDF" removed. Keep remaining five ticker items.</div>
+      <span class="arch-tag at-changed">Remove code elements · Add pull-quote</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">2</div>
+    <div class="arch-body">
+      <div class="arch-kicker">§ 01 — Why it matters</div>
+      <div class="arch-title">Brand is more valuable in the agentic age — not less.</div>
+      <div class="arch-desc">Keep this section exactly as written. Change the section label from "§ 01 · Thesis" to "§ 01 · Why it matters" — same content, conversational label. This is the best brand-leader copy on the site.</div>
+      <span class="arch-tag at-keep">Keep · Edit label only</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">3</div>
+    <div class="arch-body">
+      <div class="arch-kicker">§ 02 — Where your brand needs to live</div>
+      <div class="arch-title">Three places. One briefing.</div>
+      <div class="arch-desc">Replace "§ 02 · Three surfaces / One spec. Three consumption surfaces." Intro: "One brand briefing, written once. It travels into every AI tool your team uses, every platform you work with, and every AI that describes you to customers." Three cards: (1) Inside your team — "Every AI tool your team uses reads your brand briefing before it produces anything. Your voice, your values, your judgment — running at the speed of AI." (2) Across your partners — "Your media platforms, creative partners, and brand safety tools make decisions about your brand every day. Give them a briefing they can actually act on — not an onboarding interview that gets forgotten." (3) Beyond your control — "ChatGPT and Perplexity describe your brand to millions of people. Your briefing is the first authoritative input you've had into that description. You can't control it — but you can inform it." Tag lists: use category names, not product names (copywriting · creative tools · campaign planning / media platforms · creative tools · brand safety / ChatGPT · Perplexity · Gemini).</div>
+      <span class="arch-tag at-changed">Full rewrite</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">4</div>
+    <div class="arch-body">
+      <div class="arch-kicker">How it works — NEW</div>
+      <div class="arch-title">Your brand briefing, live in a week or less.</div>
+      <div class="arch-desc">New section. Three numbered steps in a clean grid: (1) "We interview your brand" — A structured conversation about your voice, values, and what your brand would never do. About 90 minutes with a senior Encoded strategist — or 15 minutes with our free AI-guided process. (2) "We encode it" — We translate your brand knowledge into a structured briefing that every AI tool can read. Not a PDF. A living document that agents actually use. (3) "Every agent reads it first" — Your brand briefing goes live at your domain. Every AI tool in your stack reads it before it acts. Your brand stays consistent — automatically. Below steps: "Want the full detail? See how the process works →" (links to /start).</div>
+      <span class="arch-tag at-new">New section</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">5</div>
+    <div class="arch-body">
+      <div class="arch-kicker">Pricing — NEW</div>
+      <div class="arch-title">Three ways in. Same result.</div>
+      <div class="arch-desc">New section replacing the old §06. Intro: "Every path produces the same thing: a complete brand briefing, live at your domain, readable by every AI tool you use." Three cards: Card 1 (badge: "Self-serve") — Free / Try it yourself / "Use our free AI-guided process. About 15 minutes. No signup, no account — paste our prompt into any AI you already use." / CTA: "Get started free →". Card 2 (badge: "Most popular", green border) — $1,500 / Expert session / "90 minutes with a senior Encoded strategist. We draft your brand briefing together, live. Delivered to your domain the same day." / CTA: "Book a session →". Card 3 (badge: "Full service") — $15,000 / One-week sprint / "We deliver your complete brand briefing in five days. Discovery Monday, published Friday. We disappear cleanly when the week ends." / CTA: "Talk to us →". Below cards in small muted text: "Not sure which to choose? Most brand leaders start with the Expert Session."</div>
+      <span class="arch-tag at-new">New section</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">6</div>
+    <div class="arch-body">
+      <div class="arch-kicker">For the technically curious — § 03 moved and relabelled</div>
+      <div class="arch-title">How it's built — the open standard behind Encoded</div>
+      <div class="arch-desc">The §03 protocol content stays — file tree, Git architecture, the open standard explanation — but is explicitly positioned as optional depth. New heading: "How it's built — the open standard behind Encoded." New intro: "Encoded is built on BCP — Brand Context Protocol — an open standard that works like robots.txt: a file at a known location that every agent knows to look for. Free to use, free to inspect." Keep the simplified code block (the short version, not the full file tree). The long file tree, Ring table, and GARM/IAB references move to /docs. At the bottom of this section: "Open spec · CC BY 4.0 · Reference code · MIT · Same convention as AGENTS.md" — this is the right place for this line, not the hero.</div>
+      <span class="arch-tag at-tech">Moved down · Relabelled</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">7</div>
+    <div class="arch-body">
+      <div class="arch-kicker">§ 04 — Manifesto</div>
+      <div class="arch-title">"The brand deck rotting on a shared drive is the antagonist of this decade."</div>
+      <div class="arch-desc">Keep this section exactly as written. It should feel like a moment of breath between the technical section and the credibility sections that follow.</div>
+      <span class="arch-tag at-keep">Keep exactly</span>
+    </div>
+  </div>
+
+  <div class="arch-section">
+    <div class="arch-num">8</div>
+    <div class="arch-body">
+      <div class="arch-kicker">§ 05 — Credibility + § 08 — Launch</div>
+      <div class="arch-title">We use it ourselves · Become a founding brand</div>
+      <div class="arch-desc">§ 05: Keep all content. Change heading from "Our brand is a repo you can fork" to "We use it ourselves." Change subheading from "Reference implementation" to "We encode our own brand the same way." Keep the voice.md code preview — at this point in the page, a convinced reader finds technical detail reassuring. §08: Keep exactly as written.</div>
+      <span class="arch-tag at-changed">Edit headings only</span>
+    </div>
+  </div>
+
+</div>
+
+<hr>
+
+<div class="sl">Design direction</div>
+<h2>Visual and typography changes</h2>
+
+<div class="design-grid">
+  <div class="design-card">
+    <div class="design-label">Typography</div>
+    <div class="design-title">Reduce font mixing</div>
+    <div class="design-body">The site mixes serif italic, monospace, and sans-serif in the first three scrolls. For a CMO audience: use sans-serif only for all body copy and headings. Reserve monospace exclusively for the "For the technically curious" section (§ 03 equivalent). Remove italic serif emphasis except in the manifesto pull-quote. Result: cleaner, more professional, easier to scan.</div>
+  </div>
+  <div class="design-card">
+    <div class="design-label">Code blocks</div>
+    <div class="design-title">One code block, one location</div>
+    <div class="design-body">Currently five distinct code/terminal elements appear in the first half of the page. Reduce to one: a short, simplified YAML block in the "For the technically curious" section only. Remove the animated agent.fetch() terminal box from the hero. Remove the full 3,000-word prompt from the homepage. Remove the full file tree from the homepage — keep in /docs.</div>
+  </div>
+  <div class="design-card">
+    <div class="design-label">Section labels</div>
+    <div class="design-title">Keep § numbers, humanise labels</div>
+    <div class="design-body">The § notation gives the site its editorial character — preserve it. Change the labels to be conversational: "§ 01 · Why it matters" (not "Thesis"), "§ 02 · Where your brand needs to live" (not "Three surfaces"), "§ 03 · How it's built" (not "The protocol"). The CMO reads these as signposts, not chapter headings.</div>
+  </div>
+  <div class="design-card">
+    <div class="design-label">Whitespace</div>
+    <div class="design-title">More breathing room between sections</div>
+    <div class="design-body">Increase vertical padding between sections — particularly around the hero, the pricing cards, and the manifesto section. Each section should feel like a complete, self-contained thought, not part of a continuous wall of content. The manifesto section especially needs space above and below to land with impact.</div>
+  </div>
+  <div class="design-card">
+    <div class="design-label">Hero</div>
+    <div class="design-title">Text-only hero — no code</div>
+    <div class="design-body">After removing the code boxes, the hero is headline, standfirst, two CTAs, and the manifesto pull-quote. This is cleaner and more confident. The temptation will be to fill the space with something — resist it. Whitespace in the hero signals confidence. The copy is strong enough to stand alone.</div>
+  </div>
+  <div class="design-card">
+    <div class="design-label">Pricing cards</div>
+    <div class="design-title">Clear visual hierarchy</div>
+    <div class="design-body">The Expert Session card should be visually elevated — a subtle green border accent (not a different background colour, just a border) and a "Most popular" badge. The Free card should feel genuinely accessible, not like a downgrade — same card style, same visual weight. The Sprint card should feel premium, not intimidating.</div>
+  </div>
+</div>
+
+<hr>
+
+<div class="sl">Claude Code prompt — paste this to generate the new homepage</div>
+<h2>Full brief for Claude Code</h2>
+<p class="section-intro">Copy the entire block below and paste into Claude Code (claude.ai/code or the CLI) to generate the new homepage. The prompt is fully self-contained.</p>
+
+<div class="prompt-block"><span class="cm"># CLAUDE CODE BRIEF — Encoded homepage full redesign
+# encodedbrands.com · Brand-first, CMO audience
+# Paste this entire block into Claude Code.
+</span>
+
+<span class="hl">## TASK</span>
+Rebuild the Encoded homepage (encodedbrands.com) as a single production-ready
+HTML file with all CSS embedded. The goal: a senior brand marketer who uses
+ChatGPT regularly but is not technical should land on this page and immediately
+feel: "This is my problem. These people have solved it."
+
+Font: Inter from Google Fonts (weights 400 and 500 only — never 600 or 700).
+No external dependencies beyond Google Fonts.
+Fully responsive. Mobile breakpoint at 768px.
+All CTAs link to #encode as placeholder.
+
+<span class="hl">## BRAND</span>
+Name: Encoded
+Tagline: Express and protect your brand in the age of the agent.
+Tone: A senior brand strategist who has stopped needing to prove anything.
+Confident, direct, kind to the reader. Impatient with noise.
+Never: "AI-powered", "revolutionize", "ecosystem", "synergy", "empower"
+Palette: Near-black (#0f0f0f) text and white background throughout.
+One technical accent: a muted purple (#534ab7) used only in the
+"For the technically curious" section. One success accent: sage green
+(#2d6a4f) for the recommended pricing card border and "Most popular" badge.
+No gradients. No shadows. Generous whitespace.
+
+<span class="hl">## DESIGN RULES — READ CAREFULLY</span>
+- Two font weights only: 400 (body) and 500 (headings, labels). Never bold.
+- Code/monospace fonts: used ONCE only, in the technical section (§ 06).
+  Nowhere else on the page. No animated terminals. No code in the hero.
+- Section numbers (§ 01, § 02, etc.) as eyebrow labels above headings.
+  Style: small, muted, uppercase, letter-spaced. Keep the § character.
+- Pull-quotes: border-left only, no background, italic, generous margin.
+- Pricing cards: same height, same visual weight. Recommended card has
+  a 1.5px green border only — not a different background.
+- More vertical padding between sections than feels instinctive.
+  Sections breathe. They don't stack.
+- No hero image, no background image, no decorative shapes.
+  Typography and whitespace do the design work.
+
+<span class="hl">## PAGE STRUCTURE — build in this exact order</span>
+
+<span class="hl2">--- NAV ---</span>
+Logo: "Encoded" wordmark only (no icon, no sub-label).
+Links: Why it matters | How it works | Pricing
+Primary CTA button (filled, #0f0f0f background): "Book a call"
+Sticky on scroll. Clean separator line below.
+
+<span class="hl2">--- HERO ---</span>
+Eyebrow: "Brand Context Protocol" (small, muted, uppercase)
+
+Headline (~52px, weight 500, tight leading):
+"Express &amp; protect your brand
+in the age of the agent."
+
+Standfirst (~17px, color #555, max-width 520px):
+"AI agents are already writing your copy, buying your media,
+and describing your brand to customers. None of them have
+read your brand guidelines. Encoded gives them a briefing
+they can actually use."
+
+Two CTAs (side by side):
+Primary (filled dark): "Book a discovery call →"
+Secondary (text, muted): "Try it free — 15 minutes"
+
+Pull-quote below CTAs (border-left, italic, ~18px, muted):
+"The brand deck rotting on a shared drive
+is the antagonist of this decade."
+
+Scrolling ticker below pull-quote (CSS animation, subtle):
+Items: "Brand, authored once ★" · "Consumed everywhere ★" ·
+"Inside your team ★" · "Across your partners ★" · "Beyond your brand ★"
+DO NOT include: "A spec, not a SaaS" or "Brand.md over PDF"
+
+NO CODE BLOCKS in the hero. NO terminal windows. NO YAML.
+
+<span class="hl2">--- § 01 · WHY IT MATTERS (light grey bg) ---</span>
+Eyebrow: "§ 01 · Why it matters"
+Heading: "Brand is more valuable in the agentic age — not less."
+
+Two paragraphs:
+"Most companies will get that wrong. They'll treat brand as a
+cost centre to automate past."
+
+"The tested brand knowledge that lives in your senior marketers'
+heads — the judgment calls, the 'we don't say it that way,' the
+instinct for what's on-brand at the edge — has no machine-readable
+home. Without it, every AI tool guesses. The brands that win will
+be the ones whose voice and judgment are encoded into the system
+before the system invents its own version of them."
+
+Pull-quote:
+"In the world of agentic marketing, brand fidelity becomes an
+infrastructure problem, not a guidelines problem."
+
+<span class="hl2">--- § 02 · WHERE YOUR BRAND NEEDS TO LIVE (white bg) ---</span>
+Eyebrow: "§ 02 · Where your brand needs to live"
+Heading: "Three places. One briefing."
+Intro: "One brand briefing, written once. It travels into every AI tool
+your team uses, every platform you work with, and every AI that
+describes you to customers."
+
+Three equal cards (horizontal on desktop, stacked on mobile):
+
+Card 1: "Inside your team"
+Body: "Every AI tool your team uses to write copy, create content, or
+run campaigns reads your brand briefing before it produces anything.
+Your voice, your values, your judgment — running at the speed of AI."
+Tags (small, muted pills): copywriting · creative tools · campaign planning
+
+Card 2: "Across your partners"
+Body: "Your media platforms, creative partners, and brand safety tools
+make decisions about your brand every day. Give them a briefing they
+can actually act on — not an onboarding interview that gets forgotten
+after the first campaign."
+Tags: media platforms · creative tools · brand safety
+
+Card 3: "Beyond your control"
+Body: "ChatGPT and Perplexity describe your brand to millions of people.
+Your brand briefing is the first authoritative input you've ever had
+into that description. You can't control it — but you can inform it."
+Tags: ChatGPT · Perplexity · Gemini
+
+<span class="hl2">--- HOW IT WORKS (light grey bg) ---</span>
+Eyebrow: "How it works"
+Heading: "Your brand briefing, live in a week or less."
+Intro: "A structured process that captures the knowledge your senior
+marketers carry in their heads — and makes it readable by every
+AI tool you use."
+
+Three numbered steps (horizontal on desktop):
+
+Step 1: "We interview your brand"
+"A structured conversation about your voice, values, and what your
+brand would never do. About 90 minutes with a senior Encoded
+strategist — or 15 minutes with our free AI-guided process."
+
+Step 2: "We encode it"
+"We translate that knowledge into a structured briefing every AI
+tool can read. Not a PDF. A living document that agents actually
+use — before every piece of output they produce."
+
+Step 3: "Every agent reads it first"
+"Your brand briefing goes live at your domain. Every AI tool in
+your stack reads it automatically. Your brand stays consistent —
+without anyone having to brief each tool individually."
+
+Below steps (small text, muted):
+"Want the full detail? See how the process works →" (link to #start)
+
+<span class="hl2">--- PRICING (white bg) ---</span>
+Eyebrow: "Pricing"
+Heading: "Three ways in. Same result."
+Intro: "Every path produces the same thing: a complete brand briefing,
+live at your domain, readable by every AI tool you use."
+
+Three pricing cards (equal width, same height):
+
+Card 1:
+Badge: "Self-serve" (neutral grey pill)
+Price: "Free"
+Name: "Try it yourself"
+Body: "Use our free AI-guided process. About 15 minutes. No signup,
+no account — paste our prompt into any AI you already use and it
+walks you through everything."
+CTA text: "Get started free →"
+
+Card 2 (RECOMMENDED — 1.5px green border, #2d6a4f):
+Badge: "Most popular" (green pill)
+Price: "$1,500"
+Name: "Expert session"
+Body: "90 minutes with a senior Encoded strategist. We draft your
+brand briefing together, live. Delivered to your domain the same day."
+CTA text: "Book a session →"
+
+Card 3:
+Badge: "Full service" (muted purple pill)
+Price: "$15,000"
+Name: "One-week sprint"
+Body: "We deliver your complete brand briefing in five days.
+Discovery Monday, published Friday. We disappear cleanly
+when the week ends."
+CTA text: "Talk to us →"
+
+Below cards (small, muted, centred):
+"Not sure which to choose? Most brand leaders start with the
+Expert Session."
+
+<span class="hl2">--- FOR THE TECHNICALLY CURIOUS (very light purple-grey bg) ---</span>
+Eyebrow (purple): "For the technically curious"
+Heading: "How it's built — the open standard behind Encoded"
+Intro: "Encoded is built on BCP — Brand Context Protocol — an open
+standard that works like robots.txt: a file at a known location that
+every agent knows to look for. Free to use, free to inspect. The
+technical detail lives here, for those who want it."
+
+ONE code block only (dark bg, monospace, ~11px):
+---
+# Your brand, at a URL every agent knows to check
+encodedbrands.com/.well-known/brand.md
+
+brand_name: Your Brand
+voice:      → brand/voice.md
+values:     → brand/values.md
+boundaries: → brand/boundaries.md
+# Authored once. Read by every agent that asks.
+---
+
+Below code block (small, muted):
+"Open spec · CC BY 4.0 · Reference code · MIT ·
+Same convention as AGENTS.md and robots.txt"
+
+Link: "Read the full technical spec → docs"
+
+<span class="hl2">--- MANIFESTO (white bg, generous padding above and below) ---</span>
+Large pull-quote style — no heading, just the text:
+"The brand deck rotting on a shared drive
+is the antagonist of this decade.
+
+Your agents can't read it. Your vendors won't. ChatGPT never will.
+
+Encode the tacit. The craft your senior marketers already know. Put
+it into files every agent in the stack reads before it acts.
+Authored once. Consumed everywhere. Open, portable, yours."
+
+<span class="hl2">--- WE USE IT OURSELVES (light grey bg) ---</span>
+Eyebrow: "Credibility"
+Heading: "We use it ourselves."
+Subhead: "We encode our own brand the same way."
+Body: "A consultancy that can't encode its own brand into BCP has a
+credibility problem. So we publish ours in public, at
+encodedbrands.com/.well-known/brand.md. It is the reference template
+every brand works from."
+
+Show a SHORT voice.md preview (monospace, dark bg):
+# Voice
+Encoded sounds like a senior brand strategist who has
+stopped needing to prove anything and started needing
+to build something. Confident in the work, impatient
+with noise, kind to the reader.
+
+prefer: brand · encode · agentic
+avoid: AI-powered · revolutionize · synergy · empower
+
+Links: "See our full BCP →" · "Fork the template →"
+
+<span class="hl2">--- LAUNCH (white bg) ---</span>
+Eyebrow: "Now encoding founding brands"
+Heading: "Author your brand briefing before the category authors it
+for you."
+Body: "We're encoding a small cohort of founding brands. Live platform
+integrations, co-announcement at launch, and founding-customer status
+on paid tiers."
+CTAs: "Become a founding partner →" · "Read the spec"
+
+<span class="hl2">--- FOOTER ---</span>
+Left: Encoded wordmark · "A brand consultancy & protocol company · Est. 2026"
+Right columns:
+  "Get started" — Free (15 min) / Expert Session $1,500 / Sprint $15,000
+  "Company" — Why it matters / How it works / For developers / Contact
+Bottom line: "Brand.md over PDF ★"
+
+<span class="hl">## WHAT NOT TO BUILD</span>
+- No animated terminal or agent.fetch() window anywhere on the page
+- No 3,000-word prompt code block on the homepage (it lives on /start only)
+- No "Open spec · CC BY 4.0" line in the hero (it's in the technical section)
+- No "Fork it" language anywhere — use "Try it yourself" or "Get started free"
+- No "BCP tree," "blob," "daughters," "resolve lazily" outside the tech section
+- No "vendor stack," "consumption surfaces," "Zefr BSP," "DSP briefs" in the brand sections
+- No gradients, shadows, or decorative shapes
+- No hero background image
+- No animation except the ticker strip and button hover states
+- No cookie banner, chat widget, or popup
+- Monospace font: appears ONCE in the technical section and ONCE in the dogfood section only
+- No second font family beyond Inter (no serif for general use, only for the manifesto pull-quote if desired)
+
+<span class="hl">## ACCESSIBILITY</span>
+- Proper h1/h2/h3 heading hierarchy (one h1 in the hero only)
+- ARIA labels on all CTA buttons
+- Sufficient colour contrast throughout
+- Smooth scroll on anchor links
+- All images have alt text (there are no images in this design, so placeholder comments only)
+</div>
+
+<hr>
+
+<div class="sl">Key copy changes — find and replace reference</div>
+
+<div class="copy-card">
+  <div class="copy-header"><span class="copy-loc">Hero · Section label</span><span class="badge b-add">Keep, small style</span></div>
+  <div class="copy-body">
+    <div class="copy-label label-replace">Use this</div>
+    <div class="after">Brand Context Protocol — small, muted, above headline</div>
+    <div class="why">Positions Encoded within a framework without requiring the visitor to know what BCP means. Signals seriousness without jargon.</div>
+  </div>
+</div>
+
+<div class="copy-card">
+  <div class="copy-header"><span class="copy-loc">§ 01 · Section label</span><span class="badge b-rewrite">Edit</span></div>
+  <div class="copy-body">
+    <div class="copy-label label-remove">Remove</div>
+    <div class="before">§ 01 · Thesis</div>
+    <div class="copy-label label-replace">Replace with</div>
+    <div class="after">§ 01 · Why it matters</div>
+    <div class="why">"Thesis" is academic. "Why it matters" is conversational and answers the first question every visitor has.</div>
+  </div>
+</div>
+
+<div class="copy-card">
+  <div class="copy-header"><span class="copy-loc">§ 02 · Full section</span><span class="badge b-rewrite">Full rewrite</span></div>
+  <div class="copy-body">
+    <div class="copy-label label-remove">Remove</div>
+    <div class="before">§ 02 · Three surfaces · One spec. Three consumption surfaces. Same file. Different agents. Different moments. BCP is designed to be consumed inside the brand, across the vendor stack, and beyond the brand.</div>
+    <div class="copy-label label-replace">Replace with</div>
+    <div class="after">§ 02 · Where your brand needs to live · Three places. One briefing. · One brand briefing, written once. It travels into every AI tool your team uses, every platform you work with, and every AI that describes you to customers.</div>
+  </div>
+</div>
+
+<div class="copy-card">
+  <div class="copy-header"><span class="copy-loc">§ 02 · Surface labels</span><span class="badge b-rewrite">Rewrite</span></div>
+  <div class="copy-body">
+    <div class="copy-label label-remove">Remove</div>
+    <div class="before">Surface 01: Inside · The brand's own agents. / Surface 02: Across · Your vendor stack. / Surface 03: Beyond · The consumer agents.</div>
+    <div class="copy-label label-replace">Replace with</div>
+    <div class="after">Inside your team / Across your partners / Beyond your control</div>
+  </div>
+</div>
+
+<div class="copy-card">
+  <div class="copy-header"><span class="copy-loc">§ 03 · Heading and subhead</span><span class="badge b-rewrite">Rewrite</span></div>
+  <div class="copy-body">
+    <div class="copy-label label-remove">Remove</div>
+    <div class="before">A file tree, not a blob. · Root declares. Daughters deliver. Agents resolve lazily.</div>
+    <div class="copy-label label-replace">Replace with</div>
+    <div class="after">How it's built — the open standard behind Encoded</div>
+    <div class="why">The old subhead is developer-speak. The new heading positions this as optional depth for the curious — the CMO skips it, the technologist reads it.</div>
+  </div>
+</div>
+
+<div class="copy-card">
+  <div class="copy-header"><span class="copy-loc">§ 05 · Dogfood heading</span><span class="badge b-rewrite">Rewrite</span></div>
+  <div class="copy-body">
+    <div class="copy-label label-remove">Remove</div>
+    <div class="before">Our brand is a repo you can fork.</div>
+    <div class="copy-label label-replace">Replace with</div>
+    <div class="after">We use it ourselves.</div>
+  </div>
+</div>
+
+<div class="copy-card">
+  <div class="copy-header"><span class="copy-loc">§ 06 · Encode section heading</span><span class="badge b-remove">Retire entire section</span></div>
+  <div class="copy-body">
+    <div class="copy-label label-remove">Retire this section</div>
+    <div class="remove-block">The spec is open. The work is priced. · Fork it, work with us for 90 minutes, or have us deliver a full BCP tree in a week.</div>
+    <div class="why">The new Pricing section (position 5) replaces this entirely. "Fork it" and "BCP tree" are removed. The pricing content is cleaner in the new card format.</div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <span>Encoded homepage redesign brief · April 2026 · v2.0</span>
+  <span>Internal use only — Nick</span>
+</div>
+
+</body>
+</html>

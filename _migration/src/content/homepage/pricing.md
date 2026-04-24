@@ -1,46 +1,37 @@
 ---
 idx: § · Pricing
-heading: Three levels of depth, applied to <em>your brand</em>.
-blurb: Not three routes to the same file. Three different degrees of strategic rigor. Pick the one that matches your business needs.
+heading: Three ways in. <em>Same result.</em>
+blurb: Every path produces the same thing — a complete brand briefing, live at your domain, readable by every AI tool you use.
 tiers:
   - popular: false
-    tag: Free
-    price_num: $0
-    price_per: your AI, your time
-    title: Self-authored.
-    body: Copy our prompt. Paste it into Claude, ChatGPT, Cowork, or Gemini. Take the interview. You get a first-draft BCP in about 15 minutes.
-    features:
-      - text: The full authoring prompt, verbatim
-      - text: Seven markdown files you can publish today
-      - text: No signup, no account, no agency
-    cta_label: Copy the prompt
+    tag: Self-serve
+    price_num: Free
+    price_per: ~15 minutes
+    title: Try it yourself.
+    body: Use our free AI-guided process. About 15 minutes. No signup, no account — paste our prompt into any AI you already use and it walks you through everything.
+    features: []
+    cta_label: Get started free
     cta_href: /start
     cta_accent: false
   - popular: true
-    tag: Expert Session
+    tag: Most popular
     price_num: $1,500
-    price_per: 90 minutes with an Encoded strategist
-    title: Structured, opinionated, reviewed.
-    body: Get a Self-service run through our opinionated corpus, then a senior strategist reviews your draft, catches the gaps your AI missed, and sharpens voice, values, and boundaries. You leave with a <code>brand.md</code> that's ready to ship.
-    features:
-      - text: Our internal BCP authoring corpus
-      - text: 90-minute review session, recorded
-      - text: One round of revisions on the output
-    cta_label: Book an Expert Session
+    price_per: 90 minutes, same-day delivery
+    title: Expert session.
+    body: 90 minutes with a senior Encoded strategist. We draft your brand briefing together, live. Delivered to your domain the same day.
+    features: []
+    cta_label: Book a session
     cta_href: mailto:hello@encodedbrands.com?subject=Expert%20Session%20-%20%241%2C500
     cta_accent: true
   - popular: false
-    tag: Encoding Sprint
+    tag: Full service
     price_num: $15,000
-    price_per: one-week engagement
-    title: Senior judgment, applied.
-    body: An Encoded strategist takes your existing materials, interviews the people with the decisions in their heads, and writes a production BCP applied to your brand. You get the judgment an automated flow can't offer. Claims, competitive positioning, platform-ready boundaries.
-    features:
-      - text: Stakeholder interviews, positioning work
-      - text: Claims and boundaries
-      - text: Launched on your domain, your repo
-    cta_label: Start a Sprint
+    price_per: one-week sprint
+    title: One-week sprint.
+    body: We deliver your complete brand briefing in five days. Discovery Monday, published Friday. We disappear cleanly when the week ends.
+    features: []
+    cta_label: Talk to us
     cta_href: https://calendly.com/bruiserhq/30min
     cta_accent: false
-footer: Enterprise engagements scale up from Sprint. <a href="mailto:hello@encodedbrands.com?subject=Enterprise" style="color:var(--accent)">Talk to us</a>
+footer: Not sure which to choose? Most brand leaders start with the Expert Session.
 ---
