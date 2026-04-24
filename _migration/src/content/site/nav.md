@@ -6,12 +6,10 @@ links:
     href: /#brandmd
   - label: Start
     href: /start
-  - label: Protocol
-    href: /#protocol
-  - label: Docs
-    href: /docs
   - label: Encode
     href: /encode
+  - label: Docs
+    href: /docs
 cta_label: Book a call
-cta_href: mailto:hello@encodedbrands.com?subject=Book%20a%20call
+cta_href: https://calendly.com/bruiserhq/30min
 ---
