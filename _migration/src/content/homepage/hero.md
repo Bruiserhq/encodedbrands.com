@@ -50,6 +50,6 @@ prompt_card_body: |-
   Your job: interview me for about 15 minutes, then produce a complete BCP tree as seven markdown files I can publish at mydomain.com/.well-known/brand.md.
 
   Rules: ONE question at a time. Then STOP. Wait for my answer. Start with Part 0: "What have you got?"
-prompt_cta_label: Copy the full prompt
-prompt_cta_href: '#copy-prompt'
+prompt_cta_label: Get the full prompt
+prompt_cta_href: /start
 ---

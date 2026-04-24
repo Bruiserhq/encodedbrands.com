@@ -4,7 +4,6 @@ import Hero from "../components/Hero.astro";
 import Strip from "../components/Strip.astro";
 import HomeBody from "../components/HomeBody.astro";
 import { getEntry } from "astro:content";
-import authoringPrompt from "../../../bcp-authoring-prompt.md?raw";
 
 const hero = await getEntry("homepage", "hero");
 const strip = await getEntry("homepage", "strip");
@@ -27,7 +26,7 @@ const voicePreview = voiceMd.split("\n").slice(0, 18).join("\n");
   title="Encoded: Express and protect your brand in the age of the agent."
   description="Encoded is a brand consultancy and protocol company. We author Brand Context Protocol (BCP), the open standard for machine-readable brand identity."
 >
-  <Hero data={hero!.data} authoringPrompt={authoringPrompt} />
+  <Hero data={hero!.data} />
   <Strip data={strip!.data} />
   <HomeBody brandYaml={brandYaml} voicePreview={voicePreview} />
 </Base>

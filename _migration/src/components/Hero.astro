@@ -20,7 +20,7 @@ interface HeroData {
   prompt_cta_label: string;
   prompt_cta_href: string;
 }
-const { data, authoringPrompt } = Astro.props as { data: HeroData; authoringPrompt: string };
+const { data } = Astro.props as { data: HeroData };
 const delays = ["d2","d3","d4","d5","d6","d6","d6","d6"];
 ---
 <header class="hero" id="top">
@@ -77,36 +77,10 @@ const delays = ["d2","d3","d4","d5","d6","d6","d6","d6"];
           </div>
           <pre class="prompt-body" id="heroPromptBody">{data.prompt_card_body}<span class="prompt-fade"></span></pre>
         </div>
-        <script id="heroAuthoringPrompt" type="application/json" set:html={JSON.stringify(authoringPrompt)}></script>
-        <button type="button" class="btn accent-bg" id="heroCopyBtn" style="margin-top:16px;width:100%;justify-content:center">
-          <span id="heroCopyLabel">{data.prompt_cta_label}</span>
-        </button>
+        <a class="btn accent-bg" href={data.prompt_cta_href} style="margin-top:16px;width:100%;justify-content:center">
+          {data.prompt_cta_label} <span class="arrow">→</span>
+        </a>
       </aside>
     </div>
   </div>
 </header>
-
-<script is:inline>
-(() => {
-  const btn = document.getElementById("heroCopyBtn");
-  const label = document.getElementById("heroCopyLabel");
-  const store = document.getElementById("heroAuthoringPrompt");
-  if (!btn || !label || !store) return;
-  const FULL_PROMPT = JSON.parse(store.textContent || "\"\"");
-  const originalLabel = label.textContent;
-  btn.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(FULL_PROMPT);
-    } catch (e) {
-      const ta = document.createElement("textarea");
-      ta.value = FULL_PROMPT;
-      document.body.appendChild(ta);
-      ta.select();
-      try { document.execCommand("copy"); } catch (_) {}
-      document.body.removeChild(ta);
-    }
-    label.textContent = "Copied. Paste into any AI.";
-    setTimeout(() => { label.textContent = originalLabel; }, 4000);
-  });
-})();
-</script>
