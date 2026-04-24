@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encoded Brands — Enterprise Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0A0A0A;--fg:#FAFAFA;--mute:#666;--dim:#333;
+  --accent:#E85D3A;--blue:#2563EB;
+  --sans:'Inter',system-ui,sans-serif;
+  --display:'Space Grotesk',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--fg);overflow:hidden;height:100vh;width:100vw}
+.deck{position:relative;width:100%;height:100%}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:clamp(2rem,5vw,5rem);opacity:0;pointer-events:none;transition:opacity .4s ease}
+.slide.active{opacity:1;pointer-events:auto}
+.slide-num{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin-bottom:1rem}
+.slide h1{font-family:var(--display);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:1.1;margin-bottom:2rem}
+.slide p.hero{font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:300;color:#AAA;max-width:42em;line-height:1.6}
+.slide .subpoint{font-family:var(--mono);font-size:.85rem;color:var(--mute);margin-top:1.5rem;line-height:1.8}
+.footer{position:absolute;bottom:0;left:0;right:0;padding:1.5rem clamp(2rem,5vw,5rem);font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#333;border-top:1px solid #1a1a1a;display:flex;justify-content:space-between}
+.nav{position:fixed;bottom:2rem;right:2rem;display:flex;gap:1rem;z-index:10}
+.nav button{background:none;border:1px solid #333;color:#666;font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;padding:.5rem 1.2rem;cursor:pointer;transition:all .2s}
+.nav button:hover{color:var(--fg);border-color:var(--fg)}
+.counter{position:fixed;bottom:2.2rem;left:clamp(2rem,5vw,5rem);font-family:var(--mono);font-size:.65rem;color:#333;z-index:10}
+
+/* Slide 7: Interactive */
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;flex:1;min-height:0;margin-top:1rem}
+.chat-panel{display:flex;flex-direction:column;border:1px solid #222;background:#111;overflow:hidden;border-radius:2px}
+.chat-header{padding:.8rem 1rem;border-bottom:1px solid #222;background:#000;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em}
+.chat-header .badge{font-size:.6rem;background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;font-weight:700;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.chat-body{flex:1;padding:1rem;overflow-y:auto;font-family:var(--mono);font-size:.8rem;line-height:1.6}
+.chat-body .msg{margin-bottom:1rem}
+.chat-body .msg.user{text-align:right;color:#555}
+.chat-body .msg.bot{color:var(--fg)}
+.chat-body .msg.bot.generic{color:#888}
+.chat-input{padding:.8rem 1rem;border-top:1px solid #222;background:#000}
+.chat-input input{width:100%;background:none;border:none;outline:none;color:var(--fg);font-family:var(--mono);font-size:.75rem}
+.chat-input input::placeholder{color:#444;text-transform:uppercase;letter-spacing:.1em}
+.proof-caption{font-family:var(--mono);font-size:.7rem;color:#444;text-transform:uppercase;letter-spacing:.1em;text-align:center;margin-top:1.5rem}
+
+/* Spec slide */
+.spec-block{background:#111;border:1px solid #222;border-radius:2px;padding:1.5rem;font-family:var(--mono);font-size:.8rem;line-height:1.8;color:#AAA;max-width:36em;margin-top:1rem;white-space:pre-line}
+.spec-block .key{color:var(--accent)}
+.spec-block .val{color:var(--fg)}
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1: Title -->
+  <div class="slide active" data-slide="0">
+    <div class="slide-num">Encoded Brands</div>
+    <h1>The Disintegration<br>of the Agentic Brand</h1>
+    <p class="hero">Your brand is being represented by machines you've never briefed. This is the infrastructure to fix that.</p>
+    <div class="subpoint">Brand.md // Brand MCP Protocol // Encoded Identity</div>
+  </div>
+
+  <!-- SLIDE 2: The Problem -->
+  <div class="slide" data-slide="1">
+    <div class="slide-num">01 // The Problem</div>
+    <h1>100+ Agents.<br>Zero Briefing.</h1>
+    <p class="hero">Customer service bots. Search engine summaries. Commerce copilots. Internal tools. Social agents. Every one of them is representing your brand right now. None of them have been told what your brand is.</p>
+    <div class="subpoint">Perplexity answers about you. ChatGPT recommends your competitors. Shopify agents describe your products in someone else's voice. You have no input.</div>
+  </div>
+
+  <!-- SLIDE 3: The Gap -->
+  <div class="slide" data-slide="2">
+    <div class="slide-num">02 // The Gap</div>
+    <h1>PDFs Are for Humans.<br>Machines Are Guessing.</h1>
+    <p class="hero">Brand guidelines were designed for designers. They live in Dropbox. They're 80-page PDFs. No machine has ever parsed one. Your $200K brand system is invisible to the AI workforce that now represents you at scale.</p>
+    <div class="subpoint">Schema.org gives machines your address. It doesn't give them your soul.</div>
+  </div>
+
+  <!-- SLIDE 4: The Solution -->
+  <div class="slide" data-slide="3">
+    <div class="slide-num">03 // Brand.md</div>
+    <h1>The System Prompt<br>for Your Organization.</h1>
+    <p class="hero">Brand.md is a single, machine-readable specification that encodes your identity: voice, values, positioning, visual tokens, behavioral constraints. Not a document. Infrastructure.</p>
+    <div class="subpoint">One file. Every agent reads it. Every interaction reflects it. No manual prompting. No drift.</div>
+  </div>
+
+  <!-- SLIDE 5: The Protocol -->
+  <div class="slide" data-slide="4">
+    <div class="slide-num">04 // Brand MCP</div>
+    <h1>The Protocol That<br>Connects Everything.</h1>
+    <p class="hero">Brand MCP is the real-time connectivity layer. Any AI agent in your stack, internal or external, connects to your Brand.md through the protocol. Persistent coherence. Representation control. Semantic governance.</p>
+    <div class="subpoint">Internal agents stay on-voice. External systems get structured identity data. One protocol governs both.</div>
+  </div>
+
+  <!-- SLIDE 6: The Architecture -->
+  <div class="slide" data-slide="5">
+    <div class="slide-num">05 // The Architecture</div>
+    <h1>Three Layers.<br>One Spec.</h1>
+    <p class="hero"><strong style="color:var(--accent)">Internal Coherence:</strong> Every employee tool, every internal agent, pulls brand context automatically. No more "write in our voice" prompts.<br><br><strong style="color:var(--blue)">External Representation:</strong> Search engines, recommendation systems, and commerce agents get structured data about who you are.<br><br><strong style="color:var(--fg)">Semantic Governance:</strong> One file governs behavior, not just pixels. "Does this agent's output reflect our positioning?"</p>
+  </div>
+
+  <!-- SLIDE 7: The Live Proof (Interactive) -->
+  <div class="slide" data-slide="6">
+    <div class="slide-num">06 // Prove It</div>
+    <h1>The Stress Test</h1>
+    <div class="proof-grid">
+      <div class="chat-panel" id="generic-panel">
+        <div class="chat-header">
+          <span>Generic LLM — No Context</span>
+        </div>
+        <div class="chat-body" id="generic-body"></div>
+        <div class="chat-input">
+          <input type="text" id="generic-input" placeholder="Type any prompt...">
+        </div>
+      </div>
+      <div class="chat-panel" id="brand-panel">
+        <div class="chat-header">
+          <span>Brand MCP — Encoded Identity</span>
+          <span class="badge">MCP Connected</span>
+        </div>
+        <div class="chat-body" id="brand-body"></div>
+        <div class="chat-input">
+          <input type="text" id="brand-input" placeholder="Type the same prompt...">
+        </div>
+      </div>
+    </div>
+    <div class="proof-caption">Same model. Same prompt. One has your brand. One doesn't. Type anything.</div>
+  </div>
+
+  <!-- SLIDE 8: The Spec -->
+  <div class="slide" data-slide="7">
+    <div class="slide-num">07 // The Spec</div>
+    <h1>What Brand.md<br>Looks Like</h1>
+    <div class="spec-block"><span class="key">voice.tone:</span> <span class="val">[direct, confident, sharp, wry]</span>
+<span class="key">voice.avoids:</span> <span class="val">["corporate jargon", "hedge words", "filler"]</span>
+<span class="key">voice.sentence_style:</span> <span class="val">short. declarative. no throat-clearing.</span>
+<span class="key">visual.primary_color:</span> <span class="val">"#1A1A1A"</span>
+<span class="key">visual.type_primary:</span> <span class="val">"Inter"</span>
+<span class="key">constraints.never_say:</span> <span class="val">["We'd be happy to", "It depends"]</span>
+<span class="key">constraints.always_do:</span> <span class="val">["Lead with the answer", "Name the tradeoff"]</span>
+<span class="key">mcp.version:</span> <span class="val">"1.0"</span></div>
+    <div class="subpoint">Machine-readable. Version-controlled. One source of truth.</div>
+  </div>
+
+  <!-- SLIDE 9: Scale -->
+  <div class="slide" data-slide="8">
+    <div class="slide-num">08 // Scale</div>
+    <h1>One File.<br>One Million Interactions.</h1>
+    <p class="hero">No manual reviews. No brand police. No "can you make it sound more like us?" emails. Brand.md governs every agent output automatically. Update the spec, and every touchpoint updates with it.</p>
+    <div class="subpoint">Version control for brand identity. Git diff your voice. Roll back a positioning change. Audit every evolution.</div>
+  </div>
+
+  <!-- SLIDE 10: Economics -->
+  <div class="slide" data-slide="9">
+    <div class="slide-num">09 // Economics</div>
+    <h1>The Cost That<br>Just Disappeared.</h1>
+    <p class="hero">Brand consistency used to be a headcount problem. Review teams. Style guides no one reads. Training decks no one remembers. Brand.md replaces the entire apparatus with a protocol that enforces itself.</p>
+    <div class="subpoint">The 20-year-old ritual of "brief the agency, review the output, send corrections" ends when the brief is embedded in the infrastructure.</div>
+  </div>
+
+  <!-- SLIDE 11: Why Us -->
+  <div class="slide" data-slide="10">
+    <div class="slide-num">10 // The Consultancy</div>
+    <h1>The Protocol Is the Floor.<br>The Strategy Is the Ceiling.</h1>
+    <p class="hero">Anyone can read the Brand.md spec. Publishing a file is trivial. Knowing what to put in it is the hard part. Which constraints matter. Which values machines can actually enforce. Where the edge cases hide. How to encode judgment, not just rules.</p>
+    <div class="subpoint">The spec is open. The expertise to encode your brand into it is not.</div>
+  </div>
+
+  <!-- SLIDE 12: Close -->
+  <div class="slide" data-slide="11">
+    <div class="slide-num">11 // The Close</div>
+    <h1>We Wrote the Playbook.</h1>
+    <p class="hero">We built the Brand.md spec. We implemented the Brand MCP protocol. We deployed it for our own operations before we ever showed it to a client. We know where it breaks. We know what it can't do yet. We know what it will do in six months.</p>
+    <p class="hero" style="margin-top:2rem;color:var(--fg)"><strong>Bruiser is the encoded brand consultancy.</strong></p>
+    <div class="subpoint">bruiser.co // encodedbrands.com // nick@bruiser.co</div>
+  </div>
+
+</div>
+
+<div class="counter"><span id="current">1</span> / <span id="total">12</span></div>
+<div class="nav">
+  <button id="prev">Prev</button>
+  <button id="next">Next</button>
+</div>
+<div class="footer">
+  <span>Bruiser // Encoded Brand Protocol</span>
+  <span>V1.0 // 2026</span>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+const total = slides.length;
+
+function show(n) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[n].classList.add('active');
+  document.getElementById('current').textContent = n + 1;
+}
+
+document.getElementById('prev').onclick = () => { if(current > 0) show(--current); };
+document.getElementById('next').onclick = () => { if(current < total-1) show(++current); };
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if(current < total-1) show(++current); }
+  if(e.key === 'ArrowLeft') { if(current > 0) show(--current); }
+});
+
+// Slide 7 chat simulation
+const genericResponses = [
+  "I'd be happy to help with that! That's a great question. There are many factors to consider when approaching this topic. It really depends on your specific situation and goals. Here's a general overview of the key considerations you might want to think about...",
+  "Thank you for reaching out! I understand your concern. Let me provide you with a comprehensive overview. First, it's important to note that there are several approaches you could take. Each has its own merits and potential drawbacks...",
+  "Great question! There are a lot of ways to think about this. On one hand, you could consider the traditional approach. On the other hand, more modern frameworks suggest a different path. It really comes down to what works best for your team..."
+];
+const brandResponses = [
+  "Direct answer: your brand is invisible to machines. Brand.md fixes that. One file, machine-readable, version-controlled. Every agent reads it. Every output reflects it. No training decks. No style guide PDFs. Infrastructure that enforces itself.\n\n[voice: direct | constraints: no hedge words | tone: confident]",
+  "The gap is structural, not cosmetic. Your $200K brand system lives in a PDF no machine has ever parsed. Brand.md encodes the same identity in a format agents actually consume. The protocol handles enforcement. You handle strategy.\n\n[voice: direct | constraints: lead with answer | tone: sharp]",
+  "Here's the tradeoff: you can keep briefing every tool manually, or you can encode the brief once and let the protocol distribute it. One scales. The other doesn't. We've deployed both. We know which one works.\n\n[voice: direct | constraints: name the tradeoff | tone: wry]"
+];
+let gi = 0, bi = 0;
+
+function addMsg(panel, text, role) {
+  const body = document.getElementById(panel + '-body');
+  const div = document.createElement('div');
+  div.className = 'msg ' + (role === 'user' ? 'user' : 'bot' + (panel === 'generic' ? ' generic' : ''));
+  div.textContent = (role === 'user' ? '> ' : '') + text;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+document.getElementById('generic-input').addEventListener('keydown', function(e) {
+  if(e.key === 'Enter' && this.value.trim()) {
+    addMsg('generic', this.value, 'user');
+    const v = this.value; this.value = '';
+    setTimeout(() => addMsg('generic', genericResponses[gi++ % genericResponses.length], 'bot'), 800);
+  }
+});
+document.getElementById('brand-input').addEventListener('keydown', function(e) {
+  if(e.key === 'Enter' && this.value.trim()) {
+    addMsg('brand', this.value, 'user');
+    const v = this.value; this.value = '';
+    setTimeout(() => addMsg('brand', brandResponses[bi++ % brandResponses.length], 'bot'), 800);
+  }
+});
+</script>
+</body>
+</html>
