@@ -357,6 +357,7 @@ main a:not(.btn):not(.nav-link):not(.nav-brand):not(.nav-cta):hover {
   border-left: 3px solid var(--accent);
   max-width: 560px;
 }
+.hero-quote em { color: var(--accent); font-style: italic; }
 .hero-ticker {
   margin-top: 28px;
   display: flex; gap: 28px; flex-wrap: wrap;
