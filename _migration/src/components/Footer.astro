@@ -1,0 +1,34 @@
+---
+interface FooterLink { label: string; href: string; }
+interface FooterColumn { heading: string; links: FooterLink[]; }
+interface FooterData {
+  brand: string;
+  sub: string;
+  columns: FooterColumn[];
+  bottom_left: string;
+  bottom_right: string;
+}
+const { data } = Astro.props as { data: FooterData };
+---
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">{data.brand}<span class="fdot"></span></div>
+        <div class="foot-sub" set:html={data.sub}></div>
+      </div>
+      {data.columns.map(col => (
+        <div class="foot-col">
+          <h5>{col.heading}</h5>
+          <ul>
+            {col.links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+    <div class="foot-bottom">
+      <span>{data.bottom_left}</span>
+      <span set:html={data.bottom_right}></span>
+    </div>
+  </div>
+</footer>

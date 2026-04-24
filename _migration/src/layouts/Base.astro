@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { getEntry } from "astro:content";
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+
+const nav = await getEntry("site", "nav");
+const footer = await getEntry("site", "footer");
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="color-scheme" content="light" />
+  <link rel="canonical" href="https://encodedbrands.com/" />
+  <link rel="brand-context" type="text/markdown" href="/.well-known/brand.md" title="Encoded | Brand Context Protocol (BCP v0.1)" />
+  <link rel="alternate" type="text/markdown" href="/.well-known/brand.md" title="brand.md" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt | LLM-optimized content map" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <Nav data={nav.data} />
+  <slot />
+  <Footer data={footer.data} />
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).style.opacity = "1";
+          (e.target as HTMLElement).style.transform = "none";
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+    document.querySelectorAll<HTMLElement>(".section, .manifesto, .launch, .strip").forEach(el => {
+      if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(16px)";
+        el.style.transition = "opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)";
+        io.observe(el);
+      }
+    });
+
+    const sections = [...document.querySelectorAll<HTMLElement>("section[id], header[id]")];
+    const links = [...document.querySelectorAll<HTMLAnchorElement>(".nav-link")];
+    const map = new Map(links.map(l => [l.getAttribute("href"), l]));
+    const navIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        const link = map.get("#" + e.target.id);
+        if (!link) return;
+        if (e.isIntersecting) {
+          links.forEach(l => (l.style.color = ""));
+          link.style.color = "var(--accent)";
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => navIO.observe(s));
+  </script>
+</body>
+</html>

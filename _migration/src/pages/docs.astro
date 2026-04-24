@@ -1,0 +1,10 @@
+---
+import Base from "../layouts/Base.astro";
+import "../styles/docs.css";
+import body from "./_docs-body.html?raw";
+import { getEntry } from "astro:content";
+const page = (await getEntry("pages", "docs"))!.data;
+---
+<Base title={page.title!} description={page.description!}>
+  <Fragment set:html={body} />
+</Base>

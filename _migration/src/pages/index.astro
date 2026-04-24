@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import Strip from "../components/Strip.astro";
+import HomeBody from "../components/HomeBody.astro";
+import { getEntry } from "astro:content";
+
+const hero = await getEntry("homepage", "hero");
+const strip = await getEntry("homepage", "strip");
+
+const BCP_BASE = "https://raw.githubusercontent.com/Bruiserhq/encodedbrands.com/main/.well-known";
+async function pull(p: string): Promise<string> {
+  const res = await fetch(`${BCP_BASE}${p}`);
+  if (!res.ok) throw new Error(`BCP build-time fetch failed: ${p} (${res.status})`);
+  return res.text();
+}
+const [brandMd, voiceMd] = await Promise.all([
+  pull("/brand.md"),
+  pull("/brand/voice.md"),
+]);
+const frontmatterMatch = brandMd.match(/^---\n([\s\S]*?)\n---/);
+const brandYaml = frontmatterMatch ? frontmatterMatch[1] : "";
+const voicePreview = voiceMd.split("\n").slice(0, 18).join("\n");
+---
+<Base
+  title="Encoded: Express and protect your brand in the age of the agent."
+  description="Encoded is a brand consultancy and protocol company. We author Brand Context Protocol (BCP), the open standard for machine-readable brand identity."
+>
+  <Hero data={hero!.data} />
+  <Strip data={strip!.data} />
+  <HomeBody brandYaml={brandYaml} voicePreview={voicePreview} />
+</Base>
