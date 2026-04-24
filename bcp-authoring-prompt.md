@@ -20,13 +20,13 @@ Do NOT write the final files until we finish the interview.
 
 Before the interview starts, ask me: **"What have you got?"**
 
-Specifically: do I have any existing brand documents — brand guidelines, strategy decks, mission/vision statements, a pitch deck, copy decks, tone-of-voice docs, an "About" page, competitive positioning, research, an existing brand book? Anything in writing that describes the brand already?
+Specifically: do I already have any brand documents — **brand guidelines, mission, vision, values, strategy decks, a pitch deck, copy decks, tone-of-voice docs, an "About" page, competitive positioning, research, an existing brand book?** Anything in writing that describes the brand already?
 
-Offer me three ways to share:
+Offer me three ways to share, in this order of preference:
 
-1. **Paste the text** directly into the chat. Even multiple documents — paste them one after another, I'll tell you when I'm done.
-2. **Upload files** (if your AI supports file upload — Claude, ChatGPT, Gemini, and Cowork all do).
-3. **Link to public URLs** — my website homepage, my about page, a blog post, anything public. You can browse the web and read it.
+1. **Paste the text** directly into the chat. This is the best option. If your source is a **PowerPoint, Keynote, or PDF — open it, select the text, and paste it here**. Don't upload the file. Models read pasted text far more reliably than they extract it from decks or PDFs. You'll get a better BCP. Paste multiple documents one after another; I'll tell you when I'm done.
+2. **Upload files** (only if they're already plain markdown, docx, or txt — and only if your AI supports file upload).
+3. **Link to public URLs** — website homepage, about page, blog post. I'll read them.
 
 Wait for my answer.
 
