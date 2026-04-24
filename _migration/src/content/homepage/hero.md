@@ -31,7 +31,7 @@ subtitle: Every AI agent in your stack is making brand decisions. The copy bot. 
 detail: A file you publish once at <code>yourdomain.com/.well-known/brand.md</code>. Every agent that touches your brand reads it before it acts.
 ctas:
   - label: Book a call
-    href: mailto:hello@encodedbrands.com?subject=Book%20a%20call
+    href: https://calendly.com/bruiserhq/30min
     ghost: false
   - label: Get it for free
     href: '#copy-prompt'
