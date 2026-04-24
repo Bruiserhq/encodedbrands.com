@@ -75,8 +75,8 @@ collections:
             widget: list
             fields:
               - { name: text, label: Text (HTML allowed), widget: text }
-          - { name: quote_idx, label: "Quote index label", widget: string }
-          - { name: quote, label: "Pull quote (HTML allowed)", widget: text }
+          - { name: quote_idx, label: "Quote index label", widget: string, required: false }
+          - { name: quote, label: "Pull quote — leave blank to hide (HTML allowed)", widget: text, required: false }
 
       - name: surfaces
         label: "§02 Where your brand lives"

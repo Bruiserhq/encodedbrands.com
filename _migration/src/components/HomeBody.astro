@@ -35,12 +35,14 @@ const launch = (await getEntry("homepage", "launch"))!.data;
       </div>
     </div>
 
-    <div class="idx-grid pull-quote" style="margin-top:64px">
-      <div class="section-idx">{thesis.quote_idx}</div>
-      <div>
-        <blockquote set:html={thesis.quote}></blockquote>
+    {thesis.quote && (
+      <div class="idx-grid pull-quote" style="margin-top:64px">
+        <div class="section-idx">{thesis.quote_idx}</div>
+        <div>
+          <blockquote set:html={thesis.quote}></blockquote>
+        </div>
       </div>
-    </div>
+    )}
   </div>
 </section>
 
