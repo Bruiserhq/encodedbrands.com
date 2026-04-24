@@ -12,6 +12,6 @@ links:
     href: "/docs"
   - label: "Encode"
     href: "/encode"
-cta_label: "Encode your brand →"
-cta_href: "/encode"
+cta_label: "Book a call"
+cta_href: "mailto:hello@encodedbrands.com?subject=Book%20a%20call"
 ---

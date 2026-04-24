@@ -30,11 +30,11 @@ headline_lines:
 subtitle: "Every AI agent in your stack is making brand decisions. The copy bot. The media platform. The vendor tool. The ChatGPT window your customer is in right now. <b>None of them know who you are.</b> <code>brand.md</code> fixes that."
 detail: "A file you publish once at <code>yourdomain.com/.well-known/brand.md</code>. Every agent that touches your brand reads it before it acts."
 ctas:
-  - label: "Get your brand.md"
-    href: "/start"
+  - label: "Book a call"
+    href: "mailto:hello@encodedbrands.com?subject=Book%20a%20call"
     ghost: false
-  - label: "See the spec"
-    href: "/docs"
+  - label: "Or copy the free prompt"
+    href: "#copy-prompt"
     ghost: true
 quote: "The brand deck rotting on a shared drive is the antagonist of this decade. Your agents can't read it. Your vendors won't. ChatGPT never will."
 ticker:
@@ -45,11 +45,11 @@ prompt_card_label: "Your first brand.md, today."
 prompt_card_title: "BCP authoring prompt"
 prompt_card_meta: "~15 min · any AI · free"
 prompt_card_body: |
-  You are helping me author a Brand Context Protocol (BCP). A BCP is a set of markdown files that describe my brand in a way AI agents can read.
+  You are helping me author a Brand Context Protocol (BCP) for my brand. A BCP is a set of markdown files that describe my brand in a way AI agents can read.
 
-  Your job: interview me, then produce a complete BCP tree as markdown files I can publish at mydomain.com/.well-known/brand.md.
+  Your job: interview me for about 15 minutes, then produce a complete BCP tree as seven markdown files I can publish at mydomain.com/.well-known/brand.md.
 
-  Rules: ONE question at a time. Then STOP. Wait for my answer before asking the next one. Start with Part 0. What have you got?
-prompt_cta_label: "Copy prompt → paste into any AI"
-prompt_cta_href: "/start"
+  Rules: ONE question at a time. Then STOP. Wait for my answer. Start with Part 0: "What have you got?"
+prompt_cta_label: "Copy the full prompt"
+prompt_cta_href: "#copy-prompt"
 ---
