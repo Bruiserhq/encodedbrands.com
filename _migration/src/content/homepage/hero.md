@@ -27,7 +27,7 @@ headline_lines:
   - text: agent.
     style: em
     break_after: false
-subtitle: Every AI agent in your stack is making brand decisions. The copy bot. The media platform. The vendor tool. The ChatGPT window your customer is in right now. <b>None of them know who you are.</b> <code>brand.md</code> fixes that.
+subtitle: Every AI agent in your stack is making brand decisions. The copy bot. The media platform. The vendor tool. The ChatGPT window your customer is in right now. <b>But none of them know your brand.</b> <code>brand.md</code> fixes that.
 detail: A file you publish once at <code>yourdomain.com/.well-known/brand.md</code>. Every agent that touches your brand reads it before it acts.
 ctas:
   - label: Book a call
