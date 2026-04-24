@@ -36,7 +36,7 @@ ctas:
   - label: Get it for free
     href: '#copy-prompt'
     ghost: true
-quote: The brand deck rotting on a shared drive is the antagonist of this decade. Your agents can't read it.<em>So your customers can't feel it.</em>
+quote: The brand deck rotting on a shared drive is the antagonist of this decade. Your agents can't read it.<em> So your customers can't feel it.</em>
 ticker:
   - text: Open spec · CC BY 4.0
   - text: Reference code · MIT
