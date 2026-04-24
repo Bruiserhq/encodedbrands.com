@@ -33,7 +33,7 @@ ctas:
   - label: Book a call
     href: mailto:hello@encodedbrands.com?subject=Book%20a%20call
     ghost: false
-  - label: Or copy the free prompt
+  - label: Get it for free
     href: '#copy-prompt'
     ghost: true
 quote: The brand deck rotting on a shared drive is the antagonist of this decade. Your agents can't read it. So your <em>customers</em> can't feel it.
