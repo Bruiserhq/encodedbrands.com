@@ -25,7 +25,7 @@ const launch = (await getEntry("homepage", "launch"))!.data;
 
     <div class="idx-grid" style="margin-top:56px">
       <div class="section-idx">{thesis.lede_idx}</div>
-      <p class="lede" set:html={thesis.lede}></p>
+      <p class="lede" set:html={(thesis.lede ?? "").replace(/\n/g, "<br/>")}></p>
     </div>
 
     <div class="idx-grid" style="margin-top:56px">
