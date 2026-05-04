@@ -28,23 +28,14 @@ step2_outro: At the end, the AI gives you seven markdown files — a root <code>
 step3_idx: Step 03
 step3_sub: Depends on your setup
 step3_heading: Publish your <em>files</em>.
-step3_intro: "The files need to live at <code>yourdomain.com/.well-known/brand.md</code> and <code>yourdomain.com/.well-known/brand/*.md</code>. Three paths to get there, depending on who's helping you:"
-paths:
-  - tag: Path A · Have a dev?
-    title: Forward to <em>engineering</em>.
-    body: Email your seven files to your dev team with a link to our <a href="/docs" class="path-link">publishing docs</a>. Hosting is a ten-minute task for anyone who ships your website.
-    cta_label: Read the docs
-    cta_href: /docs
-  - tag: Path B · Technical yourself?
-    title: Publish it <em>yourself</em>.
-    body: Fork our public template, drop your files in, deploy to Cloudflare Pages, Vercel, Netlify, or GitHub Pages. Full walkthrough in the docs.
-    cta_label: See hosting options
-    cta_href: /docs#hosting
-  - tag: Path C · Want help?
-    title: We'll do it <em>for you</em>.
-    body: Book a $1,500 Expert Session and a senior strategist will sharpen your BCP and get it live on your domain inside a week. No pressure — the self-serve path is real.
-    cta_label: See our services
-    cta_href: /encode
+step3_outro: "Once your files are live, you're ready for the final step: visibility."
+step4_idx: Step 04
+step4_sub: 30 seconds
+step4_heading: Submit to the <em>registry</em>.
+step4_intro: The BCP Registry is the canonical index for agentic discovery. Once your <code>brand.md</code> is live, register your domain to ensure major platforms and agents can find you.
+registry_label: Submit your domain for indexing
+registry_placeholder: yourdomain.com
+registry_cta: Register Brand
 alt_idx: Alt · Technical
 alt_sub: If you'd rather work in a shell
 alt_heading: 'Or: from the <em>command line</em>.'
