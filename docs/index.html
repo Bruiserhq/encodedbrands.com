@@ -569,6 +569,7 @@ footer {
     <a href="#hosting">Hosting</a>
     <a href="#mime-cors">MIME + CORS</a>
     <a href="#consuming">Consuming a BCP</a>
+    <a href="#registry">The Registry</a>
     <a href="#validation">Validation</a>
     <a href="#versioning">Versioning</a>
     <a href="#licensing">Licensing</a>
@@ -923,6 +924,15 @@ if (task === 'generate_copy') {
 const cacheKey = `bcp:${brandDomain}:${data.last_updated}`;</pre>
 
     <p>For consumer agents answering "what is X" prompts, the load is simpler: fetch <code>brand.md</code> and <code>representation.md</code>, use the language from representation.md directly.</p>
+
+    <h2 id="registry">The Registry</h2>
+    <p>To solve discovery and verification at scale, we maintain the <b>BCP Registry</b> at <code>registry.encodedbrands.com</code> (v0.1 live). The registry serves three purposes:</p>
+    <ul>
+      <li><b>Canonical Discovery:</b> Platforms like Webflow, Shopify, or Canva can query a single API to ask "Does this domain have a BCP?" instead of crawling the whole web themselves.</li>
+      <li><b>Trust & Verification:</b> We verify that a BCP is actually served from the brand's domain and follows the current spec, providing a "Verified Publisher" trust signal for agents.</li>
+      <li><b>Consumption Analytics:</b> Brands can see which files are being read most often (e.g. <code>voice.md</code> vs <code>claims.md</code>) and which platforms are fetching them.</li>
+    </ul>
+    <p>If you've published your BCP and want to be indexed, you can request inclusion via <a href="https://github.com/Bruiserhq/encodedbrands.com">GitHub</a> or our <a href="/encode">contact page</a>.</p>
 
     <h2 id="validation">Validation</h2>
     <div class="callout honest">
