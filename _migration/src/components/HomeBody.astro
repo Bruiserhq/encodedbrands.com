@@ -11,6 +11,7 @@ const thesis = (await getEntry("homepage", "thesis"))!.data;
 const surfaces = (await getEntry("homepage", "surfaces"))!.data;
 const how = (await getEntry("homepage", "how"))!.data;
 const pricing = (await getEntry("homepage", "pricing"))!.data;
+const proofs = (await getEntry("homepage", "proofs"))!.data;
 const tech = (await getEntry("homepage", "tech"))!.data;
 const manifesto = (await getEntry("homepage", "manifesto"))!.data;
 const dogfood = (await getEntry("homepage", "dogfood"))!.data;
@@ -130,6 +131,27 @@ const launch = (await getEntry("homepage", "launch"))!.data;
     {pricing.footer && (
       <p class="smallprint" style="margin-top:28px;max-width:62ch" set:html={pricing.footer}></p>
     )}
+  </div>
+</section>
+
+<section id="proofs" class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="idx">{proofs.idx}</div>
+      <h2 set:html={proofs.heading}></h2>
+    </div>
+
+    <p class="smallprint" style="margin-top:28px;max-width:62ch">{proofs.blurb}</p>
+
+    <div class="proofs">
+      {proofs.flows?.map((f: any) => (
+        <div class="proof-card">
+          <div class="proof-path">{f.path}</div>
+          <h3 set:html={f.title}></h3>
+          <p set:html={f.body}></p>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
@@ -344,4 +366,45 @@ const launch = (await getEntry("homepage", "launch"))!.data;
     margin-right: 10px;
   }
   .tier .btn { margin-top: auto; justify-content: center; }
+
+  .proofs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  @media (max-width: 900px) {
+    .proofs { grid-template-columns: 1fr; }
+  }
+  .proof-card {
+    border: 1px solid var(--rule-soft);
+    padding: 28px 26px;
+    background: var(--paper);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .proof-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 12px 12px 0 var(--rule-soft);
+    border-color: var(--ink);
+  }
+  .proof-path {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .proof-card h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-style: italic;
+    margin: 0 0 12px;
+  }
+  .proof-card p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+  }
 </style>
