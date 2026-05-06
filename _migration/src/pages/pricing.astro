@@ -1,0 +1,397 @@
+---
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+
+const title = "Pricing: Two ways in. Plus one for enterprise.";
+const description = "Self-author for free with our prompt and any modern AI. Work with a strategist for $499. Or call us if your brand has more weight to carry.";
+---
+
+<Base title={title} description={description}>
+  <main>
+    <section class="pricing-header">
+      <h1>Two ways in. Plus one for enterprise.</h1>
+      <p class="standfirst">
+        Self-author for free with our prompt and any modern AI. Work with a strategist for $499. Or call us if your brand has more weight to carry.
+      </p>
+    </section>
+
+    <section class="pricing-cards">
+      <!-- Card 1: Free -->
+      <div id="free" class="card card-free">
+        <div class="card-header">
+          <h3>Free</h3>
+          <div class="price">$0</div>
+          <p class="pitch">Self-authored. Your AI, your time.</p>
+        </div>
+        <div class="card-body">
+          <p>
+            Copy our authoring prompt. Paste it into Claude, ChatGPT, Cowork, or Gemini. Take the interview. About 15 minutes, no signup. You get a first-draft brand spec ready to publish on your domain.
+          </p>
+          <div class="includes">
+            <p class="label">What's included</p>
+            <ul>
+              <li>The full authoring prompt, verbatim</li>
+              <li>A complete first-draft brand spec</li>
+              <li>No signup, no account, no agency</li>
+            </ul>
+          </div>
+
+          <div class="wrapper-copy">
+            <p>
+              This is a senior brand strategist, compressed into a single prompt. Paste it into any AI. It knows how to interview you, what to push back on, and what files to produce.
+            </p>
+            <p>
+              <strong>Not technical? Good.</strong> You don't need to edit this. Copy it verbatim. Paste it into the AI you already use. Answer the questions in your own words.
+            </p>
+            <p>
+              <strong>Which AI to use.</strong> Works well with Claude (any model), ChatGPT (GPT-4+), Cowork, and Gemini 3.1 Pro. Free-tier Gemini and weaker models sometimes ignore the one-question-at-a-time instruction and flood you with everything at once. If that happens, tell the AI: "stop. Ask one question, wait for my reply." If it still misbehaves, switch to a smarter model.
+            </p>
+          </div>
+
+          <div class="prompt-block">
+            <div class="prompt-eyebrow">Full authoring prompt</div>
+            <pre><code>You are helping me author a Brand Context Protocol (BCP) for my brand. A BCP is a set of markdown files that describe my brand in a way AI agents can read.
+
+Your job: interview me for about 15 minutes, then produce a complete BCP tree as seven markdown files I can publish at mydomain.com/.well-known/brand.md.
+
+Rules: ONE question at a time. Then STOP. Wait for my answer. Start with Part 0. What have you got?</code></pre>
+            <button class="copy-btn">Copy the full prompt</button>
+          </div>
+
+          <div class="publishing-instructions">
+            <p><strong>Once you have your files.</strong> Save the seven markdown files the AI generated.</p>
+            <p><strong>Hand them to whoever ships your website.</strong> Or publish them yourself if you want to. The files live at <code>yourdomain.com/.well-known/brand.md</code> and <code>yourdomain.com/.well-known/brand/*.md</code>. Any static host works.</p>
+            <p><strong>Verify they're live.</strong> Open <code>yourdomain.com/.well-known/brand.md</code> in a browser. If it shows your file, you're done. Agents can read your brand.</p>
+            <p>The full publishing reference is at <a href="https://brandcontextprotocol.dev">brandcontextprotocol.dev →</a></p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="mailto:hello@encodedbrands.com?subject=I%20published%20my%20BCP" class="cta-secondary">
+            Already published? Tell us about it
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Expert Session -->
+      <div id="expert" class="card card-expert">
+        <div class="badge">Most popular</div>
+        <div class="card-header">
+          <h3>Expert Session</h3>
+          <div class="price">$499</div>
+          <p class="pitch">90 minutes with an Encoded strategist.</p>
+        </div>
+        <div class="card-body">
+          <p>
+            Self-serve through our opinionated authoring framework, then a senior strategist reviews your draft on a recorded call. They catch what your AI missed. They sharpen voice, values, and boundaries with judgment a self-service flow can't replicate. One round of revisions on the output included.
+          </p>
+          <div class="includes">
+            <p class="label">What's included</p>
+            <ul>
+              <li>Encoded's proprietary authoring framework, more rigorous than the free prompt</li>
+              <li>90-minute review session, recorded</li>
+              <li>Strategist-led revisions on voice, values, and boundaries</li>
+              <li>One round of follow-up revisions on the delivered files</li>
+              <li>Files delivered ready to publish at your domain</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="mailto:hello@encodedbrands.com?subject=Expert%20Session%20-%20%24499" class="cta-primary">
+            Book an Expert Session →
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Enterprise -->
+      <div id="enterprise" class="card card-enterprise">
+        <div class="card-header">
+          <h3>Enterprise</h3>
+          <div class="price">Bespoke</div>
+          <p class="pitch">For brands with scale, complexity, or legal weight.</p>
+        </div>
+        <div class="card-body">
+          <p>
+            Multi-brand portfolios. Regulated industries. Existing brand systems that need translation, not invention. We work end-to-end with your team, ship a fully encoded brand into your infrastructure, and stay on for a managed retainer if you want one.
+          </p>
+          <div class="includes">
+            <p class="label">What's included</p>
+            <ul>
+              <li>Multi-brand or sub-brand systems</li>
+              <li>Legal review on claims and boundaries</li>
+              <li>Implementation support across your stack</li>
+              <li>Optional managed retainer</li>
+              <li>Co-announcement at launch for founding partners</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="mailto:hello@encodedbrands.com?subject=Enterprise" class="cta-primary">
+            Contact us →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-clarifier">
+      <h3>Same shape of output. Different depth of thinking.</h3>
+      <p>
+        All three tiers ship the same shape of artifact: a brand spec at your domain that every agent can read. What changes is how much strategic rigor goes into the answers underneath. Free is your AI doing its best with your inputs. Expert Session is a senior strategist sharpening the draft. Enterprise is end-to-end work with your team. Pick the depth that matches what your brand needs to carry.
+      </p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .pricing-header {
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .pricing-header h1 {
+    font-size: var(--size-display-lg);
+    margin-bottom: var(--space-4);
+  }
+
+  .standfirst {
+    font-size: var(--size-body-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--ink-2);
+  }
+
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+
+  .card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card-expert {
+    border-color: var(--accent-warm);
+    background: linear-gradient(135deg, rgba(255, 200, 100, 0.05), transparent);
+  }
+
+  .badge {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    background: var(--accent-warm);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-header {
+    margin-bottom: var(--space-4);
+  }
+
+  .card-header h3 {
+    font-size: var(--size-heading-sm);
+    margin-bottom: var(--space-2);
+  }
+
+  .price {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+  }
+
+  .pitch {
+    font-size: var(--size-body-sm);
+    color: var(--ink-2);
+  }
+
+  .card-body {
+    flex-grow: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .card-body p {
+    margin-bottom: var(--space-3);
+    font-size: var(--size-body);
+    line-height: 1.6;
+  }
+
+  .includes {
+    margin: var(--space-4) 0;
+  }
+
+  .includes .label {
+    font-size: var(--size-body-sm);
+    font-weight: 600;
+    color: var(--ink-2);
+    margin-bottom: var(--space-2);
+  }
+
+  .includes ul {
+    list-style: disc;
+    padding-left: var(--space-3);
+    font-size: var(--size-body-sm);
+  }
+
+  .includes li {
+    margin-bottom: var(--space-1);
+  }
+
+  .wrapper-copy {
+    margin: var(--space-4) 0;
+    padding: var(--space-3);
+    background: var(--bg-muted);
+    border-radius: var(--radius-sm);
+  }
+
+  .wrapper-copy p {
+    font-size: var(--size-body-sm);
+    margin-bottom: var(--space-2);
+  }
+
+  .wrapper-copy strong {
+    font-weight: 600;
+  }
+
+  .prompt-block {
+    margin: var(--space-4) 0;
+  }
+
+  .prompt-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-3);
+    margin-bottom: var(--space-2);
+  }
+
+  .prompt-block pre {
+    background: var(--ink-5);
+    color: var(--ink-1);
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: var(--space-2);
+  }
+
+  .copy-btn {
+    background: var(--accent-warm);
+    color: white;
+    border: none;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--size-body-sm);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .copy-btn:hover {
+    opacity: 0.9;
+  }
+
+  .publishing-instructions {
+    margin: var(--space-4) 0;
+    font-size: var(--size-body-sm);
+  }
+
+  .publishing-instructions p {
+    margin-bottom: var(--space-2);
+  }
+
+  .publishing-instructions code {
+    background: var(--bg-muted);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 0.9em;
+  }
+
+  .publishing-instructions a {
+    color: var(--accent-warm);
+    text-decoration: none;
+  }
+
+  .publishing-instructions a:hover {
+    text-decoration: underline;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--space-3);
+  }
+
+  .cta-primary,
+  .cta-secondary {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: var(--size-body-sm);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .cta-primary {
+    background: var(--accent-warm);
+    color: white;
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-primary:hover {
+    opacity: 0.9;
+  }
+
+  .cta-secondary {
+    color: var(--ink-2);
+    border: 1px solid var(--border-color);
+    display: block;
+    text-align: center;
+  }
+
+  .cta-secondary:hover {
+    background: var(--bg-muted);
+  }
+
+  .pricing-clarifier {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .pricing-clarifier h3 {
+    font-size: var(--size-heading-md);
+    margin-bottom: var(--space-3);
+  }
+
+  .pricing-clarifier p {
+    font-size: var(--size-body);
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .card-free .prompt-block {
+      margin: var(--space-4) 0;
+    }
+  }
+</style>
