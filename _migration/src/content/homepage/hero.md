@@ -21,7 +21,7 @@ ctas:
   - label: Get it free
     href: '/pricing#free'
     ghost: false
-  - label: Get an Expert Session — $499
+  - label: Get an Expert Session (90 min) – $499
     href: '/pricing#expert'
     ghost: true
 quote: "The brand deck rotting on a shared drive is the antagonist of this decade.<br/>Your agents can't read it. So your customers can't feel it."
